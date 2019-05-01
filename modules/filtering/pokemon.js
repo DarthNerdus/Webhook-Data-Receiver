@@ -19,6 +19,8 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
     // CHECK FILTER GEOFENCES
     if(geofences.indexOf(server.name) >= 0 || geofences.indexOf(main_area) >= 0 || geofences.indexOf(sub_area) >= 0){
 
+      if(filter[MAIN.pokemon[sighting.pokemon_id].name] == 'False'){ return; }
+
       // DETERMINE GENDER
       filter.gender = filter.gender.toLowerCase();
       if(sighting.gender == 1){ gender = 'male'; }
@@ -27,35 +29,68 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
 
       switch(true){
         // CHECK IF FILTER EXISTS
-        case !filter: console.error('[Pokébot] ['+MAIN.Bot_Time(null,'stamp')+'] The filter defined for'+pokemon_channel[0]+' does not appear to exist.'); break;
+        case !filter: return console.error('[Pokébot] ['+MAIN.Bot_Time(null,'stamp')+'] The filter defined for'+pokemon_channel[0]+' does not appear to exist.');
 
         // CHECK IF CHANNEL EXISTS
-        case !channel: console.error('[Pokébot] ['+MAIN.Bot_Time(null,'stamp')+'] The channel '+pokemon_channel[0]+' does not appear to exist.'); break;
+        case !channel: return console.error('[Pokébot] ['+MAIN.Bot_Time(null,'stamp')+'] The channel '+pokemon_channel[0]+' does not appear to exist.');
 
         // POST WITHOUT IV IF ENABLED
         case filter.Post_Without_IV:
           switch(true){
             case sighting.cp > 0: break;
-            case filter[MAIN.pokemon[sighting.pokemon_id].name] == 'False': break;
             default:
-              Send_Pokemon.run(MAIN, false, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone); break;
+              return Send_Pokemon.run(MAIN, false, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone); break;
           }
         // CHECK IF SIGHTING HAS A CP
-        case !sighting.cp > 0: break;
+        case !sighting.cp > 0: return;
 
         // CHECK IF FILTER HAS INDIVIDUAL POKEMON IV REQUIREMENT
         case filter[MAIN.pokemon[sighting.pokemon_id].name] != 'True':
           switch(true){
+
+            // CHECK IF THE POKEMON IS FALSE
             case filter[MAIN.pokemon[sighting.pokemon_id].name] == 'False': break;
-            case filter[MAIN.pokemon[sighting.pokemon_id].name].min_iv > internal_value: sightingFailed(MAIN, filter, 'IV'); break;
-            case filter.max_iv < internal_value: sightingFailed(MAIN, filter, 'IV'); break;
-            case filter.min_cp > sighting.cp: sightingFailed(MAIN, filter, 'CP'); break;
-            case filter.max_cp < sighting.cp: sightingFailed(MAIN, filter, 'CP'); break;
-            case filter.min_level > sighting.pokemon_level: sightingFailed(MAIN, filter, 'LEVEL'); break;
-            case filter.max_level < sighting.pokemon_level: sightingFailed(MAIN, filter, 'LEVEL'); break;
+
+            // CHECK IF IV REQUIREMENT IS INDIVIDUAL VALUES
+            case filter[MAIN.pokemon[sighting.pokemon_id].name].min_iv.length > 3:
+              let min_iv = filter[MAIN.pokemon[sighting.pokemon_id].name].min_iv.split('/');
+              let max_iv = filter[MAIN.pokemon[sighting.pokemon_id].name].max_iv.split('/');
+
+              // SEND SIGHTING THROUGH INDIVIDUAL VALUE FILTERS
+              switch(true){
+                case !filter[MAIN.pokemon[sighting.pokemon_id].name]: sightingFailed(MAIN, filter, 'IV'); break;
+                case min_iv[0] > sighting.individual_attack: sightingFailed(MAIN, filter, 'IV'); break;
+                case min_iv[1] > sighting.individual_defense: sightingFailed(MAIN, filter, 'IV'); break;
+                case min_iv[2] > sighting.individual_stamina: sightingFailed(MAIN, filter, 'IV'); break;
+                case max_iv[0] < sighting.individual_attack: sightingFailed(MAIN, filter, 'IV'); break;
+                case max_iv[1] < sighting.individual_defense: sightingFailed(MAIN, filter, 'IV'); break;
+                case max_iv[2] < sighting.individual_stamina: sightingFailed(MAIN, filter, 'IV');  break;
+                case filter[MAIN.pokemon[sighting.pokemon_id].name].min_cp > sighting.cp: sightingFailed(MAIN, filter, 'CP'); break;
+                case filter[MAIN.pokemon[sighting.pokemon_id].name].max_cp < sighting.cp: sightingFailed(MAIN, filter, 'CP'); break;
+                case filter[MAIN.pokemon[sighting.pokemon_id].name].min_level > sighting.pokemon_level: sightingFailed(MAIN, filter, 'LEVEL'); break;
+                case filter[MAIN.pokemon[sighting.pokemon_id].name].max_level < sighting.pokemon_level: sightingFailed(MAIN, filter, 'LEVEL'); break;
+                default:
+                  if(filter.gender.toLowerCase() == 'all' || filter.gender.toLowerCase() == gender){
+                    return Send_Pokemon.run(MAIN, true, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone);
+                  }
+              } break;
             default:
-              Send_Pokemon.run(MAIN, true, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone);
-          } break;
+
+              // SEND SIGHTING THROUGH IV PERCENTAGE FILTERS
+              switch(true){
+                case filter[MAIN.pokemon[sighting.pokemon_id].name].min_iv > internal_value: sightingFailed(MAIN, filter, 'IV'); break;
+                case filter[MAIN.pokemon[sighting.pokemon_id].name].max_iv < internal_value: sightingFailed(MAIN, filter, 'IV'); break;
+                case filter.min_cp > sighting.cp: sightingFailed(MAIN, filter, 'CP'); break;
+                case filter.max_cp < sighting.cp: sightingFailed(MAIN, filter, 'CP'); break;
+                case filter.min_level > sighting.pokemon_level: sightingFailed(MAIN, filter, 'LEVEL'); break;
+                case filter.max_level < sighting.pokemon_level: sightingFailed(MAIN, filter, 'LEVEL'); break;
+                default:
+                  if(filter.gender.toLowerCase() == 'all' || filter.gender.toLowerCase() == gender){
+                    return Send_Pokemon.run(MAIN, true, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone);
+                  }
+              } break;
+
+          }
 
         // CHECK IF FILTER HAS INDIVIDUAL VALUE REQUIREMENTS
         case filter.min_iv.length > 3:
@@ -77,7 +112,7 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
             case filter.max_level < sighting.pokemon_level: sightingFailed(MAIN, filter, 'LEVEL'); break;
             default:
               if(filter.gender.toLowerCase() == 'all' || filter.gender.toLowerCase() == gender){
-                Send_Pokemon.run(MAIN, true, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone);
+                return Send_Pokemon.run(MAIN, true, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone);
               }
           } break;
 
@@ -92,7 +127,7 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
             case filter.max_level < sighting.pokemon_level: sightingFailed(MAIN, filter, 'LEVEL'); break;
             default:
               if(filter.gender.toLowerCase() == 'all' || filter.gender.toLowerCase() == gender){
-                Send_Pokemon.run(MAIN, true, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone);
+                return Send_Pokemon.run(MAIN, true, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone);
               }
           }
       }

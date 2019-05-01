@@ -1,140 +1,102 @@
-# Enable or Disable Console Logs
+; Enable or Disable Console Logs
 CONSOLE_LOGS = ENABLED
 
-# CHECK FOR DONORS
-Donor_Check = DISABLED
-
-# LISTENING PORT
-# You will need to add http://bot_host_ip:3333/ in RDM. You will need to port forward on your router if RDM does not reside in your local network.
+; LISTENING PORT
+; Listening Port that the Bot listens on.
+; You will need to add http://bot_host_ip:3333/ in RDM.
 LISTENING_PORT = 3333
 
-# MAP TILES
-# ENABLED or DISABLED. Includes Map Tile images in the embeds for feeds and subscriptions.
-Map_Tiles = ENABLED
-Tile_Width = 400
-Tile_Height = 220
-
-# IMAGE HOST
-# This must be URL. You must include http:// or https:// and the / at the end.
-HOST = http://www.yourimages.com/
-
-# IMAGE DIRECTORY
-# pokemon_tiles, raid_tiles, and quest_tiles folders must be created in this location.
-# You will need to edit the .conf files based on your setup. Example conf is located in /files/nginx of what is needed.
-# You will need to know and implement correct permissions for nginx.
-IMAGE_DIR = ./static/images/
-
-# YOUR TIMEZONE
-TIMEZONE = America/New_York
-
-# COMMAND PREFIX
+; COMMAND PREFIX
 PREFIX = '.'
 
-# AUTO-DELETE MESSAGES IN COMMAND CHANNEL
-Tidy_Channel = ENABLED
+; FILTER BY DISCORD OPTION
+; If you have multiple discords that overlap in scan areas, you need to disable this.
+Filter_Discord = ENABLED
 
-# Raid Lobbies that are created upon user reaction to Raid Embeds
-Raid_Lobbies = ENABLED
-# The number of raid lobbies people can "create" within a 15 minute period
-Lobby_Limit = 2
-
+; DATABASE CREDENTIALS
 [DB]
-# DATABASE CREDENTIALS
-host = 172.29.1.16
+host = 172.16.12.160
 username = username
 password = password
 port = 3306
-rdm_db_name = rdmdb
-pokebot_db_name = pokebot
 
-# Remove any pokestops that have been upgraded to gyms daily.
-Remove_Upgraded_Pokestops = ENABLED
-
-# Remove any pokestops not seen in 24 hours that may have been removed daily.
-Remove_Unseen_Pokestops = ENABLED
-
-# Trim the Pokemon Table. Choose the max age you want to keep. Query runs daily at 23:00
-Trim_Pokemon_Table = ENABLED
-Trim_Days = 7
-
+; BOT TOKENS
+; You can add up to 15 BOT_TOKENS[].
+; The MAIN token cannot be in the BOT_TOKEN[] section.
 [TOKENS]
-# BOT TOKENS
-# You can add up to 15 BOT_TOKENS[]. Delete any unused.
-# The MAIN token cannot be in the BOT_TOKEN[] section.
-MAIN =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
-BOT_TOKENS[] =
+MAIN = MAINTOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
+BOT_TOKENS[] = TOKEN
 
+; CUSTOM EMOTES
+; If enabled, the bot will require External Emojis Permissions for any feed channels.
+; You must also join and invite your bots to the following servers:
+; https://discord.gg/zqVCfPy - WEATHER, TEAMS, GYMS, TYPES
+; https://discord.gg/AnECN8U - Legendary boss emojis
+[EMOTES]
+Custom = true
+
+; QUESTS SECTION
+; To add a reward, add "Rewards[] = NEWREWARD" in whichever order you want it to appear in the embed.
+; The reward names must match the reward names found in /static/en.json
+; You can comment our rewards without removing them using a ';'
 [QUEST]
 Subscriptions = ENABLED
 Discord_Feeds = ENABLED
-
-# Default quest alert delivery time.
-Default_Delivery = 09:00
-
-# These is the Reward List that dictates what users can subscribe to for DMs
-# To add a reward, add "Rewards[] = NEWREWARD" in whichever order you want it to appear in the embed.
-# The reward names must match the reward names found in /static/en.json
-# You can comment out old or unwanted rewards
-Rewards[] = 1000 Stardust
-Rewards[] = 1500 Stardust
-Rewards[] = Charged TM
-Rewards[] = Fast TM
-Rewards[] = Golden Razz Berry
-# Rewards[] = Hyper Potion
+Rewards[] = Ultra Ball
+Rewards[] = Hyper Potion
 Rewards[] = Max Potion
 Rewards[] = Max Revive
-Rewards[] = Rare Candy
+Rewards[] = Golden Razz Berry
 Rewards[] = Silver Pinap Berry
-# Rewards[] = Star Piece
-Rewards[] = Ultra Ball
-Rewards[] = Aerodactyl
-Rewards[] = Aniroth
-Rewards[] = Bidoof
+; Rewards[] = Fast TM
+; Rewards[] = Charged TM
+Rewards[] = Rare Candy
+; Rewards[] = Star Piece
+Rewards[] = 1000 Stardust
+Rewards[] = 1500 Stardust
 Rewards[] = Chansey
-Rewards[] = Combusken
-Rewards[] = Cubone
-Rewards[] = Dratini
-Rewards[] = Electabuzz
-Rewards[] = Gastly
-Rewards[] = Hitmonchan
-# Rewards[] = Misdreavus
-Rewards[] = Machoke
-Rewards[] = Machop
-Rewards[] = Nincada
-# Rewards[] = Omanyte
-Rewards[] = Lapras
 Rewards[] = Larvitar
-Rewards[] = Sandshrew
+Rewards[] = Nincada
 Rewards[] = Spinda
+Rewards[] = Dratini
+Rewards[] = Bidoof
+Rewards[] = Cubone
+Rewards[] = Aerodactyl
+Rewards[] = Lapras
+Rewards[] = Electabuzz
+Rewards[] = Misdreavus
+Rewards[] = Omanyte
+Rewards[] = Machop
 
+; RAIDS SECTION
+; Subscriptions are disabled by default because the code is incomplete.
 [RAID]
-# Subscriptions are disabled by default because the code is incomplete.
-Subscriptions = ENABLED
+Subscriptions = DISABLED
 Discord_Feeds = ENABLED
 
+; POKEMON SECTION
 [POKEMON]
 Subscriptions = ENABLED
 Discord_Feeds = ENABLED
 
+; Debugs will flood the console with logs.
+; It is best to only have one enabled at at time if you are having a problem.
 [DEBUG]
-# Debugs will flood the console with logs.
-# It is best to only have one enabled at at time if you are having a problem.
-# Debug Target is the discord server you are debugging
-Quests = DISABLED
+Quests = ENABLED
 Pokemon = DISABLED
 Raids = DISABLED
 Subscriptions = DISABLED

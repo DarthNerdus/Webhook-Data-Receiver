@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="/path/to/js.cookie.js">
+  function getCookies(name){
+    console.log(Cookies.get('TPM_UID'));
+
+  }
+</script>
+<script type="text/javascript">
+
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+  } return null;
+}
+function checkOauthCookie(title){
+  console.log('title',title);
+  var user_id = getCookie("TPM_UID");
+  if(user_id) { window.location.href = `/login?id=${user_id}`; }
+  else{ window.location.href = "/login?id=noid"; }
+}
+
+</script>
+</head>
+<body onload="checkOauthCookie()"></body>
+</html>
