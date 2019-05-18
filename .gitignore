@@ -36,3 +36,9 @@ static/pokemon_tiles/*.png
 filters/*.DS_Store
 static/*.DS_Store
 modules/*.DS_Store
+oauth2-stripe/*
+oauth2-stripe/*.ini
+oauth/*.ini
+static/images/pokemon_tiles/*.png
+static/images/quest_tiles/*.png
+static/images/raid_tiles/*.png

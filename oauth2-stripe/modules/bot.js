@@ -18,12 +18,12 @@ const config = ini.parse(fs.readFileSync('./config.ini', 'utf-8'));
 
 // CONFIRM BOT IS ONLINE AND SET STATUS
 bot.on('ready', () => {
-  console.log('[OAUTH-STRIPE] ['+moment().format('HH:mmA')+'] The bot ('+bot.user.tag+') is started.');
+  console.log('[OAUTH2-STRIPE] [bot.js] ['+moment().format('HH:mmA')+'] The bot ('+bot.user.tag+') is started.');
   return bot.user.setActivity(config.map_name, { type: 'WATCHING' });
 });
 
 // LOGIN THE BOT
-console.log('[OAUTH-STRIPE] ['+moment().format('HH:mmA')+'] Starting up the bot...');
+console.log('[OAUTH2-STRIPE] [bot.js] ['+moment().format('HH:mmA')+'] Starting up the bot...');
 bot.login(config.OAUTH2.bot_token);
 
 // EXPORT OAUTH2

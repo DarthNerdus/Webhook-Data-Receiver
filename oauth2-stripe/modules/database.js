@@ -1,6 +1,7 @@
 const fs = require('fs');
 const ini = require('ini');
 const MySQL = require('mysql');
+const moment = require('moment');
 
 // LOAD CONFIGS
 const config = ini.parse(fs.readFileSync('./config.ini', 'utf-8'));
@@ -14,9 +15,9 @@ const database = MySQL.createConnection({
   database : config.DATABASE.rdm_db_name
 });
 
-database.runQuery = () => {
+database.runQuery = (query, data, success) => {
   database.query(query, data, function (err, user, fields) {
-    if(err){ return console.error(error,err); }
+    if(err){ return console.error(err); }
     else{ if(success){ console.log(success); } }
   });
 }

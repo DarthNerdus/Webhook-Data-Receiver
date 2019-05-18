@@ -34,7 +34,7 @@ oauth2.fetchAccessToken = (code) => {
 
 // FETCH DISCORD USER WITH ACCESS TOKEN
 oauth2.fetchUser = (access_token) => {
-  console.log('[oauth.js] Now fetch User with access_token '+access_token);
+  console.log('[OAUTH2-STRIPE] [oauth.js] Now fetch User with access_token '+access_token);
   return new Promise(async function(resolve) {
     axios.get(oauth2.base_url+`v6/users/@me`, {
       headers: { "Authorization": `Bearer ${access_token}`, "Content-Type": "application/x-www-form-urlencoded" }
