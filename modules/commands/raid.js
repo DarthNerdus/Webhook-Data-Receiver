@@ -335,6 +335,7 @@ async function subscription_remove(MAIN, message, nickname, prefix, available_gy
       MAIN.pdb.query(`UPDATE users SET raids = ? WHERE user_id = ? AND discord_id = ?`, [new_subs, message.member.id, message.guild.id], function (error, user, fields) {
         if(error){ return message.reply('There has been an error, please contact an Admin to fix.').then(m => m.delete(10000)).catch(console.error); }
         else{
+          console.log(`UPDATE users SET raids = %s WHERE user_id = %s AND discord_id = %s`, new_subs, message.member.id, message.guild.id);
           let subscription_success = new Discord.RichEmbed().setColor('00ff00')
             .setAuthor(nickname, message.member.user.displayAvatarURL)
             .setTitle(embed_title)

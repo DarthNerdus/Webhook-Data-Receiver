@@ -120,6 +120,31 @@ reactions.run = (MAIN, event) => {
         }
       });
     }); return;
+  }else if (!member.user.bot) {
+    channel.fetchMessage(event.d.message_id).then((message) => {
+      if (!message.author.bot) { return; }
+      let cmd = "";
+      MAIN.Discord.Servers.forEach(async (server, index) => {
+        if (server.id == guild.id) { discord = server; }
+      });
+
+      if (MAIN.Raid_Channels.findIndex(c => c[0] === event.d.channel_id) >= 0) {
+        if (message.content == "") {
+          cmd = MAIN.Commands.get('emojiRaid');
+        }
+      } else if (MAIN.Quest_Channels.findIndex(c => c[0] === event.d.channel_id) >= 0) {
+        cmd = MAIN.Commands.get('emojiQuest');
+      } else if (discord.command_channels.indexOf(event.d.channel_id) >= 0) {
+        if (message.content.toLowerCase().includes("pokemon")) {
+          cmd = MAIN.Commands.get('emojiPokemon');
+        } else if (message.content.toLowerCase().includes("raid")) {
+          cmd = MAIN.Commands.get('emojiRaid');
+        } else if (message.embeds[0].title.toLowerCase().includes("area")) {
+          cmd = MAIN.Commands.get('emojiArea');
+        }
+      }
+      if (cmd) { return cmd.run(MAIN, event.t, discord, message, event.d.user_id, event.d.emoji.name); }
+    })
   }
 }
 
