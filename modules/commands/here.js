@@ -70,7 +70,7 @@ function get_interest(){
 }
 
 function update_status(){
-  MAIN.pdb.query(`UPDATE lobby_members SET arrived = ? WHERE gym_id = ? && user_id = ?`, ['coming',raids.gym_id,member], function (error, lobby, fields) {
+  MAIN.pdb.query(`UPDATE lobby_members SET arrived = ? WHERE gym_id = ? && user_id = ?`, ['here',raids.gym_id,member], function (error, lobby, fields) {
     if(error){ console.error(error); }
   });
 }
