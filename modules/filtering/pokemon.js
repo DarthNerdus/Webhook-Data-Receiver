@@ -326,8 +326,9 @@ function CalculateBestPvPStat(MAIN, pokemonID, formID, attack, defense, stamina,
 function CalculatePvPStat(MAIN, pokemonID, formID, level, attack, defense, stamina)
 {
     let remainder = level % 1;
-    let cpIndex = ((level * 2) - 2) + (remainder * 2);
     level = Math.floor(level);
+    let cpIndex = ((level * 2) - 2) + (remainder * 2);
+    
 
     if(!MAIN.masterfile.pokemon[pokemonID].attack){
       attack = (attack + MAIN.masterfile.pokemon[pokemonID].forms[formID].attack) * MAIN.cp_multiplier.CPMultiplier[cpIndex];
