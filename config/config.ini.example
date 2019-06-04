@@ -16,7 +16,7 @@ LISTENING_PORT = 3333
 Map_Tiles = ENABLED
 Tile_Width = 400
 Tile_Height = 220
-Tile_Server = https://optional.url/x/y/z.png
+Tile_Server = https://optional.url/{z}/{x}/{y}.png
 Tile_Marker = https://optional.url
 
 # IMAGE HOST
