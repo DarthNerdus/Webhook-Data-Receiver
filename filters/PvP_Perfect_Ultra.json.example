@@ -14,8 +14,8 @@
 	"min_cp_range": 2490,
 	"max_cp_range": 2500,
 
-	"min_pvp_percent": 99,
-	"min_pvp_rank": 1S0,
+	"min_pvp_percent": 100,
+	"min_pvp_rank": 5,
 
 	"gender": "all",
 	"size": "all",
