@@ -77,7 +77,7 @@ module.exports.run = async (MAIN, raid, main_area, sub_area, embed_area, server,
       });
       MAIN.pdb.query(`SELECT * FROM active_raids WHERE gym_id = ?`, [gym_id], async function (error, record, fields) {
         // UPDATE CHANNEL NAME
-        if(record[0].raid_channel){
+        if(record[0] && record[0].raid_channel){
           let raid_channel = MAIN.channels.get(record[0].raid_channel);
           raid_channel.setName(boss_name+'_'+record[0].gym_name).catch(console.error);
         };
