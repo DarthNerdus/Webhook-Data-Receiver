@@ -564,11 +564,12 @@ MAIN.sqlFunction = (sql, data, logSuccess, logError) => {
 
 // CREAT GYM AND POKEMON NAME ARRAY
 setTimeout(function () { load_arrays(); }, 21600000);
-MAIN.gym_array = []; MAIN.pokemon_array = []; MAIN.park_array = [];
+
 function load_arrays() {
+  MAIN.gym_array = []; MAIN.pokemon_array = []; MAIN.park_array = [];
   MAIN.pokemon_array = Object.keys(MAIN.masterfile.pokemon).map(i => MAIN.masterfile.pokemon[i].name);
   // Gym Names Array
-  MAIN.rdmdb.query(`SELECT * FROM gym WHERE name is not NULL`, function (error, gyms, fields) {
+  MAIN.rdmdb.query(`SELECT * FROM gym WHERE name is not NULL ORDER BY name`, function (error, gyms, fields) {
     if (gyms) {
       gyms.forEach((gym, index) => {
         let record = {};
@@ -920,20 +921,11 @@ async function resetSubChannelEmojis(server) {
                 }
               }
             }
-          });
+          })
+          .then(() => channel.lockPermissions());
         }
       }
     }
-  });
-  await permissions.tap(async permission => {
-    await channel.replacePermissionOverwrites({
-      overwrites: [
-        {
-          id: permission.id,
-          allowed: ['USE_EXTERNAL_EMOJIS'],
-        },
-      ]
-    })
   });
 }
 
@@ -1044,18 +1036,10 @@ async function resetSubChannel(server) {
           //info_embed.addField("Don't like these options? Type !p for fully customized pokemon alerts, including CP, IV, level and more!");
           //info_embed.addField("Want customized ")
           channel.send("```Don't like these options?\r\nType !p for fully customized pokemon alerts, including CP, IV, level and more!\r\nType !r for fully customized raid alerts!\r\nType !q for customized quest alerts!```")
-        }).catch(console.error);
+        })
+        .then(() => channel.lockPermissions())
+        .catch(console.error);
     });
-  await permissions.tap(async permission => {
-    await channel.replacePermissionOverwrites({
-      overwrites: [
-        {
-          id: permission.id,
-          denied: ['VIEW_CHANNEL'],
-        },
-      ]
-    })
-  });
 }
 
 async function resetQuestChannels(server) {
@@ -1108,19 +1092,7 @@ async function resetQuestChannels(server) {
     })
       .then(() => channel.send("Don't like these options? Go to " + "<#" + server.command_channels + ">" + " and type !q for fully customized quest alerts, including delivery time!")).then((msg) => msg.pin())
       .then(() => clear_unpinned_channel(channel_id))
-      .then(async () => {
-        await permissions.tap(async permission => {
-          await channel.replacePermissionOverwrites({
-            overwrites: [
-              {
-                id: permission.id,
-                allowed: ['VIEW_CHANNEL'],
-              },
-            ]
-          })
-        });
-      }
-      );
+      .then(() => channel.lockPermissions())
   }
 }
 
@@ -1184,20 +1156,7 @@ async function resetQuestEmojis(server) {
         }
       });
     })
-      .then(async () => {
-        //let permissions = channel.permissionOverwrites;
-        await permissions.tap(async permission => {
-          await channel.replacePermissionOverwrites({
-            overwrites: [
-              {
-                id: permission.id,
-                allowed: ['USE_EXTERNAL_EMOJIS'],
-              },
-            ]
-          })
-        });
-      }
-      );
+    .then(() => channel.lockPermissions())
   }
 }
 
@@ -1301,19 +1260,7 @@ async function resetRaidChannels(server) {
         }
       }
     })
-      .then(() => {
-        permissions.tap(async permission => {
-          channel.replacePermissionOverwrites({
-            overwrites: [
-              {
-                id: permission.id,
-                allowed: ['VIEW_CHANNEL'],
-              },
-            ]
-          })
-        });
-      }
-      );
+    .then(() => channel.lockPermissions())
   }
 }
 

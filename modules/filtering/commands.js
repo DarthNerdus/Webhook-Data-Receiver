@@ -76,12 +76,12 @@ module.exports.run = async (MAIN, message) => {
             case 'reload': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.start('reload'); } break;
             case 'purge': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.Purge_Channels(); } break;
             case 'restart': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.restart(); } break;
-            case 'resetQuestEmojis': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.Reset_Quest_Emojis(server) } break;
-            case 'resetQuestChannels': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.Reset_Quest_Channels(server) } break;
-            case 'resetRaidEmojis': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.Reset_Raid_Emojis(server) } break;
-            case 'resetGyms': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.Reset_Raid_Channels(server) } break;
-            case 'resetSubChannel': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.Reset_Sub_Channel(server) } break;
-            case 'resetSubEmojis': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.Reset_Sub_Emojis(server) } break;
+            case 'resetquestemojis': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.Reset_Quest_Emojis(server) } break;
+            case 'resetquestchannels': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.Reset_Quest_Channels(server) } break;
+            case 'resetraidemojis': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.Reset_Raid_Emojis(server) } break;
+            case 'resetgyms': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.Reset_Raid_Channels(server) } break;
+            case 'resetsubchannel': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.Reset_Sub_Channel(server) } break;
+            case 'resetsubemojis': if(message.member.hasPermission('ADMINISTRATOR')){ MAIN.Reset_Sub_Emojis(server) } break;
             case prefix+'pause': command = 'pause'; break;
             case prefix+'resume': command = 'resume'; break;
             case 'help': command = 'help'; break;
