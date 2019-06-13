@@ -20,7 +20,7 @@ module.exports.run = async (MAIN, action, discord, message, memberid, emojiName)
 }
 
 // SUBSCRIPTION CREATE FUNCTION
-async function subscription_create(MAIN, discord, message, member, area){
+async function subscription_create(MAIN, server, message, member, area){
 
   // PULL THE USER'S SUBSCRITIONS FROM THE USER TABLE
   MAIN.pdb.query(`SELECT * FROM users WHERE user_id = ? AND discord_id = ?`, [member.id, message.guild.id], async function (error, user, fields) {
@@ -35,6 +35,14 @@ async function subscription_create(MAIN, discord, message, member, area){
 
     // CHECK IF USER IS ALREADY SUBSCRIBED TO THE AREA OR NOT AND ADD
     if(area_index >= 0){ return;}
+    else{
+      switch(true){
+        case sub == 'all': areas = server.name; break;
+        case user[0].geofence == server.name:
+        case user[0].geofence == 'None': areas = []; areas.push(sub); break;
+        default: areas.push(sub);
+      }
+    }
 
     // CONVERT TO STRING
     areas = areas.toString();
