@@ -843,8 +843,12 @@ MAIN.Purge_Channels = () => {
         if (purge_time) {
         console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Ontime] Ontime channel purge has started for ' + server.name);
         for (var i = 0; i < server.channels_to_purge.length; i++) { clear_channel(server.channels_to_purge[i]); }
-        for (var i = 0; i < MAIN.Raid_Channels.length; i++) {clear_unpinned_raid_channel(MAIN.Raid_Channels[1][0]); }
-        for (var i = 0; i < MAIN.Quest_Channels.length; i++) {clear_unpinned_channel(MAIN.Quest_Channels[1][0]); }
+        for (var i = 0; i < MAIN.Raid_Channels.length; i++) {
+          clear_unpinned_raid_channel(MAIN.Raid_Channels[i][1].chat); 
+          clear_unpinned_channel(MAIN.Raid_Channels[i][0])
+        }
+        for (var i = 0; i < MAIN.Quest_Channels.length; i++) { clear_unpinned_channel(MAIN.Quest_Channels[1][0]); }
+        for (var i = 0; i < MAIN.Pokemon_Channels.length; i++) { clear_unpinned_channel(MAIN.Pokemon_Channels[i][0]); }
       }
     }
   }); return;
@@ -969,7 +973,7 @@ async function resetSubChannel(server) {
       if (unusedLetters.indexOf(letterIndex) > 0) {
         letter = geo[1].geofences.charAt(0).toLowerCase();
         unusedLetters.splice(unusedLetters.indexOf(letter), 1);
-        sub_embed.addField(unicodeEmojis[letter] + geo[1].geofences.toUpperCase(), "<#" + geo[0] + ">", true);
+        sub_embed.addField(unicodeEmojis[letter] + geo[1].geofences.toUpperCase(), "<#" + geo[1].chat + ">", true);
         toReact.push(unicodeEmojis[letter]);
       } else {
         recheck.push(geo);
@@ -1168,7 +1172,7 @@ async function resetRaidEmojis(server) {
   MAIN.reloadEmojis();
   console.log("Changing Raid Emojis")
   for (var i = 0; i < MAIN.Raid_Channels.length; i++) {
-    let channel_id = await MAIN.Raid_Channels[i][0];
+    let channel_id = await MAIN.Raid_Channels[i][1].chat;
     let channel = await MAIN.channels.get(channel_id);
     let subEmojis = MAIN.Raid_Boss_Emojis;
     var lookup = [];
@@ -1210,7 +1214,8 @@ async function resetRaidEmojis(server) {
 async function resetRaidChannels(server) {
   MAIN.reloadEmojis();
   for (var i = 0; i < MAIN.Raid_Channels.length; i++) {
-    let channel_id = await MAIN.Raid_Channels[i][0];
+    let channel_id = await MAIN.Raid_Channels[i][1].chat;
+    let geofenceName = MAIN.Raid_Channels[i][1].geofences;
     let channel = await MAIN.channels.get(channel_id);
     let subEmojis = MAIN.Raid_Boss_Emojis;
     let permissions = channel.permissionOverwrites;
@@ -1225,9 +1230,8 @@ async function resetRaidChannels(server) {
       })
     });
     clear_channel(channel_id).then(async (clrd) => {
-      let raid_channel = await MAIN.Raid_Channels.find(p => p[0] === channel_id);
+      //let raid_channel = await MAIN.Raid_Channels.find(p => p[0] === channel_id);
       let postedGyms = [];
-      let geofenceName = raid_channel[1].geofences;
       let Gyms = await MAIN.gym_array;
       let geofence = await MAIN.Geofences.get(server.geojson_file);
       let gymstoUpdate = [];
@@ -1300,7 +1304,8 @@ function clear_unpinned_raid_channel(channel_id) {
     console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Ontime] Purging all unpinned messages in ' + channel.name + ' (' + channel.id + ')');
     if (!channel) { resolve(false); return console.error('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Ontime] Could not find a channel with ID: ' + channel_id); }
     channel.fetchMessages({ limit: 99 }).then(messages => {
-      let unpinned = messages.filter(msg => msg.embeds[0].fields.length > 1);
+      let unembedded = messages.filter(msg => !msg.pinned);
+      let unpinned = unembedded.filter(msg => msg.embeds.length == 0);
       channel.bulkDelete(unpinned).then(deleted => {
         if (deleted.size > (messages.size - unpinned.size)) { clear_channel(channel_id).then(result => { return resolve(true); }); }
         else {
