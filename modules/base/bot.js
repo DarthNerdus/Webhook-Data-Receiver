@@ -775,13 +775,14 @@ async function bot_login() {
   // CHECK FOR CUSTOM EMOTES (CHUCKLESLOVE MERGE)
   MAIN.emotes = new Emojis.DiscordEmojis();
   MAIN.reloadEmojis();
+  MAIN.Purge_Channels();
   return MAIN.emotes.Load(MAIN);
 }
 
 var ontime_servers = [], ontime_times = [];
 MAIN.Discord.Servers.forEach(function (server) {
   let server_purge = moment(), timezone = GeoTz(server.geofence[0][0][1], server.geofence[0][0][0]);
-  server_purge = moment.tz(server_purge, timezone[0]).set({ hour: 21, minute: 35, second: 30, millisecond: 0 });
+  server_purge = moment.tz(server_purge, timezone[0]).set({ hour: 00, minute: 14, second: 30, millisecond: 0 });
   server_purge = moment.tz(server_purge, MAIN.config.TIMEZONE).format('HH:mm:ss');
   if (server.purge_channels == 'ENABLED') {
     console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Ontime] Channel purge set for ' + server.name + ' at ' + server_purge);
@@ -836,11 +837,14 @@ MAIN.Purge_Channels = () => {
   ontime_servers.forEach(function (server) {
     if (server.purge_channels == 'ENABLED') {
       let purge_time = moment(), timezone = GeoTz(server.geofence[0][1][1], server.geofence[0][1][0]);
-      purge_time = moment.tz(purge_time, timezone[0]).set({ hour: 21, minute: 35, second: 30, millisecond: 0 });
+      purge_time = moment.tz(purge_time, timezone[0]).set({ hour: 23, minute: 53, second: 30, millisecond: 0 });
       purge_time = moment.tz(purge_time, MAIN.config.TIMEZONE).format('HH:mm:ss');
-      if (now == purge_time) {
+      //if (now == purge_time) {
+        if (purge_time) {
         console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Ontime] Ontime channel purge has started for ' + server.name);
         for (var i = 0; i < server.channels_to_purge.length; i++) { clear_channel(server.channels_to_purge[i]); }
+        for (var i = 0; i < MAIN.Raid_Channels.length; i++) {clear_unpinned_raid_channel(MAIN.Raid_Channels[1][0]); }
+        for (var i = 0; i < MAIN.Quest_Channels.length; i++) {clear_unpinned_channel(MAIN.Quest_Channels[1][0]); }
       }
     }
   }); return;
@@ -1288,6 +1292,27 @@ function clear_unpinned_channel(channel_id) {
 }
 
 // PURGE CHANNEL
+function clear_unpinned_raid_channel(channel_id) {
+  console.log(channel_id);
+  //should check to see if these are pinned
+  return new Promise(async function (resolve) {
+    let channel = await MAIN.channels.get(channel_id);
+    console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Ontime] Purging all unpinned messages in ' + channel.name + ' (' + channel.id + ')');
+    if (!channel) { resolve(false); return console.error('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Ontime] Could not find a channel with ID: ' + channel_id); }
+    channel.fetchMessages({ limit: 99 }).then(messages => {
+      let unpinned = messages.filter(msg => msg.embeds[0].fields.length > 1);
+      channel.bulkDelete(unpinned).then(deleted => {
+        if (deleted.size > (messages.size - unpinned.size)) { clear_channel(channel_id).then(result => { return resolve(true); }); }
+        else {
+          console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Ontime] Purged all unpinned messages in ' + channel.name + ' (' + channel.id + ')');
+          return resolve(true);
+        }
+      }).catch(console.error);
+    });
+  });
+}
+
+// PURGE CHANNEL
 function clear_channel(channel_id) {
   console.log(channel_id);
   return new Promise(async function (resolve) {
@@ -1313,7 +1338,7 @@ Ontime({ cycle: ontime_times }, function (ot) { MAIN.Purge_Channels(); return ot
 
 // CHECK DATABASE FOR UPGRADED OR REMOVED POKESTOPS
 let check_time = moment();
-check_time = moment.tz(check_time, 'America/Los_Angeles').set({ hour: 23, minute: 40, second: 0, millisecond: 0 });
+check_time = moment.tz(check_time, 'America/Los_Angeles').set({ hour: 00, minute: 06, second: 0, millisecond: 0 });
 check_time = moment.tz(check_time, MAIN.config.TIMEZONE).format('HH:mm:ss');
 Ontime({ cycle: check_time }, async function (ot) {
   if (MAIN.config.rdmDB.Remove_Upgraded_Pokestops == 'ENABLED') {
