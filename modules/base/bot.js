@@ -239,7 +239,7 @@ MAIN.webhookParse = async (PAYLOAD) => {
           if(server.geojson_file){
             let geofence = await MAIN.Geofences.get(server.geojson_file);
             await geofence.features.forEach((geo,index) => {
-              if(InsideGeojson.polygon(geo.geometry.coordinates, [data.message.longitude,data.message.latitude])){
+              if(InsideGeojson.feature({features:[geo]}, [data.message.longitude,data.message.latitude]) != -1){
                 switch(geo.properties.sub_area){
                   case 'true': sub_area = geo.properties.name;
                   break;
@@ -417,7 +417,7 @@ MAIN.Get_Area = (MAIN, lat, lon, discord) => {
       if(discord.geojson_file){
         let geofence = await MAIN.Geofences.get(discord.geojson_file);
         await geofence.features.forEach((geo,index) => {
-          if(InsideGeojson.polygon(geo.geometry.coordinates, [lon,lat])){
+          if(InsideGeojson.feature({features:[geo]}, [lon,lat]) != -1){
             switch(geo.properties.sub_area){
               case 'true': sub_area = geo.properties.name;
               break;
