@@ -13,7 +13,7 @@ module.exports.run = async (MAIN, message, prefix, discord) => {
   let requestAction = new Discord.RichEmbed()
     .setAuthor(nickname, message.member.user.displayAvatarURL)
     .setTitle('What would you like to do with your Pokémon Subscriptions?')
-    .setDescription('`view`  »  View your Subscritions.\n'
+    .setDescription('`view`  »  View your Subscriptions.\n'
                    +'`add`  »  Create a Simple Subscription.\n'
                    +'`add adv`  »  Create an Advanced Subscription.\n'
                    +'`remove`  »  Remove a pokemon Subscription.\n'
@@ -623,8 +623,8 @@ function sub_collector(MAIN,type,nickname,message,pokemon,requirements,sub){
               case 'all-4': collector.stop('All-4'); break;
               case 'all-5': collector.stop('All-5'); break;
               default:
-                for(let p = 1; p < 809; p++){
-                  if(p == 809){ message.reply('`'+message.content+'` doesn\'t appear to be a valid Pokémon name. Please check the spelling and try again.').then(m => m.delete(5000)).catch(console.error); }
+                for(let p = 1; p <= 550; p++){
+                  if(p == 550){ message.reply('`'+message.content+'` doesn\'t appear to be a valid Pokémon name. Please check the spelling and try again.').then(m => m.delete(5000)).catch(console.error); }
                   else if(message.content.toLowerCase() == MAIN.masterfile.pokemon[p].name.toLowerCase()){ return collector.stop(MAIN.masterfile.pokemon[p].name); }
                 }
             } break;

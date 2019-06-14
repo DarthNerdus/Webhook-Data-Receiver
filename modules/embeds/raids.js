@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
-const Embed_Config = require('../../config/embed_raids.js');
-const Embed_EggConfig = require('../../config/embed_raid_eggs.js');
 
-module.exports.run = async (MAIN, target, raid, raid_type, main_area, sub_area, embed_area, server, timezone, role_id) => {
+module.exports.run = async (MAIN, target, raid, raid_type, main_area, sub_area, embed_area, server, timezone, role_id, embed) => {
+  let Embed_Config = require('../../embeds/'+embed);
 
   // CHECK IF THE TARGET IS A USER
   let member = MAIN.guilds.get(server.id).members.get(target.user_id);
@@ -26,7 +25,7 @@ module.exports.run = async (MAIN, target, raid, raid_type, main_area, sub_area, 
   if(raid.ex_raid_eligible == true){ raid_sponsor = ' | '+MAIN.emotes.exPass+' Eligible'; }
 
   // CHECK IF EXCLUSIVE RAID
-  if(raid.is_exclusive == true){ gmy.is_exclusive = '**EXRaid Invite Only** '; }
+  if(raid.is_exclusive == true){ gym.is_exclusive = '**EXRaid Invite Only** '; }
 
   // DETERMINE GYM CONTROL
   switch(raid.team_id){
@@ -74,7 +73,7 @@ module.exports.run = async (MAIN, target, raid, raid_type, main_area, sub_area, 
       }
 
       // CREATE THE EGG EMBED
-      raid_embed = await Embed_EggConfig(gym);
+      raid_embed = await Embed_Config(gym);
 
       // ADD FOOTER IF RAID LOBBIES ARE ENABLED
       if(raid.level >= server.min_raid_lobbies){ raid_embed.setFooter(gym.id); }
@@ -111,7 +110,7 @@ module.exports.run = async (MAIN, target, raid, raid_type, main_area, sub_area, 
            }
          }); });
       } else {
-        if (raid.form > 0){ raid.form = '['+MAIN.masterfile.pokemon[raid.pokemon_id].forms[raid.form].name+'] '; }
+        if (raid.form > 0){ gym.form = '['+MAIN.masterfile.pokemon[raid.pokemon_id].forms[raid.form].name+'] '; }
         await MAIN.masterfile.pokemon[raid.pokemon_id].types.forEach((type) => {
          gym.type += type+' '+MAIN.emotes[type.toLowerCase()]+' / ';
          MAIN.types[type.toLowerCase()].weaknesses.forEach((weakness,index) => {
@@ -143,10 +142,10 @@ module.exports.run = async (MAIN, target, raid, raid_type, main_area, sub_area, 
 
       // CHECK CONFIGS AND SEND TO USER OR FEED
       if(member && MAIN.config.RAID.Subscriptions == 'ENABLED'){
-        if(MAIN.config.DEBUG.Raids == 'ENABLED'){ console.info('[Pokébot] ['+MAIN.Bot_Time(null,'stamp')+'] [Embed] [raids.js] Sent a '+pokemon_name+' Raid Boss to '+member.user.tag+' ('+member.id+').'); }
+        if(MAIN.config.DEBUG.Raids == 'ENABLED'){ console.info('[Pokébot] ['+MAIN.Bot_Time(null,'stamp')+'] [Embed] [raids.js] Sent a '+gym.boss+' Raid Boss to '+member.user.tag+' ('+member.id+').'); }
         MAIN.Send_DM(server.id, member.id, raid_embed, target.bot);
       } else if(MAIN.config.RAID.Discord_Feeds == 'ENABLED'){
-        if(MAIN.config.DEBUG.Raids == 'ENABLED'){ console.info('[Pokébot] ['+MAIN.Bot_Time(null,'stamp')+'] [Embed] [raids.js] Sent a '+pokemon_name+' Raid Boss to '+target.guild.name+' ('+target.id+').'); }
+        if(MAIN.config.DEBUG.Raids == 'ENABLED'){ console.info('[Pokébot] ['+MAIN.Bot_Time(null,'stamp')+'] [Embed] [raids.js] Sent a '+gym.boss+' Raid Boss to '+target.guild.name+' ('+target.id+').'); }
         MAIN.Send_Embed('raid', raid.level, server, role_id, raid_embed, target.id);
       } else{ console.info('[Pokébot] Raid ignored due to Disabled Discord Feed setting.'); }
       // CHECK FOR RAID LOBBIES

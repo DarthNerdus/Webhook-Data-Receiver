@@ -251,9 +251,9 @@ MAIN.webhookParse = async (PAYLOAD) => {
           let main_area = '', sub_area = '', embed_area = '';
           if (server.geojson_file) {
             let geofence = await MAIN.Geofences.get(server.geojson_file);
-            await geofence.features.forEach((geo, index) => {
-              if (InsideGeojson.polygon(geo.geometry.coordinates, [data.message.longitude, data.message.latitude])) {
-                switch (geo.properties.sub_area) {
+            await geofence.features.forEach((geo,index) => {
+              if(InsideGeojson.feature({features:[geo]}, [data.message.longitude,data.message.latitude]) != -1){
+                switch(geo.properties.sub_area){
                   case 'true': sub_area = geo.properties.name;
                     break;
                   default: main_area = geo.properties.name;
@@ -418,43 +418,6 @@ MAIN.Get_Color = (type, color) => {
   return color;
 }
 
-// POKEMON CPs
-MAIN.CalculateCP = (pokemon_id, form_id, iv_atk, iv_def, iv_sta, level) => {
-  let cp = 0;
-  let base_atk = 0, base_def = 0, base_sta = 0;
-
-  let remainder = level % 1;
-  level = Math.floor(level);
-
-
-  let cpIndex = ((level * 2) - 2) + (remainder * 2);
-  let CPMultiplier = MAIN.cp_multiplier.CPMultiplier[cpIndex];
-
-  if (form_id > 0 && !MAIN.masterfile.pokemon[pokemon_id].attack) {
-    base_atk = MAIN.masterfile.pokemon[pokemon_id].forms[form_id].attack;
-    base_def = MAIN.masterfile.pokemon[pokemon_id].forms[form_id].defense;
-    base_sta = MAIN.masterfile.pokemon[pokemon_id].forms[form_id].stamina;
-  } else {
-    base_atk = MAIN.masterfile.pokemon[pokemon_id].attack;
-    base_def = MAIN.masterfile.pokemon[pokemon_id].defense;
-    base_sta = MAIN.masterfile.pokemon[pokemon_id].stamina;
-  }
-
-  let attackMultiplier = base_atk + parseInt(iv_atk);
-  let defenseMultiplier = Math.pow(base_def + parseInt(iv_def), .5);
-  let staminaMultiplier = Math.pow(base_sta + parseInt(iv_sta), .5);
-  CPMultiplier = Math.pow(CPMultiplier, 2);
-
-  cp = (attackMultiplier * defenseMultiplier * staminaMultiplier * CPMultiplier) / 10;
-
-  cp = Math.floor(cp);
-
-  //CP floor is 10
-  if (cp < 10) { cp = 10 }
-
-  return cp;
-}
-
 MAIN.Get_Area = (MAIN, lat, lon, discord) => {
   return new Promise(async function (resolve, reject) {
     if (InsideGeojson.polygon(discord.geofence, [lon, lat])) {
@@ -466,9 +429,9 @@ MAIN.Get_Area = (MAIN, lat, lon, discord) => {
       let main_area = '', sub_area = '', embed_area = '';
       if (discord.geojson_file) {
         let geofence = await MAIN.Geofences.get(discord.geojson_file);
-        await geofence.features.forEach((geo, index) => {
-          if (InsideGeojson.polygon(geo.geometry.coordinates, [lon, lat])) {
-            switch (geo.properties.sub_area) {
+        await geofence.features.forEach((geo,index) => {
+          if(InsideGeojson.feature({features:[geo]}, [lon,lat]) != -1){
+            switch(geo.properties.sub_area){
               case 'true': sub_area = geo.properties.name;
                 break;
               default: main_area = geo.properties.name;
@@ -501,15 +464,17 @@ MAIN.Get_Icon = (object, quest_reward) => {
 }
 
 // Get Size of Pokemon BIG Karp/Tiny Rat
-MAIN.Get_Size = (pokemon_id, pokemon_height, pokemon_weight, form_id) => {
-  let weightRatio = 0, heightRatio = 0;
-  if (form_id > 0 && !MAIN.masterfile.pokemon[pokemon_id].weight) {
-    weightRatio = pokemon_weight / MAIN.masterfile.pokemon[pokemon_id].forms[form_id].weight;
-    heightRatio = pokemon_height / MAIN.masterfile.pokemon[pokemon_id].forms[form_id].height;
-  } else {
-    weightRatio = pokemon_weight / MAIN.masterfile.pokemon[pokemon_id].weight;
-    heightRatio = pokemon_height / MAIN.masterfile.pokemon[pokemon_id].height;
-  }
+MAIN.Get_Size = (pokemon_id, form_id, pokemon_height, pokemon_weight) => {
+        let weightRatio = 0, heightRatio = 0;
+        if (form_id > 0 && !MAIN.masterfile.pokemon[pokemon_id].weight){
+          weightRatio = pokemon_weight / MAIN.masterfile.pokemon[pokemon_id].forms[form_id].weight;
+          heightRatio = pokemon_height / MAIN.masterfile.pokemon[pokemon_id].forms[form_id].height;
+        } else {
+          weightRatio = pokemon_weight / MAIN.masterfile.pokemon[pokemon_id].weight;
+          heightRatio = pokemon_height / MAIN.masterfile.pokemon[pokemon_id].height;
+        }
+
+        let size = heightRatio + weightRatio;
 
   let size = heightRatio + weightRatio;
 
@@ -537,12 +502,14 @@ MAIN.Static_Map_Tile = (lat, lon, type) => {
       console.info('[DEBUG] [Map Tiles] ' + path);
       console.info('[DEBUG] [Map Tiles] ' + url);
     }
-    if (fs.existsSync(path)) { return resolve(url); }
-    else {
-      let options = { width: parseInt(MAIN.config.Tile_Width), height: parseInt(MAIN.config.Tile_Height) },
-        zoom = 16, center = [lon, lat], map = new StaticMaps(options);
+    if(fs.existsSync(path)){ return resolve(url); }
+    else{
+      let options = { width: parseInt(MAIN.config.Tile_Width), height: parseInt(MAIN.config.Tile_Height) };
+      if(MAIN.config.Tile_Server){ options.tileUrl = MAIN.config.Tile_Server; }
+      let zoom = 16, center = [lon,lat], map = new StaticMaps(options);
       let marker = { img: `https://i.imgur.com/OGMRWnh.png`, width: 40, height: 40 };
-      marker.coord = [lon, lat]; map.addMarker(marker);
+      if(MAIN.config.Tile_Marker){ marker.img = MAIN.config.Tile_Marker; }
+      marker.coord = [lon,lat]; map.addMarker(marker);
       map.render(center, zoom)
         .then(() => { map.image.save(MAIN.config.IMAGE_DIR + type + '_tiles/' + lat + ',' + lon + '.png'); })
         .then(() => { console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Map Tiles] Saved a new map tile to ' + type + '_images.'); return resolve(url); })

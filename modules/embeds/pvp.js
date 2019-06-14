@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
-const Embed_Config = require('../../config/embed_pvp.js');
 
-module.exports.run = async (MAIN, target, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, possible_cps) => {
+module.exports.run = async (MAIN, target, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed, possible_cps) => {
+  let Embed_Config = require('../../embeds/'+embed);
 
   // CHECK IF THE TARGET IS A USER
   let member = MAIN.guilds.get(server.id).members.get(target.user_id);
@@ -80,7 +80,7 @@ module.exports.run = async (MAIN, target, sighting, internal_value, time_now, ma
     // DETERMINE HEIGHT, WEIGHT AND SIZE
     pokemon.height = Math.floor(sighting.height*100)/100;
     pokemon.weight = Math.floor(sighting.weight*100)/100;
-    pokemon.size = MAIN.Get_Size(sighting.pokemon_id, sighting.height, sighting.weight);
+    pokemon.size = MAIN.Get_Size(sighting.pokemon_id, sighting.form, sighting.height, sighting.weight);
 
     pokemon.attack = sighting.individual_attack;
     pokemon.defense = sighting.individual_defense;

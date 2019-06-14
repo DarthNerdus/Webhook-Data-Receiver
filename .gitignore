@@ -29,14 +29,16 @@ config/*.json
 config/config.ini.ex
 feeds/*.txt
 node_modules
-static/moves.json
-static/en.json
-static/pokemon.json
-static/rewards.json
-static/types.json
 *.DS_Store
 filters/*.DS_Store
+embeds/*.js
 geofences/*.DS_Store
+static/images/pokemon_tiles/*.png
+static/images/pokemon_tiles/*.jpg
+static/images/raid_tiles/*.png
+static/images/raid_tiles/*.jpg
+static/images/quest_tiles/*.png
+static/images/quest_tiles/*.jpg
 geofences/*.json
 static/*.DS_Store
 modules/*.DS_Store
@@ -48,3 +50,4 @@ oauth2-stripe/*.ini
 oauth2-stripe/*.js
 oauth2-stripe/templates
 config/*.js
+*.conf

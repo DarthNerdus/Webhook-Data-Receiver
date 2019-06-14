@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
-const Embed_Config = require('../../config/embed_lure.js');
 
-module.exports.run = async (MAIN, target, lure, type, main_area, sub_area, embed_area, server, timezone, role_id) => {
+module.exports.run = async (MAIN, target, lure, type, main_area, sub_area, embed_area, server, timezone, role_id, embed) => {
+  let Embed_Config = require('../../embeds/'+embed);
 
   // CHECK IF THE TARGET IS A USER
   let member = MAIN.guilds.get(server.id).members.get(target.user_id);
@@ -12,7 +12,7 @@ module.exports.run = async (MAIN, target, lure, type, main_area, sub_area, embed
 
   // GET STATIC MAP TILE
   if(MAIN.config.Map_Tiles == 'ENABLED'){
-    pokestop.map_img = await MAIN.Static_Map_Tile(lure.latitude, lure.longitude, 'raid');
+    pokestop.map_img = await MAIN.Static_Map_Tile(lure.latitude, lure.longitude, 'quest');
   }
 
   // DETERMINE STOP NAME
