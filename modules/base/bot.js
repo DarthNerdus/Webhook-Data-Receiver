@@ -474,8 +474,6 @@ MAIN.Get_Size = (pokemon_id, form_id, pokemon_height, pokemon_weight) => {
           heightRatio = pokemon_height / MAIN.masterfile.pokemon[pokemon_id].height;
         }
 
-        let size = heightRatio + weightRatio;
-
   let size = heightRatio + weightRatio;
 
   if (size < 1.5) {
