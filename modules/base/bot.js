@@ -332,6 +332,25 @@ MAIN.Save_Sub = (message, server) => {
   }); return;
 }
 
+MAIN.Save_Emoji_Sub = (message, server) => {
+  MAIN.pdb.query('SELECT * FROM info', function (error, info, fields) {
+    let next_bot = info[0].user_next_bot, split = MAIN.config.QUEST.Default_Delivery.split(':');
+    if (next_bot == MAIN.BOTS.length - 1) { next_bot = 0; } else { next_bot++; }
+    let quest_time = moment(), timezone = GeoTz(server.geofence[0][0][1], server.geofence[0][0][0]);
+    quest_time = moment.tz(quest_time, timezone[0]).set({ hour: split[0], minute: split[1], second: 0, millisecond: 0 });
+    quest_time = moment.tz(quest_time, MAIN.config.TIMEZONE).format('HH:mm');
+    user_name = message.member.user.tag.replace(/[\W]+/g, '');
+    MAIN.pdb.query('INSERT INTO users (user_id, user_name, geofence, pokemon, quests, raids, status, bot, alert_time, discord_id, pokemon_status, raids_status, quests_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE user_name = ?',
+      [message.member.id, user_name, server.name, , , , 'ACTIVE', next_bot, quest_time, message.guild.id, 'ACTIVE', 'ACTIVE', 'ACTIVE', user_name], function (error, user, fields) {
+        if (error) { return console.error('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] UNABLE TO ADD USER TO users TABLE', error); }
+        else {
+          MAIN.sqlFunction('UPDATE info SET user_next_bot = ?', [next_bot], undefined, undefined);
+          return console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] Added ' + message.member.user.tag + ' to the user table.');
+        }
+      });
+  }); return;
+}
+
 // RETURN TIME FUNCTION
 MAIN.Bot_Time = (time, type, timezone) => {
   switch (type) {
@@ -775,7 +794,7 @@ async function bot_login() {
   // CHECK FOR CUSTOM EMOTES (CHUCKLESLOVE MERGE)
   MAIN.emotes = new Emojis.DiscordEmojis();
   MAIN.reloadEmojis();
-  MAIN.Purge_Channels();
+  //MAIN.Purge_Channels();
   return MAIN.emotes.Load(MAIN);
 }
 

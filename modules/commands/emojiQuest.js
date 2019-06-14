@@ -21,6 +21,7 @@ async function subscription_create(MAIN, discord, message, member, emojiName){
 
   // PULL THE USER'S SUBSCRITIONS FROM THE USER TABLE
   MAIN.pdb.query(`SELECT * FROM users WHERE user_id = ? AND discord_id = ?`, [member.id, message.guild.id], async function (error, user, fields) {
+    if(!user || !user[0]){ await MAIN.Save_Emoji_Sub(member, server, message.guild); }
 
     // RETRIEVE QUEST NAME FROM USER
     let sub = emojiName
