@@ -131,7 +131,7 @@ reactions.run = (MAIN, event) => {
         if (server.id == guild.id) { discord = server; }
       });
 
-      if (MAIN.Raid_Channels.findIndex(c => c[0] === event.d.channel_id) >= 0) {
+      if (MAIN.Raid_Channels.findIndex(c => c[1].chat === event.d.channel_id) >= 0) {
         if (message.content == "") {
           cmd = MAIN.Commands.get('emojiRaid');
         }

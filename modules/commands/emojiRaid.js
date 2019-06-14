@@ -52,7 +52,7 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
   sub.areas = 'Yes';
   // RETRIEVE GYM NAME FROM EMOTED MESSAGE
   if (!message.content.toLowerCase().includes("area")) {
-    user_choice = await matchGymName(MAIN, message.embeds[0].author.name, discord);
+    user_choice = await matchGymName(MAIN, message.embeds[0].author.name, server);
     sub.id = user_choice.id;
     sub.gym = user_choice.name;
     sub.areas = 'Gym Specified';
@@ -156,7 +156,7 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
 }
 
 // SUBSCRIPTION REMOVE FUNCTION
-async function subscription_remove(MAIN, discord, message, member, emojiName) {
+async function subscription_remove(MAIN, server, message, member, emojiName) {
 
   // FETCH USER FROM THE USERS TABLE
   MAIN.pdb.query(`SELECT * FROM users WHERE user_id = ? AND discord_id = ?`, [member.id, message.guild.id], async function (error, user, fields) {
@@ -169,11 +169,12 @@ async function subscription_remove(MAIN, discord, message, member, emojiName) {
       let sub = {}, got_name = false;
 
       // RETRIEVE GYM NAME FROM EMOTED MESSAGE
-      let user_choice = 'All';
-      if (!message.content.toLowerCase().includes("area")) { user_choice = await matchGymName(MAIN, message.embeds[0].author.name, discord) }
+      let user_choice = {}
+      user_choice.name = 'All';
+      if (!message.content.toLowerCase().includes("area")) { user_choice = await matchGymName(MAIN, message.embeds[0].author.name, server) }
 
 
-      sub.id = user_choice.id;
+      //sub.id = user_choice.id;
       sub.gym = user_choice.name;
       got_name = true;
 
