@@ -101,7 +101,22 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
 
   // PULL THE USER'S SUBSCRITIONS FROM THE USER TABLE
   MAIN.pdb.query(`SELECT * FROM users WHERE user_id = ? AND discord_id = ?`, [member.id, message.guild.id], async function (error, user, fields) {
-    if(!user || !user[0]){ await MAIN.Save_Emoji_Sub(member, server, message.guild); }
+    if(!user || !user[0]){ 
+      let raid = '';
+      raid = {};
+      raid.subscriptions = [];
+      raid.subscriptions.push(sub);
+      // STRINGIFY THE OBJECT
+      let new_subs = JSON.stringify(raid);
+      user_name = member.user.tag.replace(/[\W]+/g, '');
+      MAIN.pdb.query('INSERT INTO users (user_id, user_name, geofence, pokemon, quests, raids, status, bot, alert_time, discord_id, pokemon_status, raids_status, quests_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE user_name = ?',
+      [member.id, user_name, server.name, , , new_subs, 'ACTIVE', 0, '09:00', server.id, 'ACTIVE', 'ACTIVE', 'ACTIVE', user_name], function (error, user, fields) {
+        if (error) { return console.error('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] UNABLE TO ADD USER TO users TABLE', error); }
+          console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] Added ' + member.user.tag + ' to the user table.');
+          return;
+      });
+      return;
+     }
 
     let raid = '';
     // CHECK IF THE USER ALREADY HAS SUBSCRIPTIONS AND ADD
@@ -109,7 +124,7 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
       raid = {};
       raid.subscriptions = [];
       raid.subscriptions.push(sub);
-    } else {
+    } else{ 
       raid = JSON.parse(user[0].raids);
       if (!raid.subscriptions[0]) { raid.subscriptions.push(sub); }
       else {
@@ -145,7 +160,7 @@ async function subscription_remove(MAIN, discord, message, member, emojiName) {
 
   // FETCH USER FROM THE USERS TABLE
   MAIN.pdb.query(`SELECT * FROM users WHERE user_id = ? AND discord_id = ?`, [member.id, message.guild.id], async function (error, user, fields) {
-
+    if(!user || !user[0]){ return; }
     // END IF USER HAS NO SUBSCRIPTIONS
     if (!user[0].raids) { return; }
     else {

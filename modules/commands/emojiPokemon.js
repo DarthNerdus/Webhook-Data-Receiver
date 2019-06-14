@@ -27,7 +27,7 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
   sub.areas = "Yes";
 
   if(sub.name === "100" || sub.name === "96"){advanced = true}
-  if(message.content.toLowerCase().includes(discord.name.toLowerCase())){sub.areas = "No"}
+  if(message.content.toLowerCase().includes(server.name.toLowerCase())){sub.areas = "No"}
 
   if (advanced == true) {
     sub.type = 'advanced';
@@ -50,7 +50,23 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
 
   // PULL THE USER'S SUBSCRITIONS FROM THE USER TABLE
   MAIN.pdb.query(`SELECT * FROM users WHERE user_id = ? AND discord_id = ?`, [member.id, message.guild.id], async function (error, user, fields) {
-    if(!user || !user[0]){ await MAIN.Save_Emoji_Sub(member, server, message.guild); }
+    if(!user || !user[0]){ 
+      let pokemon = '';
+      if (sub.name == 'All') { sub.name == 'All-1'; }
+      pokemon = {};
+      pokemon.subscriptions = [];
+      pokemon.subscriptions.push(sub);
+      // STRINGIFY THE OBJECT
+      let newSubs = JSON.stringify(pokemon);
+      user_name = member.user.tag.replace(/[\W]+/g, '');
+      MAIN.pdb.query('INSERT INTO users (user_id, user_name, geofence, pokemon, quests, raids, status, bot, alert_time, discord_id, pokemon_status, raids_status, quests_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE user_name = ?',
+      [member.id, user_name, server.name, newSubs, , , 'ACTIVE', 0, '09:00', server.id, 'ACTIVE', 'ACTIVE', 'ACTIVE', user_name], function (error, user, fields) {
+        if (error) { return console.error('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] UNABLE TO ADD USER TO users TABLE', error); }
+          console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] Added ' + member.user.tag + ' to the user table.');
+          return;
+      });
+      return;
+     }
 
     let pokemon = '';
     // CHECK IF THE USER ALREADY HAS SUBSCRIPTIONS AND ADD
@@ -112,7 +128,7 @@ async function subscription_remove(MAIN, discord, message, member, emojiName) {
 
   // FETCH USER FROM THE USERS TABLE
   MAIN.pdb.query(`SELECT * FROM users WHERE user_id = ? AND discord_id = ?`, [member.id, message.guild.id], async function (error, user, fields) {
-
+    if(!user || !user[0]){ return; }
     // PARSE THE STRING TO AN OBJECT
     let pokemon = JSON.parse(user[0].pokemon), found = false;
 
