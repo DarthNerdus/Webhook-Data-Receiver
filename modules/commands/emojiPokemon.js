@@ -16,7 +16,7 @@ module.exports.run = async (MAIN, action, discord, message, memberid, emojiName)
 }
 
 // SUBSCRIPTION CREATE FUNCTION
-async function subscription_create(MAIN, discord, message, member, emojiName) {
+async function subscription_create(MAIN, server, message, member, emojiName) {
 
   // DEFINED THE SUBSCRIPTION OBJECT
   let sub = {};

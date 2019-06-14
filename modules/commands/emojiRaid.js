@@ -43,7 +43,7 @@ async function matchGymName(MAIN, user_choice, discord) {
 
 
 // SUBSCRIPTION CREATE FUNCTION
-async function subscription_create(MAIN, discord, message, member, emojiName) {
+async function subscription_create(MAIN, server, message, member, emojiName) {
 
   // DEFINED THE SUBSCRIPTION OBJECT
   let sub = {}, got_name = false;
