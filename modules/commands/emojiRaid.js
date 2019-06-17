@@ -48,15 +48,36 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
   // DEFINED THE SUBSCRIPTION OBJECT
   let sub = {}, got_name = false;
   let user_choice = 'All';
+  
   sub.gym = 'All';
   sub.areas = 'Yes';
   // RETRIEVE GYM NAME FROM EMOTED MESSAGE
-  if (!message.content.toLowerCase().includes("area")) {
+if (message.content.toLowerCase().includes("raidpass") && message.content.toLowerCase().includes("area")){
+  //sub.gym = 'All';
+  //sub.areas = 'Yes';
+} else if (message.content.toLowerCase().includes("raidpass") && message.content.toLowerCase().includes(server.name.toLowerCase())){
+  //sub.gym = 'All';
+  sub.areas = 'No';
+} else {
+  user_choice = await matchGymName(MAIN, message.embeds[0].author.name, server);
+  sub.id = user_choice.id;
+  sub.gym = user_choice.name;
+  sub.areas = 'Gym Specified';
+}
+let areaString = sub.gym
+if (sub.areas == 'Yes'){
+  areaString = 'your areas'
+}
+else if(sub.areas == 'No'){
+  areaString = 'All of '+server.name
+}
+
+  /*if (!message.content.toLowerCase().includes("area")) {
     user_choice = await matchGymName(MAIN, message.embeds[0].author.name, server);
     sub.id = user_choice.id;
     sub.gym = user_choice.name;
     sub.areas = 'Gym Specified';
-  }
+  }*/
 
   got_name = true;
 
@@ -112,7 +133,13 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
       MAIN.pdb.query('INSERT INTO users (user_id, user_name, geofence, pokemon, quests, raids, status, bot, alert_time, discord_id, pokemon_status, raids_status, quests_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON DUPLICATE KEY UPDATE user_name = ?',
       [member.id, user_name, server.name, , , new_subs, 'ACTIVE', 0, '09:00', server.id, 'ACTIVE', 'ACTIVE', 'ACTIVE', user_name], function (error, user, fields) {
         if (error) { return console.error('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] UNABLE TO ADD USER TO users TABLE', error); }
+        else {
+          let subscription_success = new Discord.RichEmbed().setColor('00ff00')
+            .addField('Your '+sub.boss+' Subscription in '+areaString+' is Complete!','<@'+member.id+'>')
+          message.channel.send(subscription_success).then(m => m.delete(10000)).catch(console.error);
+          console.log("Success!");
           console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] Added ' + member.user.tag + ' to the user table.');
+        }
           return;
       });
       return;
@@ -136,6 +163,26 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
           if (subscription.boss == sub.boss && subscription.gym == sub.gym && subscription.min_lvl == sub.min_lvl && subscription.max_lvl == sub.max_lvl) {
 
             raid.subscriptions[index] = sub;
+            if(sub.areas == 'No' || sub.areas == 'Yes'){
+              let searchString = 'RAID BOSS you want to be notified of in: ALL OF'
+              let responseString = 'All of '+server.name
+              if(sub.areas == 'No'){
+                searchString = 'RAID BOSS you want to be notified of in: YOUR'
+                responseString = 'your areas'
+              }
+                message.channel.fetchMessages().then(async messages => {
+                  let msg = messages.filter(msg => msg.content.includes(searchString));
+                  let refreshedMessage = await message.channel.fetchMessage(msg.first())
+                  let emoji = refreshedMessage.reactions.find(reaction => reaction.emoji.name == emojiName)
+                  if (emoji){
+                    emoji.remove(member).then(() =>{
+                      let subscription_change = new Discord.RichEmbed().setColor('FF0000')
+                      .addField('Your '+sub.boss+' Subscription in '+responseString+' has been removed ','<@'+member.id+'>')
+                    message.channel.send(subscription_change).then(m => m.delete(10000)).catch(console.error);
+                    })
+                  }
+                })
+            }
           }
           else if (index == raid.subscriptions.length - 1) { raid.subscriptions.push(sub); }
         });
@@ -149,6 +196,9 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
     MAIN.pdb.query(`UPDATE users SET raids = ? WHERE user_id = ? AND discord_id = ?`, [new_subs, member.id, message.guild.id], function (error, user, fields) {
       if (error) { return message.reply('There has been an error, please contact an Admin to fix.').then(m => m.delete(10000)).catch(console.error); }
       else {
+        let subscription_success = new Discord.RichEmbed().setColor('00ff00')
+          .addField('Your '+sub.boss+' Subscription in '+areaString+' is Complete!','<@'+member.id+'>')
+        message.channel.send(subscription_success).then(m => m.delete(10000)).catch(console.error);
         console.log("Success!");
       };
     });
@@ -171,11 +221,22 @@ async function subscription_remove(MAIN, server, message, member, emojiName) {
       // RETRIEVE GYM NAME FROM EMOTED MESSAGE
       let user_choice = {}
       user_choice.name = 'All';
-      if (!message.content.toLowerCase().includes("area")) { user_choice = await matchGymName(MAIN, message.embeds[0].author.name, server) }
+      if (message.content.toLowerCase().includes("raidpass") && message.content.toLowerCase().includes("area")){
+        sub.gym = 'All';
+        sub.areas = 'Yes';
+      } else if (message.content.toLowerCase().includes("raidpass") && message.content.toLowerCase().includes(server.name.toLowerCase())){
+        sub.gym = 'All';
+        sub.areas = 'No';
+      } else {
+        user_choice = await matchGymName(MAIN, message.embeds[0].author.name, server);
+        sub.id = user_choice.id;
+        sub.gym = user_choice.name;
+        sub.areas = 'Gym Specified';
+      }
 
 
       //sub.id = user_choice.id;
-      sub.gym = user_choice.name;
+      //sub.gym = user_choice.name;
       got_name = true;
 
       // RETRIEVE BOSS NAME FROM EMOTE
@@ -219,7 +280,7 @@ async function subscription_remove(MAIN, server, message, member, emojiName) {
       let raids = JSON.parse(user[0].raids), found = false, embed_title = '';
 
       // FETCH NAME OF POKEMON TO BE REMOVED AND CHECK RETURNED STRING
-      let remove_id = raids.subscriptions.findIndex(s => s.gym == sub.gym && s.boss == sub.boss && s.max_lvl == sub.max_lvl && s.min_lvl == sub.min_lvl)
+      let remove_id = raids.subscriptions.findIndex(s => s.gym == sub.gym && s.boss == sub.boss && s.max_lvl == sub.max_lvl && s.min_lvl == sub.min_lvl && s.areas == sub.areas)
 
       switch (remove_id) {
         case -1: return;
