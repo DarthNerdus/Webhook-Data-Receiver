@@ -176,8 +176,8 @@ else if(sub.areas == 'No'){
                   let emoji = refreshedMessage.reactions.find(reaction => reaction.emoji.name == emojiName)
                   if (emoji){
                     emoji.remove(member).then(() =>{
-                      let subscription_change = new Discord.RichEmbed().setColor('FF0000')
-                      .addField('Your '+sub.boss+' Subscription in '+responseString+' has been removed ','<@'+member.id+'>')
+                      let subscription_change = new Discord.RichEmbed().setColor('0000ff')
+                      .addField('Your '+sub.boss+' Subscription in '+responseString+' has been changed ','<@'+member.id+'>')
                     message.channel.send(subscription_change).then(m => m.delete(10000)).catch(console.error);
                     })
                   }
