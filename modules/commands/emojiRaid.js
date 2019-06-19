@@ -178,11 +178,7 @@ else if(sub.areas == 'No'){
               sub_message = 'Your '+sub.boss+' Subscription in '+responseString+' has been changed to '+previous
                 message.channel.fetchMessage(removalmsg).then((refreshedMessage) => {
                   let emoji = refreshedMessage.reactions.find(reaction => reaction.emoji.name == emojiName)
-                  if (emoji){
-                    emoji.remove(member).then(() =>{
-                    //message.channel.send(subscription_change).then(m => m.delete(10000)).catch(console.error);
-                    })
-                  }
+                  if (emoji){ emoji.remove(member) }
                 })
             }
             break;
