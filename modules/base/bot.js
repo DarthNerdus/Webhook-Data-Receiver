@@ -839,7 +839,7 @@ MAIN.Purge_Channels = () => {
           clear_unpinned_raid_channel(MAIN.Raid_Channels[i][1].chat); 
           clear_unpinned_channel(MAIN.Raid_Channels[i][0])
         }
-        for (var i = 0; i < MAIN.Quest_Channels.length; i++) { clear_unpinned_channel(MAIN.Quest_Channels[1][0]); }
+        for (var i = 0; i < MAIN.Quest_Channels.length; i++) { clear_unpinned_channel(MAIN.Quest_Channels[i][0]); }
         for (var i = 0; i < MAIN.Pokemon_Channels.length; i++) { clear_unpinned_channel(MAIN.Pokemon_Channels[i][0]); }
       }
     }
