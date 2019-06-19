@@ -124,44 +124,63 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
         if (sub.name == 'All') { sub.name = 'All-1'; }
         pokemon.subscriptions.push(sub);
       }
-      else if (sub.name == 'All') {
-        let s = 1;
-        await MAX_ALL_SUBS.forEach((max_num, index) => {
-          pokemon.subscriptions.forEach((subscription, index) => {
-            let sub_name = sub.name + '-' + max_num;
-            if (sub_name == subscription.name) { s++; }
-          });
-        });
-
-        // RENAME ALL SUB AND PUSH TO ARRAY
-        sub.name = sub.name + '-' + s.toString();
-        pokemon.subscriptions.push(sub);
-      }
       else {
         // CONVERT TO OBJECT AND CHECK EACH SUBSCRIPTION
         pokemon = JSON.parse(user[0].pokemon);
-        pokemon.subscriptions.forEach((subscription, index) => {
+        for (const [index, subscription] of pokemon.subscriptions.entries()) {
 
           // ADD OR OVERWRITE IF EXISTING
-          if (subscription.name == sub.name) {
+          if (subscription.name.toLowerCase().split('-')[0] == sub.name.toLowerCase()
+          && subscription.gender == sub.gender 
+          && subscription.min_lvl == sub.min_lvl 
+          && subscription.max_lvl == sub.max_lvl
+          && subscription.min_cp == sub.min_cp
+          && subscription.max_cp == sub.max_cp
+          && subscription.min_iv == sub.min_iv
+          && subscription.max_iv == sub.max_iv
+          && subscription.size == sub.size) {
+            if (sub.name == 'All'){
+              sub.name = subscription.name
+            }
             pokemon.subscriptions[index] = sub;
             let removalmsg = server.pokemonglobalmsg
-            let responseString = 'All of ' + server.name
-            let previous = 'your areas'
+            let responseString = 'ALL OF ' + server.name.toUpperCase()
+            let previous = 'YOUR AREAS'
             if (sub.areas == 'No') {
               removalmsg = server.pokemonlocalmsg
-              responseString = 'your areas'
-              previous = 'All of ' + server.name
+              responseString = 'YOUR AREAS'
+              previous = 'ALL OF ' + server.name.toUpperCase()
             }
             sub_colour = '0000ff'
-            sub_message = 'Your ' + sub.name + ' Subscription in ' + responseString + ' has been changed to '+previous
+            sub_message = 'Your ' + sub.name + ' Subscription has been changed from \n' + responseString + '\n to \n'+previous
             message.channel.fetchMessage(removalmsg).then((refreshedMessage) => {
               let emoji = refreshedMessage.reactions.find(reaction => reaction.emoji.name == emojiName)
               if (emoji) { emoji.remove(member) }
             })
-          }
-          else if (index == pokemon.subscriptions.length - 1) { pokemon.subscriptions.push(sub); }
-        });
+          break;
+        }
+          else if (index == pokemon.subscriptions.length - 1) { 
+            if (sub.name == 'All') {
+              let s = 1;
+              await MAX_ALL_SUBS.forEach((max_num, index) => {
+                pokemon.subscriptions.forEach((subscription, index) => {
+                  let sub_name = sub.name + '-' + max_num;
+                  if (sub_name == subscription.name) { s++; }
+                });
+              });
+      
+              // RENAME ALL SUB AND PUSH TO ARRAY
+              sub.name = sub.name + '-' + s.toString();
+            }
+            pokemon.subscriptions.push(sub);
+            embed_cp = sub.min_cp+'`/`'+sub.max_cp;
+            embed_iv = sub.min_iv+'`/`'+sub.max_iv;
+            embed_lvl = sub.min_lvl+'`/`'+sub.max_lvl;
+            embed_areas = sub.areas;
+            sub_message = 'CP: `'+embed_cp+'`\nIV: `'+embed_iv+'`\nLvl: `'+embed_lvl+'`\nAreas: `'+embed_areas+'`'
+            break;
+           }
+        }
       }
     }
 
@@ -172,8 +191,9 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
     MAIN.pdb.query(`UPDATE users SET pokemon = ? WHERE user_id = ? AND discord_id = ?`, [newSubs, member.id, message.guild.id], function (error, user, fields) {
       if (error) { return message.reply('There has been an error, please contact an Admin to fix.').then(m => m.delete(10000)).catch(console.error); }
       else {
-        let subscription_success = new Discord.RichEmbed().setColor('00ff00')
-          .addField('Your ' + sub.name + ' Subscription in ' + areaString + ' is Complete!', '<@' + member.id + '>')
+        let subscription_success = new Discord.RichEmbed().setColor(sub_colour)
+          .addField(' Your subscription: '+sub.name+' was Completed', 
+          sub_message+'\n'+'<@' + member.id + '>', false)
         message.channel.send(subscription_success).then(m => m.delete(10000)).catch(console.error);
       }
     });
