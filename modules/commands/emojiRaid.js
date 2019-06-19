@@ -50,14 +50,13 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
   let user_choice = 'All';
   
   sub.gym = 'All';
-  sub.areas = 'Yes';
-  // RETRIEVE GYM NAME FROM EMOTED MESSAGE
-if (message.content.toLowerCase().includes("raidpass") && message.content.toLowerCase().includes("area")){
-  //sub.gym = 'All';
   //sub.areas = 'Yes';
-} else if (message.content.toLowerCase().includes("raidpass") && message.content.toLowerCase().includes(server.name.toLowerCase())){
+  // RETRIEVE GYM NAME FROM EMOTED MESSAGE
+if (message.id == server.raidglobalmsg){
   //sub.gym = 'All';
   sub.areas = 'No';
+} else if (message.id == server.raidlocalmsg){
+  sub.areas = 'Yes';
 } else {
   user_choice = await matchGymName(MAIN, message.embeds[0].author.name, server);
   sub.id = user_choice.id;
@@ -144,7 +143,8 @@ else if(sub.areas == 'No'){
       });
       return;
      }
-
+    let sub_message = 'Your '+sub.boss+' Subscription in '+areaString+' is Complete!'
+    let sub_colour = '00ff00'
     let raid = '';
     // CHECK IF THE USER ALREADY HAS SUBSCRIPTIONS AND ADD
     if (!user[0].raids) {
@@ -157,7 +157,7 @@ else if(sub.areas == 'No'){
       else {
         // CONVERT TO OBJECT AND CHECK EACH SUBSCRIPTION
         raid = JSON.parse(user[0].raids);
-        raid.subscriptions.forEach((subscription, index) => {
+        for (const [index, subscription] of raid.subscriptions.entries()) {
 
           // ADD OR OVERWRITE IF EXISTING
           if (subscription.boss == sub.boss && subscription.gym == sub.gym && subscription.min_lvl == sub.min_lvl && subscription.max_lvl == sub.max_lvl) {
@@ -166,26 +166,32 @@ else if(sub.areas == 'No'){
             if(sub.areas == 'No' || sub.areas == 'Yes'){
               let searchString = 'RAID BOSS you want to be notified of in: ALL OF'
               let responseString = 'All of '+server.name
+              let previous = 'your areas'
+              let removalmsg = server.raidglobalmsg
               if(sub.areas == 'No'){
                 searchString = 'RAID BOSS you want to be notified of in: YOUR'
                 responseString = 'your areas'
+                previous = 'All of '+server.name
+                removalmsg = server.raidlocalmsg
               }
-                message.channel.fetchMessages().then(async messages => {
-                  let msg = messages.filter(msg => msg.content.includes(searchString));
-                  let refreshedMessage = await message.channel.fetchMessage(msg.first())
+              sub_colour = '0000ff'
+              sub_message = 'Your '+sub.boss+' Subscription in '+responseString+' has been changed to '+previous
+                message.channel.fetchMessage(removalmsg).then((refreshedMessage) => {
                   let emoji = refreshedMessage.reactions.find(reaction => reaction.emoji.name == emojiName)
                   if (emoji){
                     emoji.remove(member).then(() =>{
-                      let subscription_change = new Discord.RichEmbed().setColor('0000ff')
-                      .addField('Your '+sub.boss+' Subscription in '+responseString+' has been changed ','<@'+member.id+'>')
-                    message.channel.send(subscription_change).then(m => m.delete(10000)).catch(console.error);
+                    //message.channel.send(subscription_change).then(m => m.delete(10000)).catch(console.error);
                     })
                   }
                 })
             }
+            break;
           }
-          else if (index == raid.subscriptions.length - 1) { raid.subscriptions.push(sub); }
-        });
+          else if (index == raid.subscriptions.length - 1) { 
+            raid.subscriptions.push(sub); 
+            break;
+          }
+        }
       }
     }
 
@@ -196,8 +202,8 @@ else if(sub.areas == 'No'){
     MAIN.pdb.query(`UPDATE users SET raids = ? WHERE user_id = ? AND discord_id = ?`, [new_subs, member.id, message.guild.id], function (error, user, fields) {
       if (error) { return message.reply('There has been an error, please contact an Admin to fix.').then(m => m.delete(10000)).catch(console.error); }
       else {
-        let subscription_success = new Discord.RichEmbed().setColor('00ff00')
-          .addField('Your '+sub.boss+' Subscription in '+areaString+' is Complete!','<@'+member.id+'>')
+        let subscription_success = new Discord.RichEmbed().setColor(sub_colour)
+          .addField(sub_message,'<@'+member.id+'>')
         message.channel.send(subscription_success).then(m => m.delete(10000)).catch(console.error);
         console.log("Success!");
       };
@@ -221,11 +227,10 @@ async function subscription_remove(MAIN, server, message, member, emojiName) {
       // RETRIEVE GYM NAME FROM EMOTED MESSAGE
       let user_choice = {}
       user_choice.name = 'All';
-      if (message.content.toLowerCase().includes("raidpass") && message.content.toLowerCase().includes("area")){
-        sub.gym = 'All';
+      sub.gym = 'All';
+      if (message.id == server.raidlocalmsg){
         sub.areas = 'Yes';
-      } else if (message.content.toLowerCase().includes("raidpass") && message.content.toLowerCase().includes(server.name.toLowerCase())){
-        sub.gym = 'All';
+      } else if (message.id == server.raidglobalmsg){
         sub.areas = 'No';
       } else {
         user_choice = await matchGymName(MAIN, message.embeds[0].author.name, server);

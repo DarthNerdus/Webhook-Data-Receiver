@@ -27,9 +27,10 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
   sub.areas = "Yes";
 
   //if(sub.name === "100" || sub.name === "96"){advanced = true}
-  if (message.content.toLowerCase().includes("ultraball") && message.content.toLowerCase().includes(server.name.toLowerCase())){sub.areas = "No"}
+  //if (message.content.toLowerCase().includes("ultraball") && message.content.toLowerCase().includes(server.name.toLowerCase())){sub.areas = "No"}
+  if (message.id == server.pokemonglobalmsg){sub.areas = "No"}
 
-  if (sub.name === "100" || sub.name === "96") {
+  if (sub.name === "100" || sub.name === "96") { 
     sub.name = 'All'
     sub.type = 'advanced';
     sub.min_iv = emojiName;
@@ -144,24 +145,29 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
           // ADD OR OVERWRITE IF EXISTING
           if (subscription.name == sub.name) {
             pokemon.subscriptions[index] = sub;
-            let searchString = 'WILD POKEMON you want to be notified of in: ALL OF'
+            let removalmsg = server.pokemonglobalmsg
+            //let searchString = 'WILD POKEMON you want to be notified of in: ALL OF'
             let responseString = 'All of '+server.name
             if(sub.areas == 'No'){
-              searchString = 'WILD POKEMON you want to be notified of in: YOUR'
+              //searchString = 'WILD POKEMON you want to be notified of in: YOUR'
+              removalmsg = server.pokemonlocalmsg
               responseString = 'your areas'
             }
-              message.channel.fetchMessages().then(async messages => {
-                let msg = messages.filter(msg => msg.content.includes(searchString));
-                let refreshedMessage = await message.channel.fetchMessage(msg.first())
-                let emoji = refreshedMessage.reactions.find(reaction => reaction.emoji.name == emojiName)
-                if (emoji){
-                  emoji.remove(member).then(() =>{
-                    let subscription_change = new Discord.RichEmbed().setColor('0000ff')
-                    .addField('Your '+sub.name+' Subscription in '+responseString+' has been changed ','<@'+member.id+'>')
-                  message.channel.send(subscription_change).then(m => m.delete(10000)).catch(console.error);
-                  })
-                }
-              })
+              //message.channel.fetchMessages().then(async messages => {
+                //let msg = messages.filter(msg => msg.content.includes(searchString));
+                //let refreshedMessage = await message.channel.fetchMessage(msg.first())
+                message.channel.fetchMessage(removalmsg).then((refreshedMessage) => {
+                  let emoji = refreshedMessage.reactions.find(reaction => reaction.emoji.name == emojiName)
+                  if (emoji){
+                    emoji.remove(member).then(() =>{
+                      let subscription_change = new Discord.RichEmbed().setColor('0000ff')
+                      .addField('Your '+sub.name+' Subscription in '+responseString+' has been changed ','<@'+member.id+'>')
+                    message.channel.send(subscription_change).then(m => m.delete(10000)).catch(console.error);
+                    })
+                  }
+                })
+                
+              //})
             
           }
           else if (index == pokemon.subscriptions.length - 1) { pokemon.subscriptions.push(sub); }
@@ -201,12 +207,24 @@ async function subscription_remove(MAIN, server, message, member, emojiName) {
     // FETCH NAME OF POKEMON TO BE REMOVED AND CHECK RETURNED STRING
     let remove_name = emojiName;
     let remove_area = 'Yes';
-    if (message.content.toLowerCase().includes("ultraball") && message.content.toLowerCase().includes(server.name.toLowerCase())){remove_area = "No"}
-
+    //if (message.content.toLowerCase().includes("ultraball") && message.content.toLowerCase().includes(server.name.toLowerCase())){remove_area = "No"}
+    if (message.id == server.pokemonglobalmsg){remove_area = "No"}
 
     // CHECK THE USERS RECORD FOR THE SUBSCRIPTION
     pokemon.subscriptions.forEach((subscription, index) => {
-      if (subscription.name.toLowerCase() == remove_name.toLowerCase()
+      if (subscription.name.toLowerCase().includes('all')){
+        if (subscription.max_cp.toLowerCase() == 'all'
+        && subscription.min_cp.toLowerCase() == 'all'
+        && subscription.min_iv == remove_name
+        && subscription.max_lvl.toLowerCase() == 'all'
+        && subscription.min_lvl.toLowerCase() == 'all'
+        && subscription.areas == remove_area){
+          found = true;
+
+          // REMOVE THE SUBSCRIPTION
+          pokemon.subscriptions.splice(index, 1);
+        }
+      } else if (subscription.name.toLowerCase() == remove_name.toLowerCase()
       && subscription.areas == remove_area) {
         found = true;
 

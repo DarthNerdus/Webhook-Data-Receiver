@@ -746,6 +746,7 @@ async function bot_login() {
 
 var ontime_servers = [], ontime_times = [];
 MAIN.Discord.Servers.forEach(function (server) {
+
   let server_purge = moment(), timezone = GeoTz(server.geofence[0][0][1], server.geofence[0][0][0]);
   server_purge = moment.tz(server_purge, timezone[0]).set({ hour: 00, minute: 14, second: 30, millisecond: 0 });
   server_purge = moment.tz(server_purge, MAIN.config.TIMEZONE).format('HH:mm:ss');
@@ -793,6 +794,32 @@ MAIN.reloadEmojis = () => {
   itemRewards.forEach((p, i) => {
     let emoji = MAIN.emojis.find(e => e.name == p);
     if (emoji != null) { MAIN.Quest_Item_Emojis.set(emoji.id, emoji); }
+  });
+  //SETUP SUB CHANNEL EMOJIS
+  MAIN.Discord.Servers.forEach(function (server) {
+    if (server.command_channels){
+      MAIN.channels.get(server.command_channels).fetchMessages().then(async messages => {
+        let pokemonlocalmsg = messages.filter(msg => msg.content.includes('WILD POKEMON you want to be notified of in: YOUR'));
+        let pokemonglobalmsg = messages.filter(msg => msg.content.includes('WILD POKEMON you want to be notified of in: ALL OF'));
+        let raidlocalmsg = messages.filter(msg => msg.content.includes('RAID BOSS you want to be notified of in: YOUR'));
+        let raidglobalmsg = messages.filter(msg => msg.content.includes('RAID BOSS you want to be notified of in: ALL OF'));
+        if (pokemonlocalmsg){
+          server.pokemonlocalmsg = pokemonlocalmsg.firstKey();
+        }
+        if (pokemonglobalmsg){
+          server.pokemonglobalmsg = pokemonglobalmsg.firstKey();
+        }
+        if (raidlocalmsg){
+          server.raidlocalmsg = raidlocalmsg.firstKey();
+        }
+        if (raidglobalmsg){
+          server.raidglobalmsg = raidglobalmsg.firstKey();
+        }
+        if(!server.pokemonlocalmsg || !server.pokemonglobalmsg || !server.raidlocalmsg || !server.raidglobalmsg){
+          resetSubChannel(server)
+        }
+      })
+    }
   });
 }
 
@@ -960,51 +987,67 @@ async function resetSubChannel(server) {
     for (const emoji of toReact) {
       await msg.react(emoji).catch(console.error);
     }
-  })
-    .then(() => {
+  }).then(() => {
       //Commented out embeds here due to how they look on mobile, if discord fixes them, will revert
 
       //let raid_info = new Discord.RichEmbed();
       //raid_info.setDescription("React below with the **WILD POKEMON** you want to be notified of in: **YOUR AREA(S)**");
       //raid_info.setColor('00ccff')
-      channel.send(ball.toString() + "***React below with the WILD POKEMON you want to be notified of in: YOUR AREA(S)***")
+      if(!server.pokemonlocalmsg){
+        channel.send(ball.toString() + "***React below with the WILD POKEMON you want to be notified of in: YOUR AREA(S)***")
         .then(async (msg) => {
+          server.pokemonlocalmsg = msg.id
           for (const emoji of subEmojis) {
             await msg.react(emoji[1]).catch(console.error);
           }
         }).catch(console.error);
+      }
+      
     }).then(() => {
       //let raid_info = new Discord.RichEmbed();
       //raid_info.setDescription("React below with the **WILD POKEMON** you want to be notified of in: **ALL OF " + server.name.toUpperCase() + "**");
       //raid_info.setColor('00ccff')
-      channel.send(ball.toString() + "***React below with the WILD POKEMON you want to be notified of in: ALL OF " + server.name.toUpperCase() + "***").then(async (msg) => {
-        for (const emoji of subEmojis) {
-          await msg.react(emoji[1]).catch(console.error);
-        }
+      if(!server.pokemonglobalmsg){
+        channel.send(ball.toString() + "***React below with the WILD POKEMON you want to be notified of in: ALL OF " + server.name.toUpperCase() + "***")
+        .then(async (msg) => {
+          server.pokemonglobalmsg = msg.id
+          for (const emoji of subEmojis) {
+            await msg.react(emoji[1]).catch(console.error);
+          }
+      }).catch(console.error);
+    }
+      
       }).then(() => {
         //let raid_info = new Discord.RichEmbed();
         //raid_info.setColor("f358fb");
         //raid_info.setDescription("React below with the **RAID BOSS** you want to be notified of in: **YOUR AREA(S)**");
-        channel.send(raidpass.toString() + "***React below with the RAID BOSS you want to be notified of in: YOUR AREA(S)***").then(async (msg) => {
+        if(!server.raidlocalmsg){
+        channel.send(raidpass.toString() + "***React below with the RAID BOSS you want to be notified of in: YOUR AREA(S)***")
+        .then(async (msg) => {
+          server.raidlocalmsg = msg.id
           for (const emoji of MAIN.Raid_Boss_Emojis) {
             if (!emoji[1].name.toLowerCase().includes("all")) {
               await msg.react(emoji[1]).catch(console.error)
             }
           }
-        });
+        }).catch(console.error);
+      }
       }).then(() => {
         //let raid_info = new Discord.RichEmbed();
         //raid_info.setColor("f358fb");
         //raid_info.setDescription("React below with the **raid boss** you want to be notified of in: **ALL OF " + server.name.toUpperCase() + "**", icon);
-        channel.send(raidpass.toString() + "***React below with the RAID BOSS you want to be notified of in: ALL OF " + server.name.toUpperCase() + "***").then(async (msg) => {
+        if(!server.raidglobalmsg){
+        channel.send(raidpass.toString() + "***React below with the RAID BOSS you want to be notified of in: ALL OF " + server.name.toUpperCase() + "***")
+        .then(async (msg) => {
+          server.raidglobalmsg = msg.id
           for (const emoji of MAIN.Raid_Boss_Emojis) {
             if (!emoji[1].name.toLowerCase().includes("all")) {
               await msg.react(emoji[1]).catch(console.error)
             }
           }
-        });
-      })
-        .then(() => {
+        }).catch(console.error);
+      }
+      }).then(() => {
           //let info_embed = new Discord.RichEmbed();
           //info_embed.addField("Don't like these options? Type !p for fully customized pokemon alerts, including CP, IV, level and more!");
           //info_embed.addField("Want customized ")
@@ -1012,7 +1055,7 @@ async function resetSubChannel(server) {
         })
         .then(() => channel.lockPermissions())
         .catch(console.error);
-    });
+    //});
 }
 
 async function resetQuestChannels(server) {
