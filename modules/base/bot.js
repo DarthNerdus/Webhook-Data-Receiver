@@ -798,7 +798,7 @@ MAIN.reloadEmojis = () => {
   //SETUP SUB CHANNEL EMOJIS
   MAIN.Discord.Servers.forEach(function (server) {
     if (server.command_channels){
-      MAIN.channels.get(server.command_channels).fetchMessages().then(async messages => {
+      MAIN.channels.get(server.command_channels[0]).fetchMessages().then(async messages => {
         let pokemonlocalmsg = messages.filter(msg => msg.content.includes('WILD POKEMON you want to be notified of in: YOUR'));
         let pokemonglobalmsg = messages.filter(msg => msg.content.includes('WILD POKEMON you want to be notified of in: ALL OF'));
         let raidlocalmsg = messages.filter(msg => msg.content.includes('RAID BOSS you want to be notified of in: YOUR'));
@@ -841,6 +841,7 @@ MAIN.Purge_Channels = () => {
         }
         for (var i = 0; i < MAIN.Quest_Channels.length; i++) { clear_unpinned_channel(MAIN.Quest_Channels[i][0]); }
         for (var i = 0; i < MAIN.Pokemon_Channels.length; i++) { clear_unpinned_channel(MAIN.Pokemon_Channels[i][0]); }
+        for(var i = 0; i < server.spam_channels.length; i++) { clear_unpinned_channel(server.spam_channels[i])}
       }
     }
   }); return;
