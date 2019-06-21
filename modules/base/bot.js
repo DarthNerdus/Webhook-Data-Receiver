@@ -841,7 +841,7 @@ MAIN.Purge_Channels = () => {
         }
         for (var i = 0; i < MAIN.Quest_Channels.length; i++) { clear_unpinned_channel(MAIN.Quest_Channels[i][0]); }
         for (var i = 0; i < MAIN.Pokemon_Channels.length; i++) { clear_unpinned_channel(MAIN.Pokemon_Channels[i][0]); }
-        for(var i = 0; i < server.spam_channels.length; i++) { clear_unpinned_channel(server.spam_channels[i])}
+        for(var i = 0; i < server.spam_channels.length; i++) { clear_unpinned_channel(MAIN.channels.get(server.spam_channels[i]))}
       }
     }
   }); return;
