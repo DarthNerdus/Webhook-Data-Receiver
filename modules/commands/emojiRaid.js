@@ -11,6 +11,11 @@ module.exports.run = async (MAIN, action, discord, message, memberid, emojiName)
   let guild = await MAIN.guilds.get(message.guild.id);
   let member = await guild.members.get(memberid);
   if (member.user.bot) { return; }
+  let splitName = emojiName.split('_');
+  if (splitName.length > 1){
+    if (splitName[1].toLowerCase() == 'male') emojiName = splitName[0] + '♂'
+    else if (splitName[1].toLowerCase() == 'female') emojiName = splitName[0] + '♀'
+  }
 
   switch (action) {
     case 'MESSAGE_REACTION_ADD': subscription_create(MAIN, discord, message, member, emojiName); break;

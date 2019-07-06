@@ -6,6 +6,11 @@ module.exports.run = async (MAIN, action, discord, message, memberid, emojiName)
   let guild = await MAIN.guilds.get(message.guild.id);
   let member = await guild.members.get(memberid);
   if (member.user.bot) { return; }
+  let splitName = emojiName.split('_');
+  if (splitName.length > 1){
+    if (splitName[1] == '♂') emojiName = splitName[0] + '♂'
+    else if (splitName[1] == '♀') emojiName = splitName[0] + '♀'
+  }
 
   switch (action) {
     case 'MESSAGE_REACTION_ADD': subscription_create(MAIN, discord, message, member, emojiName); break;
@@ -89,7 +94,7 @@ async function subscription_create(MAIN, server, message, member, emojiName) {
     let pokemon = '';
     // CHECK IF THE USER ALREADY HAS SUBSCRIPTIONS AND ADD
     if (!user[0].pokemon) {
-      if (sub.name == 'All') { sub.name == 'All-1'; }
+      if (sub.name == 'All') { sub.name = 'All-1'; }
       pokemon = {};
       pokemon.subscriptions = [];
       pokemon.subscriptions.push(sub);

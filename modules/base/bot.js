@@ -879,7 +879,7 @@ async function resetSubChannelEmojis(server) {
   MAIN.reloadEmojis();
   let pokemonEmojis = MAIN.Pokemon_Sub_Emojis;
   let raidEmojis = MAIN.Raid_Boss_Emojis;
-  let channel_id = server.command_channels;
+  let channel_id = server.command_channels[0];
   let channel = await MAIN.channels.get(channel_id);
   let permissions = channel.permissionOverwrites;
   await permissions.tap(async permission => {
@@ -897,9 +897,10 @@ async function resetSubChannelEmojis(server) {
       for (const msgid of msgIDs) {
         let promises = [];
         let subEmojis = [];
+        let cmd = '';
         let msg = await channel.fetchMessage(msgid[0]).catch(console.error);
-        if (msg.content.toLowerCase().includes("wild pokemon")) { subEmojis = pokemonEmojis; let cmd = 'emojiPokemon'; }
-        else if (msg.content.toLowerCase().includes("raid boss")) { subEmojis = raidEmojis; let cmd = 'emojiRaid'; }
+        if (msg.content.toLowerCase().includes("wild pokemon")) { subEmojis = pokemonEmojis; cmd = 'emojiPokemon'; }
+        else if (msg.content.toLowerCase().includes("raid boss")) { subEmojis = raidEmojis; cmd = 'emojiRaid'; }
         if (subEmojis.size > 0) {
           for (const reaction of msg.reactions) {
             if (!subEmojis.has(reaction[1].emoji.id)) {
@@ -933,7 +934,7 @@ async function resetSubChannelEmojis(server) {
 async function resetSubChannel(server) {
   MAIN.reloadEmojis();
   let subEmojis = MAIN.Pokemon_Sub_Emojis;
-  let channel_id = server.command_channels;
+  let channel_id = server.command_channels[0];
   let channel = await MAIN.channels.get(channel_id);
   let permissions = channel.permissionOverwrites;
   let icon = MAIN.emotes.exPassreact.url;
@@ -1107,7 +1108,7 @@ async function resetQuestChannels(server) {
           }).catch(console.error);
       }
     })
-      .then(() => channel.send("Don't like these options? Go to " + "<#" + server.command_channels + ">" + " and type !q for fully customized quest alerts, including delivery time!")).then((msg) => msg.pin())
+      .then(() => channel.send("Don't like these options? Go to " + "<#" + server.command_channels[0] + ">" + " and type !q for fully customized quest alerts, including delivery time!")).then((msg) => msg.pin())
       .then(() => clear_unpinned_channel(channel_id))
       .then(() => channel.lockPermissions())
   }
