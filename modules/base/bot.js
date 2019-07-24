@@ -74,6 +74,7 @@ const raid_channels = ini.parse(fs.readFileSync('./config/channels_raids.ini', '
 const pokemon_channels = ini.parse(fs.readFileSync('./config/channels_pokemon.ini', 'utf-8'));
 const quest_channels = ini.parse(fs.readFileSync('./config/channels_quests.ini', 'utf-8'));
 const lure_channels = ini.parse(fs.readFileSync('./config/channels_lure.ini', 'utf-8'));
+const invasion_channels = ini.parse(fs.readFileSync('./config/channels_invasion.ini', 'utf-8'));
 
 // DEFINE AND LOAD MODULES
 var Raid_Feed, Raid_Subscription, Emojis, Quest_Feed, Commands;
@@ -97,6 +98,8 @@ function load_data() {
   Lure_Feed = require('../filtering/lure.js');
   //delete require.cache[require.resolve('../subscriptions/lure.js')];
   //Lure_Subscription = require('../subscriptions/lure.js');
+  delete require.cache[require.resolve('../filtering/invasion.js')];
+  Invasion_Feed = require('../filtering/invasion.js');
   delete require.cache[require.resolve('./emojis.js')];
   Emojis = require('./emojis.js');
   delete require.cache[require.resolve('../filtering/commands.js')];
@@ -142,6 +145,11 @@ function load_data() {
   MAIN.Lure_Channels = [];
   for (var key in lure_channels) { MAIN.Lure_Channels.push([key, lure_channels[key]]); }
   console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Start-Up] Loaded ' + MAIN.Lure_Channels.length + ' Lure Channels.');
+
+  // LOAD INVASION FEED CHANNELS
+  MAIN.Invasion_Channels = [];
+  for (var key in invasion_channels) { MAIN.Invasion_Channels.push([key, invasion_channels[key]]); }
+  console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Start-Up] Loaded ' + MAIN.Invasion_Channels.length + ' Invasion Channels.');
 
   // LOAD COMMANDS
   MAIN.Commands = new Discord.Collection();
@@ -236,7 +244,7 @@ MAIN.webhookParse = async (PAYLOAD) => {
   await PAYLOAD.forEach(async (data, index) => {
 
     // IGNORE IF NOT A SPECIFIED OBJECT
-    if (data.type == 'pokemon' || data.type == 'raid' || data.type == 'quest' || data.type == 'pokestop') {
+    if (data.type == 'pokemon' || data.type == 'raid' || data.type == 'quest' || data.type == 'pokestop' || data.type == 'invasion') {
 
       proper_data = true;
 
@@ -283,6 +291,9 @@ MAIN.webhookParse = async (PAYLOAD) => {
             case 'pokestop':
               Lure_Feed.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone); break;
             //Lure_Subscription.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone); break;
+            case 'invasion':
+              Invasion_Feed.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone); break;
+            //Invasion_Subscription.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone); break;
           }
         }
       }); return;
