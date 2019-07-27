@@ -1,4 +1,4 @@
 {
   "Type": "invasion",
-  "Lure_Type": [ "Invaded" ]
+  "Invasion_Type": [ "Invaded" ]
 }

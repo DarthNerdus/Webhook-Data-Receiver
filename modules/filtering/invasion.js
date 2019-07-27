@@ -48,10 +48,10 @@ module.exports.run = async (MAIN, invasion, main_area, sub_area, embed_area, ser
       // AREA FILTER
       if(geofences.indexOf(server.name) >= 0 || geofences.indexOf(main_area) >= 0 || geofences.indexOf(sub_area) >= 0){
 
-        if(filter.Invasion_Type.indexOf(type) >= 0){
+        //if(filter.Invasion_Type.indexOf(type) >= 0){
           if(MAIN.debug.Invasion == 'ENABLED'){ console.info('[DEBUG] [Modules] [invasion.js] Invasion Passed Filters for '+invasion_channel[0]+'.'); }
           Send_Invasion.run(MAIN, channel, invasion, type, main_area, sub_area, embed_area, server, timezone, role_id, embed);
-        }
+        //}
       }
       else{
         if(MAIN.debug.Invasion == 'ENABLED'){ console.info('[DEBUG] [Modules] [invasion.js] Invasion Did Not Pass Channel Geofences for '+invasion_channel[0]+'. Expected: '+invasion_channel[1].geofences+' Saw: '+server.name+'|'+main_area+'|'+sub_area); }
