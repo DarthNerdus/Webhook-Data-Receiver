@@ -36,7 +36,7 @@ module.exports.run = async (MAIN, target, invasion, type, main_area, sub_area, e
     case 'Dragon - Female Grunt':
     case 'Dragon - Male Grunt':
       pokestop.color = '3568b5';
-      pokestop.sprite = 'https://raw.githubusercontent.com/ZeChrales/PogoAssets/master/pixels/pokemon_icon_147_00.png';
+      pokestop.sprite = 'https://raw.githubusercontent.com/nileplumb/PkmnShuffleMap/master/PMSF_icons_large/pokemon_icon_147_00.png';
     break;
     case 'Dark - Female Grunt':
     case 'Dark - Male Grunt':
@@ -51,7 +51,7 @@ module.exports.run = async (MAIN, target, invasion, type, main_area, sub_area, e
     case 'Psychic - Female Grunt':
     case 'Psychic - Male Grunt':
       pokestop.color = 'fa8f7c';
-      pokestop.sprite = 'https://raw.githubusercontent.com/ZeChrales/PogoAssets/master/pixels/pokemon_icon_280_00.png'
+      pokestop.sprite = 'https://raw.githubusercontent.com/nileplumb/PkmnShuffleMap/master/PMSF_icons_large/pokemon_icon_280_00.png'
     break;
     default:
       pokestop.color = '188ae2';
