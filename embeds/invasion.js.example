@@ -5,7 +5,7 @@ module.exports = function (p) {
   .setColor(p.color)
   .setThumbnail(p.sprite)
   .setAuthor(p.name, p.url)
-  .setDescription('**'+p.type+'** Lure')
+  .setDescription('**'+p.type+'** Invasion')
   .addField(p.area+': ','[Google Maps](https://www.google.com/maps?q='+p.lat+','+p.lon+') | '
   +'[Apple Maps](http://maps.apple.com/maps?daddr='+p.lat+','+p.lon+'&z=10&t=s&dirflg=d) | '
   +'[Scan Map]('+p.map_url+'?lat='+p.lat+'&lon='+p.lon+'&zoom=15)',false)

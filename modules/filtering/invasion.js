@@ -77,7 +77,7 @@ module.exports.run = async (MAIN, invasion, main_area, sub_area, embed_area, ser
     if (!filter) { console.error('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] The filter defined for' + invasion_channel[0] + ' does not appear to exist.'); }
     else if (!channel) { console.error('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] The channel ' + invasion_channel[0] + ' does not appear to exist.'); }
 
-    // FILTER FOR LURE TYPE
+    // FILTER FOR INVASION TYPE
     else if (type) {
 
       // AREA FILTER

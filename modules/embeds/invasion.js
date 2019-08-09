@@ -28,21 +28,30 @@ module.exports.run = async (MAIN, target, invasion, type, main_area, sub_area, e
 
   // GET INVASION TYPE, COLOR, AND SPRITE
   switch(type){
-    case 'Normal':
-      pokestop.color = 'ec78ea';
-      pokestop.sprite = 'https://raw.githubusercontent.com/ZeChrales/PogoAssets/master/static_assets/png/TroyKey.png';
+    case 'Normal - Female Grunt':
+    case 'Normal - Male Grunt':
+      pokestop.color = '808080';
+      pokestop.sprite = 'https://raw.githubusercontent.com/ZeChrales/PogoAssets/master/static_assets/png/Badge_Type_Normal_01.png';
     break;
-    case 'Glacial':
-      pokestop.color = '5feafd';
-      pokestop.sprite = 'https://raw.githubusercontent.com/ZeChrales/PogoAssets/master/static_assets/png/TroyKey_glacial.png';
+    case 'Dragon - Female Grunt':
+    case 'Dragon - Male Grunt':
+      pokestop.color = '3568b5';
+      pokestop.sprite = 'https://raw.githubusercontent.com/ZeChrales/PogoAssets/master/pixels/pokemon_icon_147_00.png';
     break;
-    case 'Mossy':
-      pokestop.color = '72ea38';
-      pokestop.sprite = 'https://raw.githubusercontent.com/ZeChrales/PogoAssets/master/static_assets/png/TroyKey_moss.png';
+    case 'Dark - Female Grunt':
+    case 'Dark - Male Grunt':
+      pokestop.color = '000000';
+      pokestop.sprite = 'https://raw.githubusercontent.com/ZeChrales/PogoAssets/master/static_assets/png/Badge_Type_Dark_01.png';
     break;
-    case 'Magnetic':
-      pokestop.color = 'fac036';
-      pokestop.sprite = 'https://raw.githubusercontent.com/ZeChrales/PogoAssets/00dd14bec9d3e17f89ddb021d71853c8b4667cf0/static_assets/png/TroyKey_magnetic.png'
+    case 'Darkness - Female Grunt':
+    case 'Darkness - Male Grunt':
+      pokestop.color = '815bc2';
+      pokestop.sprite = 'https://raw.githubusercontent.com/ZeChrales/PogoAssets/master/static_assets/png/Badge_Type_Ghost_01.png'
+    break;
+    case 'Psychic - Female Grunt':
+    case 'Psychic - Male Grunt':
+      pokestop.color = 'fa8f7c';
+      pokestop.sprite = 'https://raw.githubusercontent.com/ZeChrales/PogoAssets/master/pixels/pokemon_icon_280_00.png'
     break;
     default:
       pokestop.color = '188ae2';
