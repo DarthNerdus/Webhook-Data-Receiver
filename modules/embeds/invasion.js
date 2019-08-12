@@ -28,6 +28,10 @@ module.exports.run = async (MAIN, target, invasion, type, main_area, sub_area, e
 
   // GET INVASION TYPE, COLOR, AND SPRITE
   switch(type){
+    case 'Female Grunt':
+      pokestop.color = '197a89';
+      pokestop.sprite = 'https://raw.githubusercontent.com/nileplumb/PkmnShuffleMap/master/PMSF_icons_large/pokemon_icon_143_00.png';
+    break;
     case 'Normal - Female Grunt':
     case 'Normal - Male Grunt':
       pokestop.color = '808080';
