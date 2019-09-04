@@ -22,20 +22,25 @@ module.exports.run = async (MAIN, action, discord, message, memberid, emojiName)
 // SUBSCRIPTION CREATE FUNCTION
 async function subscription_create(MAIN, server, message, member, area) {
   let role = MAIN.Sub_Roles.find(r => r.name.toLowerCase() == area.toLowerCase())
-  if (role != null){
+  let refreshedRoles = MAIN.channels.get(server.command_channels[0]).guild.roles
+  let refreshedRole = refreshedRoles.find(r => r == role)
+  if (refreshedRole != null){
     member.addRole(role)
     .then( console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Role] Added role: ' + role.name) )
     .catch( console.error )
   } else {
-    MAIN.channels.get(server.command_channels[0]).guild.createRole({
-      name: area
-    })
-    .then(newRole => {
-      member.addRole(newRole)
-      MAIN.Sub_Roles.set(newRole.id, newRole)
-      console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Setup] Created new role: ' + newRole.name);
-    })
-    .catch(console.error)
+    let roleFound = MAIN.Raid_Channels.find(rchan => rchan[1].geofences.toLowerCase() == area.toLowerCase())
+    if (roleFound != null) {
+      MAIN.channels.get(server.command_channels[0]).guild.createRole({
+        name: roleFound[1].geofences
+      })
+      .then(newRole => {
+        member.addRole(newRole)
+        MAIN.Sub_Roles.set(newRole.id, newRole)
+        console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Setup] Created new role: ' + newRole.name);
+      })
+      .catch(console.error)
+    }
   }
   
 
