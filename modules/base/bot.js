@@ -806,9 +806,27 @@ MAIN.reloadEmojis = () => {
     let emoji = MAIN.emojis.find(e => e.name == p);
     if (emoji != null) { MAIN.Quest_Item_Emojis.set(emoji.id, emoji); }
   });
-  //SETUP SUB CHANNEL EMOJIS
+  //SETUP SUB CHANNEL EMOJIS AND SUB ROLES
   MAIN.Discord.Servers.forEach(function (server) {
     if (server.command_channels){
+      MAIN.Sub_Roles = new Discord.Collection();
+      let roles = MAIN.channels.get(server.command_channels[0]).guild.roles
+      MAIN.Raid_Channels.forEach((geo, i) => {
+        let role = roles.find(r => r.name == geo[1].geofences)
+        if (role != null) {
+          MAIN.Sub_Roles.set(role.id, role)
+          console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Setup] Loaded role: ' + role.name);
+        } else {
+          MAIN.channels.get(server.command_channels[0]).guild.createRole({
+            name: geo[1].geofences
+          })
+          .then(newRole => {
+            MAIN.Sub_Roles.set(newRole.id, newRole)
+            console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Setup] Created new role: ' + newRole.name);
+          })
+          .catch(console.error)
+        }
+      })
       MAIN.channels.get(server.command_channels[0]).fetchMessages().then(async messages => {
         let pokemonlocalmsg = messages.filter(msg => msg.content.includes('WILD POKEMON you want to be notified of in: YOUR'));
         let pokemonglobalmsg = messages.filter(msg => msg.content.includes('WILD POKEMON you want to be notified of in: ALL OF'));
@@ -1076,10 +1094,6 @@ async function resetQuestChannels(server) {
   let encounterEmojis = MAIN.Quest_Encounter_Emojis;
   let itemEmojis = MAIN.Quest_Item_Emojis;
 
-  await MAIN.config.QUEST.Rewards.forEach((reward, index) => {
-    Array.from(MAIN.emojis.values()).filter(e => e.guild.id == "456591058801917954");
-  });
-
   for (const questChannel of MAIN.Quest_Channels) {
     let channel_id = await questChannel[0];
     let channel = await MAIN.channels.get(channel_id);
@@ -1182,6 +1196,8 @@ async function resetQuestEmojis(server) {
               });
             }
           }
+        } else {
+          resetQuestChannels(server)
         }
       });
     })
@@ -1304,7 +1320,8 @@ function clear_unpinned_channel(channel_id) {
     channel.fetchMessages({ limit: 99 }).then(messages => {
       let unpinned = messages.filter(msg => !msg.pinned);
       channel.bulkDelete(unpinned).then(deleted => {
-        if (deleted.size > (messages.size - unpinned.size)) { clear_channel(channel_id).then(result => { return resolve(true); }); }
+        if (deleted.size > (messages.size - unpinned.size)) { 
+          clear_unpinned_channel(channel_id).then(result => { return resolve(true); }); }
         else {
           console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Ontime] Purged all unpinned messages in ' + channel.name + ' (' + channel.id + ')');
           return resolve(true);
@@ -1328,7 +1345,7 @@ function clear_unpinned_raid_channel(channel_id) {
       let unembedded = messages.filter(msg => !msg.pinned);
       let unpinned = unembedded.filter(msg => msg.embeds.length == 0);
       channel.bulkDelete(unpinned).then(deleted => {
-        if (deleted.size > (messages.size - unpinned.size)) { clear_channel(channel_id).then(result => { return resolve(true); }); }
+        if (deleted.size > (messages.size - unpinned.size)) { clear_unpinned_raid_channel(channel_id).then(result => { return resolve(true); }); }
         else {
           console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Ontime] Purged all unpinned messages in ' + channel.name + ' (' + channel.id + ')');
           return resolve(true);

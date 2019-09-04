@@ -21,6 +21,23 @@ module.exports.run = async (MAIN, action, discord, message, memberid, emojiName)
 
 // SUBSCRIPTION CREATE FUNCTION
 async function subscription_create(MAIN, server, message, member, area) {
+  let role = MAIN.Sub_Roles.find(r => r.name.toLowerCase() == area.toLowerCase())
+  if (role != null){
+    member.addRole(role)
+    .then( console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Role] Added role: ' + role.name) )
+    .catch( console.error )
+  } else {
+    MAIN.channels.get(server.command_channels[0]).guild.createRole({
+      name: area
+    })
+    .then(newRole => {
+      member.addRole(newRole)
+      MAIN.Sub_Roles.set(newRole.id, newRole)
+      console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Setup] Created new role: ' + newRole.name);
+    })
+    .catch(console.error)
+  }
+  
 
   // PULL THE USER'S SUBSCRITIONS FROM THE USER TABLE
   MAIN.pdb.query(`SELECT * FROM users WHERE user_id = ? AND discord_id = ?`, [member.id, message.guild.id], async function (error, user, fields) {
@@ -80,6 +97,12 @@ async function subscription_create(MAIN, server, message, member, area) {
 
 // SUBSCRIPTION REMOVE FUNCTION
 async function subscription_remove(MAIN, discord, message, member, area) {
+  let role = MAIN.Sub_Roles.find(r => r.name.toLowerCase() == area.toLowerCase())
+  if (role != null){
+    member.removeRole(role)
+    .then( console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Role] Removed role: ' + role.name) )
+    .catch( console.error )
+  }
 
   // PULL THE USER'S SUBSCRITIONS FROM THE USER TABLE
   MAIN.pdb.query(`SELECT * FROM users WHERE user_id = ? AND discord_id = ?`, [member.id, message.guild.id], async function (error, user, fields) {
