@@ -19,7 +19,7 @@ module.exports = function (p) {
   .addField('__**Possible Encounters:**__ ',reward_string)
   .addField(p.area+': ','[Google Maps](https://www.google.com/maps?q='+p.lat+','+p.lon+') | '
   +'[Apple Maps](http://maps.apple.com/maps?daddr='+p.lat+','+p.lon+'&z=10&t=s&dirflg=d) | '
-  +'[Unity Map]('+p.map_url+'?lat='+p.lat+'&lon='+p.lon+'&zoom=15)',false)
+  +'[Scan Map]('+p.map_url+'?lat='+p.lat+'&lon='+p.lon+'&zoom=15)',false)
   .setImage(p.map_img)
   .setFooter('Invasion Expires at: '+p.time+' ('+p.mins+' Mins) ');
 
