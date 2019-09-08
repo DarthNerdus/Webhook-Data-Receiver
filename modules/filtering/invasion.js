@@ -19,6 +19,8 @@ module.exports.run = async (MAIN, invasion, main_area, sub_area, embed_area, ser
     }
   }
 
+  let encounters = first_reward.concat(second_reward);
+
   // CHECK EACH FEED FILTER
   MAIN.Invasion_Channels.forEach((invasion_channel, index) => {
 
@@ -48,10 +50,14 @@ module.exports.run = async (MAIN, invasion, main_area, sub_area, embed_area, ser
 
       // AREA FILTER
       if (geofences.indexOf(server.name) >= 0 || geofences.indexOf(main_area) >= 0 || geofences.indexOf(sub_area) >= 0) {
+        let desirable = false;
+        desirable = encounters.some(poke =>
+          filter.reward.indexOf(MAIN.masterfile.pokemon[parseInt(poke)].name) >= 0
+        )
 
-        if(filter.type.indexOf(type) >= 0 || filter.grunt.indexOf(grunt) >=0){
-        if (MAIN.debug.Invasion == 'ENABLED') { console.info('[DEBUG] [Modules] [invasion.js] Invasion Passed Filters for ' + invasion_channel[0] + '.'); }
-        Send_Invasion.run(MAIN, channel, invasion, first_reward, second_reward, grunt, type, main_area, sub_area, embed_area, server, timezone, role_id, embed);
+        if (desirable) {
+          if (MAIN.debug.Invasion == 'ENABLED') { console.info('[DEBUG] [Modules] [invasion.js] Invasion Passed Filters for ' + invasion_channel[0] + '.'); }
+          Send_Invasion.run(MAIN, channel, invasion, first_reward, second_reward, grunt, type, main_area, sub_area, embed_area, server, timezone, role_id, embed);
         }
       }
       else {
