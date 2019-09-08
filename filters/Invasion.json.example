@@ -1,4 +1,4 @@
 {
-  "Type": "invasion",
-  "Invasion_Type": [ "Normal - Female Grunt", "Normal - Male Grunt","Dragon - Female Grunt","Dragon - Male Grunt","Darkness - Female Grunt","Darkness - Male Grunt","Dark - Female Grunt","Dark - Male Grunt","Psychic - Female Grunt","Psychic - Male Grunt"]
+  "type": ["Fire","Water","Normal","Dragon"],
+  "grunt": [ "Male Grunt", "Female Grunt"]
 }

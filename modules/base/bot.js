@@ -773,9 +773,6 @@ MAIN.Discord.Servers.forEach(function (server) {
 MAIN.reloadEmojis = () => {
   //MAKE SURE WE HAVE THE RIGHT EMOJIS
   MAIN.start('reload');
-  /*MAIN.emojis.forEach((emoji,i) => {
-    console.log(emoji.name)
-  })*/
 
   // LOAD RAID BOSS EMOJIS
   MAIN.Raid_Boss_Emojis = new Discord.Collection();
