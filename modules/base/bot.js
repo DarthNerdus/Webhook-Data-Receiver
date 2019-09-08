@@ -123,6 +123,8 @@ function load_data() {
   MAIN.rewards = require('../../static/rewards.json');
   delete require.cache[require.resolve('../../config/discords.json')];
   MAIN.Discord = require('../../config/discords.json');
+  delete require.cache[require.resolve('../../static/grunttype.json')];
+  MAIN.grunttypes = require('../../static/grunttype.json');
   MAIN.config = ini.parse(fs.readFileSync('./config/config.ini', 'utf-8'));
   console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Start-Up] Loaded all Configs and Static Files.');
 
@@ -771,6 +773,9 @@ MAIN.Discord.Servers.forEach(function (server) {
 MAIN.reloadEmojis = () => {
   //MAKE SURE WE HAVE THE RIGHT EMOJIS
   MAIN.start('reload');
+  /*MAIN.emojis.forEach((emoji,i) => {
+    console.log(emoji.name)
+  })*/
 
   // LOAD RAID BOSS EMOJIS
   MAIN.Raid_Boss_Emojis = new Discord.Collection();
