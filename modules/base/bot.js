@@ -529,7 +529,7 @@ MAIN.gym_array = []; MAIN.pokemon_array = []; MAIN.park_array = [];
 function load_arrays(){
   MAIN.pokemon_array = Object.keys(MAIN.masterfile.pokemon).map(i => MAIN.masterfile.pokemon[i].name);
   // Gym Names Array
-  MAIN.rdmdb.query(`SELECT * FROM gym WHERE name is not NULL`, function (error, gyms, fields){
+  MAIN.rdmdb.query(`select gym.gym_id as id, latitude as lat, longitude as lon, is_ex_raid_eligible as ex_raid_eligible, gymdetails.name FROM gym LEFT JOIN gymdetails on gym.gym_id = gymdetails.gym_id;`, function (error, gyms, fields){
     if(gyms){
       gyms.forEach((gym,index) => {
         let record = {};
