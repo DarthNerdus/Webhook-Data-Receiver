@@ -348,6 +348,15 @@ MAIN.Get_Sprite = (form, id) => {
     } else { extension = '_00'+extension; }
     sprite_url = sprite_url+'pokemon_icon_';
   }
+  // DARTHY
+  if (MAIN.config.SPRITE_TYPE == 'DARTHY') {
+    sprite_url = "https://htownpogo.com/map/pkm_img?raw=1&";
+    if (form > 0 ){
+      sprite_url = sprite_url + "form=" + form + "&";  
+    }
+    sprite_url = sprite_url + "pkm=";
+    extension = "";
+  }
   // ASSET ICONS
   if (MAIN.config.SPRITE_TYPE == 'ASSETS') {
     if (form > 0 ){
