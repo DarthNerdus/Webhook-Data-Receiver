@@ -167,7 +167,6 @@ function load_data() {
   MAIN.Filters = new Discord.Collection();
   fs.readdir('./filters', (err, filters) => {
     let filter_files = filters.filter(f => f.split('.').pop() === 'json'), filter_count = 0;
-    console.log(filter_files);
     filter_files.forEach((f, i) => {
       delete require.cache[require.resolve('../../filters/' + f)]; filter_count++;
       let filter = require('../../filters/' + f); filter.name = f; MAIN.Filters.set(f, filter);
@@ -1042,7 +1041,6 @@ async function resetQuestChannels(server) {
       if (questChannel[1].filter == "Quest_Encounters.json") {
         let questString = "QUEST ENCOUNTER REWARDS";
         let emojiArray = encounterEmojis;
-        console.log(questChannel[1].filter);
         channel.send(questString)
           .then((msg) => msg.pin())
           .then(async (msg) => {
@@ -1053,7 +1051,6 @@ async function resetQuestChannels(server) {
       } else if (questChannel[1].filter == "Quest_Items.json") {
         let questString = "QUEST ITEM REWARDS";
         let emojiArray = itemEmojis;
-        console.log(questChannel[1].filter);
         channel.send(questString)
           .then((msg) => msg.pin())
           .then(async (msg) => {
@@ -1084,7 +1081,6 @@ async function resetQuestEmojis(server) {
       questString = "QUEST ITEM REWARDS";
       emojiArray = itemEmojis;
     }
-    console.log(MAIN.Quest_Channels[i][1].filter);
     let channel_id = await MAIN.Quest_Channels[i][0];
     let channel = await MAIN.channels.get(channel_id);
     let permissions = channel.permissionOverwrites;
@@ -1241,7 +1237,6 @@ async function resetRaidChannels(server) {
 
 // PURGE CHANNEL
 function clear_unpinned_channel(channel_id) {
-  console.log(channel_id);
   //should check to see if these are pinned
   return new Promise(async function (resolve) {
     let channel = await MAIN.channels.get(channel_id);
@@ -1265,7 +1260,6 @@ function clear_unpinned_channel(channel_id) {
 
 // PURGE CHANNEL
 function clear_unpinned_raid_channel(channel_id) {
-  console.log(channel_id);
   //should check to see if these are pinned
   return new Promise(async function (resolve) {
     let channel = await MAIN.channels.get(channel_id);
@@ -1287,7 +1281,6 @@ function clear_unpinned_raid_channel(channel_id) {
 
 // PURGE CHANNEL
 function clear_channel(channel_id) {
-  console.log(channel_id);
   return new Promise(async function (resolve) {
     let channel = await MAIN.channels.get(channel_id);
     console.log('[Pokébot] [' + MAIN.Bot_Time(null, 'stamp') + '] [Ontime] Purging all messages in ' + channel.name + ' (' + channel.id + ')');

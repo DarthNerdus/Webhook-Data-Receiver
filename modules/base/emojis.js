@@ -17,7 +17,6 @@ function LoadEmojis(bot, serverIDs) {
 
   for (var i = 0; i < guildArray.length; i++) {
     let guild = bot.guilds.get(guildArray[i][0]);
-    console.info(guild.name);
     if (guild.available) {
       if (!this.bug) {
         this.bug = guild.emojis.find(emoji => emoji.name === "bugtype");
