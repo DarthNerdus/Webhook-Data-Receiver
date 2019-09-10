@@ -47,8 +47,8 @@ module.exports.run = async (MAIN, has_iv, target, sighting, internal_value, time
 
   // GET GENDER
   switch(sighting.gender){
-    case 1: pokemon.gender = ' '+MAIN.emotes.male; break;
-    case 2: pokemon.gender = ' '+MAIN.emotes.female; break;
+    case 1: pokemon.gender = ' \u2642'; break;
+    case 2: pokemon.gender = ' \u2640'; break;
     default: pokemon.gender = '';
   }
   // Round IV
