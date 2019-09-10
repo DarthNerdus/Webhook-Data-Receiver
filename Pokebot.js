@@ -15,7 +15,8 @@ server.listen(pokebot.config.LISTENING_PORT, () => {
 
 // CATCH ALL POST REQUESTS
 server.post('/', async (webhook, resolve) => {
-  return pokebot.webhookParse(webhook.body);
+  pokebot.webhookParse(webhook.body);
+  resolve.send('Webhook accepted');
 });
 
 module.exports = server;
