@@ -10,7 +10,9 @@ module.exports.run = async (MAIN, target, sighting, internal_value, time_now, ma
   // DETERMINE POKEMON NAME AND FORM
   pokemon.name = MAIN.masterfile.pokemon[sighting.pokemon_id].name;
   if (sighting.form > 0){
-    form_name = '['+MAIN.masterfile.pokemon[sighting.pokemon_id].forms[sighting.form].name+'] ';
+    if (MAIN.masterfile.pokemon[sighting.pokemon_id].forms[sighting.form] ) {
+       form_name = '['+MAIN.masterfile.pokemon[sighting.pokemon_id].forms[sighting.form].name+'] ';
+    }
   }
 
   pokemon.area = embed_area;

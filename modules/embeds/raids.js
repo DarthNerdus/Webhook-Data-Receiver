@@ -101,7 +101,9 @@ module.exports.run = async (MAIN, target, raid, raid_type, main_area, sub_area, 
       // DETERMINE POKEMON NAME, FORM, TYPE, AND WEAKNESSES
       gym.boss = MAIN.masterfile.pokemon[raid.pokemon_id].name;
       if (raid.form > 0 && !MAIN.masterfile.pokemon[raid.pokemon_id].types){
-        gym.form = '['+MAIN.masterfile.pokemon[raid.pokemon_id].forms[raid.form].name+']';
+        if (MAIN.masterfile.pokemon[raid.pokemon_id].forms[raid.form] ) {
+            gym.form = '['+MAIN.masterfile.pokemon[raid.pokemon_id].forms[raid.form].name+'] ';
+        }
         await MAIN.masterfile.pokemon[raid.pokemon_id].forms[raid.form].types.forEach((type) => {
          gym.type += type+' '+MAIN.emotes[type.toLowerCase()]+' / ';
          MAIN.types[type.toLowerCase()].weaknesses.forEach((weakness,index) => {
