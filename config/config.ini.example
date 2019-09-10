@@ -146,6 +146,42 @@ Rewards[] = Larvitar
 Rewards[] = Sandshrew
 Rewards[] = Spinda
 
+[SUBPOKEMON]
+Pokemon[] = Azelf
+Pokemon[] = Unown
+Pokemon[] = Gible
+Pokemon[] = Larvitar
+Pokemon[] = Tyranitar
+Pokemon[] = Chansey
+Pokemon[] = Blissey
+Pokemon[] = Bronzor
+Pokemon[] = Ralts
+Pokemon[] = Machamp
+Pokemon[] = Lapras
+Pokemon[] = Cherubi
+Pokemon[] = 96
+Pokemon[] = 100
+
+[RAIDBOSSES]
+Pokemon[] = Cresselia
+Pokemon[] = Marowak
+Pokemon[] = Tyranitar
+Pokemon[] = Absol
+Pokemon[] = Raichu
+Pokemon[] = Misdreavus
+Pokemon[] = Kirlia
+Pokemon[] = Mawile
+Pokemon[] = Shinx
+Pokemon[] = All
+Pokemon[] = Burmy
+Pokemon[] = Drifloon
+Pokemon[] = Sneasel
+Pokemon[] = Sableye
+Pokemon[] = Sharpedo
+Pokemon[] = Gengar
+Pokemon[] = Crawdaunt
+Pokemon[] = Houndoom
+
 [RAID]
 Subscriptions = ENABLED
 Discord_Feeds = ENABLED

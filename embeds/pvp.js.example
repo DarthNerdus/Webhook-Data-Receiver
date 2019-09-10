@@ -2,7 +2,12 @@ const Discord = require('discord.js');
 const master_file = require('../static/masterfile.json');
 
 module.exports = function(p) {
-
+  let timeMinutes = p.time.split(':')[1];
+  let timeHour = p.time.split(':')[0];
+  let warning = '';
+  if (parseInt(timeMinutes, 10) - p.mins < 0){
+    warning = '\r\n**WARNING: This pokemon may change IVs at '+timeHour+timeMinutes.split(' ')[1]+'**';
+  }
   let pvpString = "";
 
   for(var pokemon in p.possible_cps)
@@ -15,7 +20,7 @@ module.exports = function(p) {
   .setColor(p.color)
   .setThumbnail(p.sprite)
   .addField('**'+p.name+'** '+p.form+p.attack+'/'+p.defense+'/'+p.stamina+' ('+p.iv+'%)\n'
-           +'Level '+p.level+' | CP '+p.cp+p.gender, 'Ht: '+p.height+'m | Wt: '+p.weight+'kg | '+p.size+'\n'
+           +'Level '+p.level+' | CP '+p.cp+p.gender, warning+'\n'+'Ht: '+p.height+'m | Wt: '+p.weight+'kg | '+p.size+'\n'
            +p.move_name_1+' '+p.move_type_1+' / '+p.move_name_2+' '+p.move_type_2, false)
   .addField(p.verified+'| '+p.time+' (*'+p.mins+'m '+p.secs+'s*) ', p.type+p.weather_boost, false)
   .addField("**Potential PvP CPs**", pvpString, false)

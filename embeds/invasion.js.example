@@ -1,0 +1,27 @@
+const Discord = require('discord.js');
+module.exports = function (p) {
+
+  let reward_string = 'Unknown';
+  if (p.first_reward.length > 0) {
+    if (p.second_reward.length < 1) {
+      reward_string = '**100% chance to encounter:** '+p.first_reward
+    } else {
+      reward_string = '**66% chance to encounter:** '+p.first_reward
+      +'\r\n **33% chance to encounter:** '+p.second_reward;
+    }
+  }
+
+  let invasion_embed = new Discord.RichEmbed()
+  .setColor(p.color)
+  .setThumbnail(p.sprite)
+  .setAuthor(p.name, p.url)
+  .setDescription('**'+p.type+'** Invasion')
+  .addField('__**Possible Encounters:**__ ',reward_string)
+  .addField(p.area+': ','[Google Maps](https://www.google.com/maps?q='+p.lat+','+p.lon+') | '
+  +'[Apple Maps](http://maps.apple.com/maps?daddr='+p.lat+','+p.lon+'&z=10&t=s&dirflg=d) | '
+  +'[Scan Map]('+p.map_url+'?lat='+p.lat+'&lon='+p.lon+'&zoom=15)',false)
+  .setImage(p.map_img)
+  .setFooter('Invasion Expires at: '+p.time+' ('+p.mins+' Mins) ');
+
+  return invasion_embed;
+}

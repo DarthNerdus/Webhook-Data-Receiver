@@ -251,7 +251,7 @@ async function subscription_create(MAIN, message, nickname, prefix, advanced){
     let pokemon = '';
     // CHECK IF THE USER ALREADY HAS SUBSCRIPTIONS AND ADD
     if(!user[0].pokemon){
-      if(sub.name == 'All'){ sub.name == 'All-1'; }
+      if(sub.name == 'All'){ sub.name = 'All-1'; }
       pokemon = {};
       pokemon.subscriptions = [];
       pokemon.subscriptions.push(sub);

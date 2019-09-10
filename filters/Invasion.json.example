@@ -1,0 +1,4 @@
+{
+  "type": ["Fire","Water","Normal","Dragon"],
+  "grunt": [ "Male Grunt", "Female Grunt"]
+}
