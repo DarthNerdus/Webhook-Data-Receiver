@@ -261,6 +261,7 @@ function sub_collector(MAIN, type, nickname, message, requirements, sub, area_ar
 
     let user_areas = sub.toLowerCase().split(','), area_list = '';
     area_array = area_array.split(',');
+    area_array.sort();
     // CREATE REWARD LIST AND ADD CHECK FOR SUBSCRIBED REWARDS
     area_array.forEach((area,index) => {
       if(user_areas.indexOf(area.toLowerCase()) >= 0){
