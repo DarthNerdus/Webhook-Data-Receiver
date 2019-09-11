@@ -880,7 +880,16 @@
 			"name": "Rattata",
 			"forms": {
 				"45": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Normal"],
+					"evolved_form": 47,
+					"attack": 103,
+					"defense": 70,
+					"stamina": 102,
+					"height": 0.300000011920929,
+					"weight": 3.5,
+					"quickmove": ["Tackle", "Quick Attack"],
+					"chargedmove": ["Dig", "Hyper Fang", "Body Slam"]
 				},
 				"46": {
 					"name": "Alolan",
@@ -920,7 +929,15 @@
 			"name": "Raticate",
 			"forms": {
 				"47": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Normal"],
+					"attack": 161,
+					"defense": 139,
+					"stamina": 146,
+					"height": 0.699999988079071,
+					"weight": 18.5,
+					"quickmove": ["Bite", "Quick Attack"],
+					"chargedmove": ["Dig", "Hyper Fang", "Hyper Beam"]
 				},
 				"48": {
 					"name": "Alolan",
@@ -1171,7 +1188,15 @@
 			"name": "Raichu",
 			"forms": {
 				"49": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Electric"],
+					"attack": 193,
+					"defense": 151,
+					"stamina": 155,
+					"height": 0.800000011920929,
+					"weight": 30,
+					"quickmove": ["Volt Switch", "Spark"],
+					"chargedmove": ["Brick Break", "Thunder Punch", "Wild Charge"]
 				},
 				"50": {
 					"name": "Alolan",
@@ -1204,7 +1229,16 @@
 			"name": "Sandshrew",
 			"forms": {
 				"51": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Ground"],
+					"evolved_form": 53,
+					"attack": 126,
+					"defense": 120,
+					"stamina": 137,
+					"height": 0.600000023841858,
+					"weight": 12,
+					"quickmove": ["Scratch", "Mud Shot"],
+					"chargedmove": ["Dig", "Rock Slide", "Sand Tomb"]
 				},
 				"52": {
 					"name": "Alolan",
@@ -1244,7 +1278,15 @@
 			"name": "Sandslash",
 			"forms": {
 				"53": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Ground"],
+					"attack": 182,
+					"defense": 175,
+					"stamina": 181,
+					"height": 1,
+					"weight": 29.5,
+					"quickmove": ["Metal Claw", "Mud Shot"],
+					"chargedmove": ["Earthquake", "Rock Tomb", "Bulldoze"]
 				},
 				"54": {
 					"name": "Alolan",
@@ -1695,7 +1737,16 @@
 			"name": "Vulpix",
 			"forms": {
 				"55": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Fire"],
+					"evolved_form": 57,
+					"attack": 96,
+					"defense": 109,
+					"stamina": 116,
+					"height": 0.600000023841858,
+					"weight": 9.89999961853027,
+					"quickmove": ["Quick Attack", "Ember"],
+					"chargedmove": ["Body Slam", "Flamethrower", "Flame Charge"]
 				},
 				"56": {
 					"name": "Alolan",
@@ -1736,7 +1787,14 @@
 			"forms": {
 				"57": {
 					"name": "Normal",
-					"types": ["Fire"]
+					"types": ["Fire"],
+					"attack": 169,
+					"defense": 190,
+					"stamina": 177,
+					"height": 1.10000002384186,
+					"weight": 19.8999996185303,
+					"quickmove": ["Feint Attack", "Fire Spin"],
+					"chargedmove": ["Heat Wave", "Overheat", "Solar Beam"]
 				},
 				"58": {
 					"name": "Alolan",
@@ -2302,7 +2360,16 @@
 			"name": "Diglett",
 			"forms": {
 				"59": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Ground"],
+					"evolved_form": 61,
+					"attack": 109,
+					"defense": 78,
+					"stamina": 67,
+					"height": 0.200000002980232,
+					"weight": 0.800000011920929,
+					"quickmove": ["Mud Slap", "Scratch"],
+					"chargedmove": ["Dig", "Mud Bomb", "Rock Tomb"]
 				},
 				"60": {
 					"name": "Alolan",
@@ -2342,7 +2409,15 @@
 			"name": "Dugtrio",
 			"forms": {
 				"61": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Ground"],
+					"attack": 167,
+					"defense": 134,
+					"stamina": 111,
+					"height": 0.699999988079071,
+					"weight": 33.2999992370605,
+					"quickmove": ["Metal Claw", "Mud Slap"],
+					"chargedmove": ["Earthquake", "Mud Bomb", "Iron Head"]
 				},
 				"62": {
 					"name": "Alolan",
@@ -2381,7 +2456,16 @@
 			"name": "Meowth",
 			"forms": {
 				"63": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Normal"],
+					"evolved_form": 65,
+					"attack": 92,
+					"defense": 78,
+					"stamina": 120,
+					"height": 0.400000005960464,
+					"weight": 4.19999980926514,
+					"quickmove": ["Scratch", "Bite"],
+					"chargedmove": ["Night Slash", "Dark Pulse", "Foul Play"]
 				},
 				"64": {
 					"name": "Alolan",
@@ -2421,7 +2505,15 @@
 			"name": "Persian",
 			"forms": {
 				"65": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Normal"],
+					"attack": 150,
+					"defense": 136,
+					"stamina": 163,
+					"height": 1,
+					"weight": 32,
+					"quickmove": ["Scratch", "Feint Attack"],
+					"chargedmove": ["Foul Play", "Power Gem", "Play Rough"]
 				},
 				"66": {
 					"name": "Alolan",
@@ -3490,7 +3582,16 @@
 			"name": "Geodude",
 			"forms": {
 				"67": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Rock", "Ground"],
+					"evolved_form": 69,
+					"attack": 132,
+					"defense": 132,
+					"stamina": 120,
+					"height": 0.400000005960464,
+					"weight": 20,
+					"quickmove": ["Rock Throw", "Tackle"],
+					"chargedmove": ["Rock Slide", "Rock Tomb", "Dig"]
 				},
 				"68": {
 					"name": "Alolan",
@@ -3530,7 +3631,16 @@
 			"name": "Graveler",
 			"forms": {
 				"69": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Rock", "Ground"],
+					"evolved_form": 71,
+					"attack": 164,
+					"defense": 164,
+					"stamina": 146,
+					"height": 1,
+					"weight": 105,
+					"quickmove": ["Rock Throw", "Mud Slap"],
+					"chargedmove": ["Dig", "Stone Edge", "Rock Blast"]
 				},
 				"70": {
 					"name": "Alolan",
@@ -3570,8 +3680,15 @@
 			"name": "Golem",
 			"forms": {
 				"71": {
-					"name": "Normal",
-					"types": ["Rock", "Ground"]
+					"forms": "Normal",
+					"types": ["Rock", "Ground"],
+					"attack": 211,
+					"defense": 198,
+					"stamina": 190,
+					"height": 1.39999997615814,
+					"weight": 300,
+					"quickmove": ["Rock Throw", "Mud Slap"],
+					"chargedmove": ["Stone Edge", "Rock Blast", "Earthquake"]
 				},
 				"72": {
 					"name": "Alolan",
@@ -3967,7 +4084,16 @@
 			"name": "Grimer",
 			"forms": {
 				"73": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Poison"],
+					"evolved_form": 75,
+					"attack": 135,
+					"defense": 90,
+					"stamina": 190,
+					"height": 0.899999976158142,
+					"weight": 30,
+					"quickmove": ["Poison Jab", "Mud Slap"],
+					"chargedmove": ["Sludge", "Mud Bomb", "Sludge Bomb"]
 				},
 				"74": {
 					"name": "Alolan",
@@ -4007,7 +4133,15 @@
 			"name": "Muk",
 			"forms": {
 				"75": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Poison"],
+					"attack": 190,
+					"defense": 172,
+					"stamina": 233,
+					"height": 1.20000004768372,
+					"weight": 30,
+					"quickmove": ["Infestation", "Poison Jab"],
+					"chargedmove": ["Dark Pulse", "Gunk Shot", "Sludge Wave"]
 				},
 				"76": {
 					"name": "Alolan",
@@ -4626,7 +4760,15 @@
 			"name": "Exeggutor",
 			"forms": {
 				"77": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Grass", "Psychic"],
+					"attack": 233,
+					"defense": 149,
+					"stamina": 216,
+					"height": 2,
+					"weight": 120,
+					"quickmove": ["Bullet Seed", "Extrasensory"],
+					"chargedmove": ["Seed Bomb", "Psychic", "Solar Beam"]
 				},
 				"78": {
 					"name": "Alolan",
@@ -4729,7 +4871,15 @@
 			"name": "Marowak",
 			"forms": {
 				"79": {
-					"name": "Normal"
+					"forms": "Normal",
+					"types": ["Ground"],
+					"attack": 144,
+					"defense": 186,
+					"stamina": 155,
+					"height": 1,
+					"weight": 45,
+					"quickmove": ["Mud Slap", "Rock Smash"],
+					"chargedmove": ["Bone Club", "Dig", "Earthquake"]
 				},
 				"80": {
 					"name": "Alolan",
@@ -13254,11 +13404,9 @@
 			"forms": {
 				"29": {
 					"name": "Normal",
-					"attack": 139,
-					"defense": 139,
-					"stamina": 172,
-					"height": 0.300000011920929,
-					"weight": 0.800000011920929
+					"types": ["Normal"],
+					"quickmove": ["Tackle", "Hex"],
+					"chargedmove": ["Hurricane", "Energy Ball", "Weather Ball Rock"]
 				},
 				"30": {
 					"name": "Sunny",
@@ -14453,7 +14601,15 @@
 			"name": "Deoxys",
 			"forms": {
 				"33": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Psychic"],
+					"attack": 345,
+					"defense": 115,
+					"stamina": 137,
+					"height": 1.70000004768372,
+					"weight": 60.7999992370605,
+					"quickmove": ["Zen Headbutt", "Charge Beam"],
+					"chargedmove": ["Psycho Boost", "Thunderbolt", "Hyper Beam"]
 				},
 				"34": {
 					"name": "Attack",
@@ -17705,7 +17861,15 @@
 			"name": "Rotom",
 			"forms": {
 				"81": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Electric", "Ghost"],
+					"attack": 185,
+					"defense": 159,
+					"stamina": 137,
+					"height": 0.300000011920929,
+					"weight": 0.300000011920929,
+					"quickmove": ["Astonish", "Thunder Shock"],
+					"chargedmove": ["Ominous Wind", "Thunderbolt", "Thunder"]
 				},
 				"82": {
 					"name": "Frost",
@@ -18149,7 +18313,15 @@
 			"name": "Arceus",
 			"forms": {
 				"100": {
-					"name": "Normal"
+					"name": "Normal",
+					"types": ["Normal"],
+					"attack": 238,
+					"defense": 238,
+					"stamina": 237,
+					"height": 3.20000004768372,
+					"weight": 320,
+					"quickmove": ["Iron Tail", "Shadow Claw"],
+					"chargedmove": ["Futuresight", "Hyper Beam", "Outrage"]
 				},
 				"101": {
 					"name": "Fighting",
