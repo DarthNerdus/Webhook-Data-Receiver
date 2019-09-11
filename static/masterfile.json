@@ -6,6 +6,7 @@
 				"163": {
 					"name": "Normal",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [2],
 					"attack": 118,
 					"defense": 111,
 					"stamina": 128,
@@ -17,6 +18,7 @@
 				"164": {
 					"name": "Shadow",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [2],
 					"attack": 118,
 					"defense": 111,
 					"stamina": 128,
@@ -28,6 +30,7 @@
 				"165": {
 					"name": "Purified",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [2],
 					"attack": 118,
 					"defense": 111,
 					"stamina": 128,
@@ -66,6 +69,7 @@
 				"166": {
 					"name": "Normal",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [3],
 					"attack": 151,
 					"defense": 143,
 					"stamina": 155,
@@ -77,6 +81,7 @@
 				"167": {
 					"name": "Shadow",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [3],
 					"attack": 151,
 					"defense": 143,
 					"stamina": 155,
@@ -88,6 +93,7 @@
 				"168": {
 					"name": "Purified",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [3],
 					"attack": 151,
 					"defense": 143,
 					"stamina": 155,
@@ -126,6 +132,7 @@
 				"169": {
 					"name": "Normal",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [],
 					"attack": 198,
 					"defense": 189,
 					"stamina": 190,
@@ -137,6 +144,7 @@
 				"170": {
 					"name": "Shadow",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [],
 					"attack": 198,
 					"defense": 189,
 					"stamina": 190,
@@ -148,6 +156,7 @@
 				"171": {
 					"name": "Purified",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [],
 					"attack": 198,
 					"defense": 189,
 					"stamina": 190,
@@ -186,6 +195,7 @@
 				"172": {
 					"name": "Normal",
 					"types": ["Fire"],
+					"evolved_form": [5],
 					"attack": 116,
 					"defense": 93,
 					"stamina": 118,
@@ -197,6 +207,7 @@
 				"173": {
 					"name": "Shadow",
 					"types": ["Fire"],
+					"evolved_form": [5],
 					"attack": 116,
 					"defense": 93,
 					"stamina": 118,
@@ -208,6 +219,7 @@
 				"174": {
 					"name": "Purified",
 					"types": ["Fire"],
+					"evolved_form": [5],
 					"attack": 116,
 					"defense": 93,
 					"stamina": 118,
@@ -246,6 +258,7 @@
 				"175": {
 					"name": "Normal",
 					"types": ["Fire"],
+					"evolved_form": [6],
 					"attack": 158,
 					"defense": 126,
 					"stamina": 151,
@@ -257,6 +270,7 @@
 				"176": {
 					"name": "Shadow",
 					"types": ["Fire"],
+					"evolved_form": [6],
 					"attack": 158,
 					"defense": 126,
 					"stamina": 151,
@@ -268,6 +282,7 @@
 				"177": {
 					"name": "Purified",
 					"types": ["Fire"],
+					"evolved_form": [6],
 					"attack": 158,
 					"defense": 126,
 					"stamina": 151,
@@ -306,6 +321,7 @@
 				"178": {
 					"name": "Normal",
 					"types": ["Fire", "Flying"],
+					"evolved_form": [],
 					"attack": 223,
 					"defense": 173,
 					"stamina": 186,
@@ -317,6 +333,7 @@
 				"179": {
 					"name": "Shadow",
 					"types": ["Fire", "Flying"],
+					"evolved_form": [],
 					"attack": 223,
 					"defense": 173,
 					"stamina": 186,
@@ -328,6 +345,7 @@
 				"180": {
 					"name": "Purified",
 					"types": ["Fire", "Flying"],
+					"evolved_form": [],
 					"attack": 223,
 					"defense": 173,
 					"stamina": 186,
@@ -366,6 +384,7 @@
 				"181": {
 					"name": "Normal",
 					"types": ["Water"],
+					"evolved_form": [8],
 					"attack": 94,
 					"defense": 121,
 					"stamina": 127,
@@ -377,6 +396,7 @@
 				"182": {
 					"name": "Shadow",
 					"types": ["Water"],
+					"evolved_form": [8],
 					"attack": 94,
 					"defense": 121,
 					"stamina": 127,
@@ -388,6 +408,7 @@
 				"183": {
 					"name": "Purified",
 					"types": ["Water"],
+					"evolved_form": [8],
 					"attack": 94,
 					"defense": 121,
 					"stamina": 127,
@@ -426,6 +447,7 @@
 				"184": {
 					"name": "Normal",
 					"types": ["Water"],
+					"evolved_form": [9],
 					"attack": 126,
 					"defense": 155,
 					"stamina": 153,
@@ -437,6 +459,7 @@
 				"185": {
 					"name": "Shadow",
 					"types": ["Water"],
+					"evolved_form": [9],
 					"attack": 126,
 					"defense": 155,
 					"stamina": 153,
@@ -448,6 +471,7 @@
 				"186": {
 					"name": "Purified",
 					"types": ["Water"],
+					"evolved_form": [9],
 					"attack": 126,
 					"defense": 155,
 					"stamina": 153,
@@ -486,6 +510,7 @@
 				"187": {
 					"name": "Normal",
 					"types": ["Water"],
+					"evolved_form": [],
 					"attack": 171,
 					"defense": 207,
 					"stamina": 188,
@@ -497,6 +522,7 @@
 				"188": {
 					"name": "Shadow",
 					"types": ["Water"],
+					"evolved_form": [],
 					"attack": 171,
 					"defense": 207,
 					"stamina": 188,
@@ -508,6 +534,7 @@
 				"189": {
 					"name": "Purified",
 					"types": ["Water"],
+					"evolved_form": [],
 					"attack": 171,
 					"defense": 207,
 					"stamina": 188,
@@ -624,6 +651,7 @@
 				"616": {
 					"name": "Normal",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [14],
 					"attack": 63,
 					"defense": 50,
 					"stamina": 120,
@@ -635,6 +663,7 @@
 				"617": {
 					"name": "Shadow",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [14],
 					"attack": 63,
 					"defense": 50,
 					"stamina": 120,
@@ -646,6 +675,7 @@
 				"618": {
 					"name": "Purified",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [14],
 					"attack": 63,
 					"defense": 50,
 					"stamina": 120,
@@ -684,6 +714,7 @@
 				"619": {
 					"name": "Normal",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [15],
 					"attack": 46,
 					"defense": 75,
 					"stamina": 128,
@@ -695,6 +726,7 @@
 				"620": {
 					"name": "Shadow",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [15],
 					"attack": 46,
 					"defense": 75,
 					"stamina": 128,
@@ -706,6 +738,7 @@
 				"621": {
 					"name": "Purified",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [15],
 					"attack": 46,
 					"defense": 75,
 					"stamina": 128,
@@ -744,6 +777,7 @@
 				"622": {
 					"name": "Normal",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [],
 					"attack": 169,
 					"defense": 130,
 					"stamina": 163,
@@ -755,6 +789,7 @@
 				"623": {
 					"name": "Shadow",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [],
 					"attack": 169,
 					"defense": 130,
 					"stamina": 163,
@@ -766,6 +801,7 @@
 				"624": {
 					"name": "Purified",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [],
 					"attack": 169,
 					"defense": 130,
 					"stamina": 163,
@@ -904,10 +940,12 @@
 					"chargedmove": ["Dig", "Hyper Fang", "Body Slam"]
 				},
 				"153": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": [20]
 				},
 				"154": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": [20]
 				}
 			},
 			"default_form": 45,
@@ -951,10 +989,12 @@
 					"chargedmove": ["Crunch", "Hyper Fang", "Hyper Beam"]
 				},
 				"155": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": []
 				},
 				"156": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": []
 				}
 			},
 			"default_form": 47,
@@ -1030,6 +1070,7 @@
 				"697": {
 					"name": "Normal",
 					"types": ["Poison"],
+					"evolved_form": [24],
 					"attack": 110,
 					"defense": 97,
 					"stamina": 111,
@@ -1041,6 +1082,7 @@
 				"698": {
 					"name": "Shadow",
 					"types": ["Poison"],
+					"evolved_form": [24],
 					"attack": 110,
 					"defense": 97,
 					"stamina": 111,
@@ -1052,6 +1094,7 @@
 				"699": {
 					"name": "Purified",
 					"types": ["Poison"],
+					"evolved_form": [24],
 					"attack": 110,
 					"defense": 97,
 					"stamina": 111,
@@ -1090,6 +1133,7 @@
 				"700": {
 					"name": "Normal",
 					"types": ["Poison"],
+					"evolved_form": [],
 					"attack": 167,
 					"defense": 153,
 					"stamina": 155,
@@ -1101,6 +1145,7 @@
 				"701": {
 					"name": "Shadow",
 					"types": ["Poison"],
+					"evolved_form": [],
 					"attack": 167,
 					"defense": 153,
 					"stamina": 155,
@@ -1112,6 +1157,7 @@
 				"702": {
 					"name": "Purified",
 					"types": ["Poison"],
+					"evolved_form": [],
 					"attack": 167,
 					"defense": 153,
 					"stamina": 155,
@@ -1150,7 +1196,7 @@
 				"598": {
 					"name": "Normal",
 					"types": ["Electric"],
-					"evolved_form": 49,
+					"evolved_form": [26],
 					"attack": 112,
 					"defense": 96,
 					"stamina": 111,
@@ -1253,10 +1299,12 @@
 					"chargedmove": ["Blizzard", "Gyro Ball", "Night Slash"]
 				},
 				"673": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": [28]
 				},
 				"674": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": [28]
 				}
 			},
 			"default_form": 51,
@@ -1300,10 +1348,12 @@
 					"chargedmove": ["Blizzard", "Gyro Ball", "Bulldoze"]
 				},
 				"675": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": []
 				},
 				"676": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": []
 				}
 			},
 			"default_form": 53,
@@ -1327,6 +1377,7 @@
 				"776": {
 					"name": "Normal",
 					"types": ["Poison"],
+					"evolved_form": [30],
 					"attack": 86,
 					"defense": 89,
 					"stamina": 146,
@@ -1338,6 +1389,7 @@
 				"777": {
 					"name": "Shadow",
 					"types": ["Poison"],
+					"evolved_form": [30],
 					"attack": 86,
 					"defense": 89,
 					"stamina": 146,
@@ -1349,6 +1401,7 @@
 				"778": {
 					"name": "Purified",
 					"types": ["Poison"],
+					"evolved_form": [30],
 					"attack": 86,
 					"defense": 89,
 					"stamina": 146,
@@ -1387,6 +1440,7 @@
 				"779": {
 					"name": "Normal",
 					"types": ["Poison"],
+					"evolved_form": [31],
 					"attack": 117,
 					"defense": 120,
 					"stamina": 172,
@@ -1398,6 +1452,7 @@
 				"780": {
 					"name": "Shadow",
 					"types": ["Poison"],
+					"evolved_form": [31],
 					"attack": 117,
 					"defense": 120,
 					"stamina": 172,
@@ -1409,6 +1464,7 @@
 				"781": {
 					"name": "Purified",
 					"types": ["Poison"],
+					"evolved_form": [31],
 					"attack": 117,
 					"defense": 120,
 					"stamina": 172,
@@ -1447,6 +1503,7 @@
 				"782": {
 					"name": "Normal",
 					"types": ["Poison", "Ground"],
+					"evolved_form": [],
 					"attack": 180,
 					"defense": 173,
 					"stamina": 207,
@@ -1458,6 +1515,7 @@
 				"783": {
 					"name": "Shadow",
 					"types": ["Poison", "Ground"],
+					"evolved_form": [],
 					"attack": 180,
 					"defense": 173,
 					"stamina": 207,
@@ -1469,6 +1527,7 @@
 				"784": {
 					"name": "Purified",
 					"types": ["Poison", "Ground"],
+					"evolved_form": [],
 					"attack": 180,
 					"defense": 173,
 					"stamina": 207,
@@ -1507,6 +1566,7 @@
 				"776": {
 					"name": "Normal",
 					"types": ["Poison"],
+					"evolved_form": [33],
 					"attack": 105,
 					"defense": 76,
 					"stamina": 130,
@@ -1518,6 +1578,7 @@
 				"777": {
 					"name": "Shadow",
 					"types": ["Poison"],
+					"evolved_form": [33],
 					"attack": 105,
 					"defense": 76,
 					"stamina": 130,
@@ -1529,6 +1590,7 @@
 				"778": {
 					"name": "Purified",
 					"types": ["Poison"],
+					"evolved_form": [33],
 					"attack": 105,
 					"defense": 76,
 					"stamina": 130,
@@ -1567,6 +1629,7 @@
 				"785": {
 					"name": "Normal",
 					"types": ["Poison"],
+					"evolved_form": [34],
 					"attack": 137,
 					"defense": 111,
 					"stamina": 156,
@@ -1578,6 +1641,7 @@
 				"786": {
 					"name": "Shadow",
 					"types": ["Poison"],
+					"evolved_form": [34],
 					"attack": 137,
 					"defense": 111,
 					"stamina": 156,
@@ -1589,6 +1653,7 @@
 				"787": {
 					"name": "Purified",
 					"types": ["Poison"],
+					"evolved_form": [34],
 					"attack": 137,
 					"defense": 111,
 					"stamina": 156,
@@ -1627,6 +1692,7 @@
 				"788": {
 					"name": "Normal",
 					"types": ["Poison", "Ground"],
+					"evolved_form": [],
 					"attack": 204,
 					"defense": 156,
 					"stamina": 191,
@@ -1638,6 +1704,7 @@
 				"789": {
 					"name": "Shadow",
 					"types": ["Poison", "Ground"],
+					"evolved_form": [],
 					"attack": 204,
 					"defense": 156,
 					"stamina": 191,
@@ -1649,6 +1716,7 @@
 				"790": {
 					"name": "Purified",
 					"types": ["Poison", "Ground"],
+					"evolved_form": [],
 					"attack": 204,
 					"defense": 156,
 					"stamina": 191,
@@ -1761,10 +1829,12 @@
 					"chargedmove": ["Dark Pulse", "Ice Beam", "Blizzard"]
 				},
 				"725": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": [38]
 				},
 				"726": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": [38]
 				}
 			},
 			"default_form": 55,
@@ -1809,11 +1879,13 @@
 				},
 				"727": {
 					"name": "Shadow",
-					"types": ["Fire"]
+					"types": ["Fire"],
+					"evolved_form": []
 				},
 				"728": {
 					"name": "Purified",
-					"types": ["Fire"]
+					"types": ["Fire"],
+					"evolved_form": []
 				}
 			},
 			"default_form": 57,
@@ -1890,6 +1962,7 @@
 				"157": {
 					"name": "Normal",
 					"types": ["Poison", "Flying"],
+					"evolved_form": [42],
 					"attack": 83,
 					"defense": 73,
 					"stamina": 120,
@@ -1901,6 +1974,7 @@
 				"158": {
 					"name": "Shadow",
 					"types": ["Poison", "Flying"],
+					"evolved_form": [42],
 					"attack": 83,
 					"defense": 73,
 					"stamina": 120,
@@ -1912,6 +1986,7 @@
 				"159": {
 					"name": "Purified",
 					"types": ["Poison", "Flying"],
+					"evolved_form": [42],
 					"attack": 83,
 					"defense": 73,
 					"stamina": 120,
@@ -1950,6 +2025,7 @@
 				"160": {
 					"name": "Normal",
 					"types": ["Poison", "Flying"],
+					"evolved_form": [169],
 					"attack": 161,
 					"defense": 150,
 					"stamina": 181,
@@ -1961,6 +2037,7 @@
 				"161": {
 					"name": "Shadow",
 					"types": ["Poison", "Flying"],
+					"evolved_form": [169],
 					"attack": 161,
 					"defense": 150,
 					"stamina": 181,
@@ -1972,6 +2049,7 @@
 				"162": {
 					"name": "Purified",
 					"types": ["Poison", "Flying"],
+					"evolved_form": [169],
 					"attack": 161,
 					"defense": 150,
 					"stamina": 181,
@@ -2010,6 +2088,7 @@
 				"265": {
 					"name": "Normal",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [44],
 					"attack": 131,
 					"defense": 112,
 					"stamina": 128,
@@ -2021,6 +2100,7 @@
 				"266": {
 					"name": "Shadow",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [44],
 					"attack": 131,
 					"defense": 112,
 					"stamina": 128,
@@ -2032,6 +2112,7 @@
 				"267": {
 					"name": "Purified",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [44],
 					"attack": 131,
 					"defense": 112,
 					"stamina": 128,
@@ -2070,6 +2151,7 @@
 				"268": {
 					"name": "Normal",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [45, 182],
 					"attack": 153,
 					"defense": 136,
 					"stamina": 155,
@@ -2081,6 +2163,7 @@
 				"269": {
 					"name": "Shadow",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [45, 182],
 					"attack": 153,
 					"defense": 136,
 					"stamina": 155,
@@ -2092,6 +2175,7 @@
 				"270": {
 					"name": "Purified",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [45, 182],
 					"attack": 153,
 					"defense": 136,
 					"stamina": 155,
@@ -2130,6 +2214,7 @@
 				"271": {
 					"name": "Normal",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [],
 					"attack": 202,
 					"defense": 167,
 					"stamina": 181,
@@ -2141,6 +2226,7 @@
 				"272": {
 					"name": "Shadow",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [],
 					"attack": 202,
 					"defense": 167,
 					"stamina": 181,
@@ -2152,6 +2238,7 @@
 				"273": {
 					"name": "Purified",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [],
 					"attack": 202,
 					"defense": 167,
 					"stamina": 181,
@@ -2242,6 +2329,7 @@
 				"259": {
 					"name": "Normal",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [49],
 					"attack": 100,
 					"defense": 100,
 					"stamina": 155,
@@ -2253,6 +2341,7 @@
 				"260": {
 					"name": "Shadow",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [49],
 					"attack": 100,
 					"defense": 100,
 					"stamina": 155,
@@ -2264,6 +2353,7 @@
 				"261": {
 					"name": "Purified",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [49],
 					"attack": 100,
 					"defense": 100,
 					"stamina": 155,
@@ -2302,6 +2392,7 @@
 				"262": {
 					"name": "Normal",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [],
 					"attack": 179,
 					"defense": 143,
 					"stamina": 172,
@@ -2313,6 +2404,7 @@
 				"263": {
 					"name": "Shadow",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [],
 					"attack": 179,
 					"defense": 143,
 					"stamina": 172,
@@ -2324,6 +2416,7 @@
 				"264": {
 					"name": "Purified",
 					"types": ["Bug", "Poison"],
+					"evolved_form": [],
 					"attack": 179,
 					"defense": 143,
 					"stamina": 172,
@@ -2384,10 +2477,12 @@
 					"chargedmove": ["Dig", "Mud Bomb", "Rock Tomb"]
 				},
 				"842": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": [51]
 				},
 				"843": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": [51]
 				}
 			},
 			"default_form": 59,
@@ -2431,10 +2526,12 @@
 					"chargedmove": ["Earthquake", "Mud Bomb", "Stone Edge"]
 				},
 				"844": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": []
 				},
 				"845": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": []
 				}
 			},
 			"default_form": 61,
@@ -2480,10 +2577,12 @@
 					"chargedmove": ["Night Slash", "Dark Pulse", "Foul Play"]
 				},
 				"709": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": [53]
 				},
 				"710": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": [53]
 				}
 			},
 			"default_form": 63,
@@ -2527,10 +2626,12 @@
 					"chargedmove": ["Foul Play", "Dark Pulse", "Play Rough"]
 				},
 				"711": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": []
 				},
 				"712": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": []
 				}
 			},
 			"default_form": 65,
@@ -2554,6 +2655,7 @@
 				"286": {
 					"name": "Normal",
 					"types": ["Water"],
+					"evolved_form": [55],
 					"attack": 122,
 					"defense": 95,
 					"stamina": 137,
@@ -2565,6 +2667,7 @@
 				"287": {
 					"name": "Shadow",
 					"types": ["Water"],
+					"evolved_form": [55],
 					"attack": 122,
 					"defense": 95,
 					"stamina": 137,
@@ -2576,6 +2679,7 @@
 				"288": {
 					"name": "Purified",
 					"types": ["Water"],
+					"evolved_form": [55],
 					"attack": 122,
 					"defense": 95,
 					"stamina": 137,
@@ -2614,6 +2718,7 @@
 				"289": {
 					"name": "Normal",
 					"types": ["Water"],
+					"evolved_form": [],
 					"attack": 191,
 					"defense": 162,
 					"stamina": 190,
@@ -2625,6 +2730,7 @@
 				"290": {
 					"name": "Shadow",
 					"types": ["Water"],
+					"evolved_form": [],
 					"attack": 191,
 					"defense": 162,
 					"stamina": 190,
@@ -2636,6 +2742,7 @@
 				"291": {
 					"name": "Purified",
 					"types": ["Water"],
+					"evolved_form": [],
 					"attack": 191,
 					"defense": 162,
 					"stamina": 190,
@@ -2726,6 +2833,7 @@
 				"280": {
 					"name": "Normal",
 					"types": ["Fire"],
+					"evolved_form": [59],
 					"attack": 136,
 					"defense": 93,
 					"stamina": 146,
@@ -2737,6 +2845,7 @@
 				"281": {
 					"name": "Shadow",
 					"types": ["Fire"],
+					"evolved_form": [59],
 					"attack": 136,
 					"defense": 93,
 					"stamina": 146,
@@ -2748,6 +2857,7 @@
 				"282": {
 					"name": "Purified",
 					"types": ["Fire"],
+					"evolved_form": [59],
 					"attack": 136,
 					"defense": 93,
 					"stamina": 146,
@@ -2786,6 +2896,7 @@
 				"283": {
 					"name": "Normal",
 					"types": ["Fire"],
+					"evolved_form": [],
 					"attack": 227,
 					"defense": 166,
 					"stamina": 207,
@@ -2797,6 +2908,7 @@
 				"284": {
 					"name": "Shadow",
 					"types": ["Fire"],
+					"evolved_form": [],
 					"attack": 227,
 					"defense": 166,
 					"stamina": 207,
@@ -2808,6 +2920,7 @@
 				"285": {
 					"name": "Purified",
 					"types": ["Fire"],
+					"evolved_form": [],
 					"attack": 227,
 					"defense": 166,
 					"stamina": 207,
@@ -2846,6 +2959,7 @@
 				"235": {
 					"name": "Normal",
 					"types": ["Water"],
+					"evolved_form": [61],
 					"attack": 101,
 					"defense": 82,
 					"stamina": 120,
@@ -2857,6 +2971,7 @@
 				"236": {
 					"name": "Shadow",
 					"types": ["Water"],
+					"evolved_form": [61],
 					"attack": 101,
 					"defense": 82,
 					"stamina": 120,
@@ -2868,6 +2983,7 @@
 				"237": {
 					"name": "Purified",
 					"types": ["Water"],
+					"evolved_form": [61],
 					"attack": 101,
 					"defense": 82,
 					"stamina": 120,
@@ -2906,6 +3022,7 @@
 				"238": {
 					"name": "Normal",
 					"types": ["Water"],
+					"evolved_form": [62, 186],
 					"attack": 130,
 					"defense": 123,
 					"stamina": 163,
@@ -2917,6 +3034,7 @@
 				"239": {
 					"name": "Shadow",
 					"types": ["Water"],
+					"evolved_form": [62, 186],
 					"attack": 130,
 					"defense": 123,
 					"stamina": 163,
@@ -2928,6 +3046,7 @@
 				"240": {
 					"name": "Purified",
 					"types": ["Water"],
+					"evolved_form": [62, 186],
 					"attack": 130,
 					"defense": 123,
 					"stamina": 163,
@@ -2966,6 +3085,7 @@
 				"241": {
 					"name": "Normal",
 					"types": ["Water", "Fighting"],
+					"evolved_form": [],
 					"attack": 182,
 					"defense": 184,
 					"stamina": 207,
@@ -2977,6 +3097,7 @@
 				"242": {
 					"name": "Shadow",
 					"types": ["Water", "Fighting"],
+					"evolved_form": [],
 					"attack": 182,
 					"defense": 184,
 					"stamina": 207,
@@ -2988,6 +3109,7 @@
 				"243": {
 					"name": "Purified",
 					"types": ["Water", "Fighting"],
+					"evolved_form": [],
 					"attack": 182,
 					"defense": 184,
 					"stamina": 207,
@@ -3026,6 +3148,7 @@
 				"304": {
 					"name": "Normal",
 					"types": ["Psychic"],
+					"evolved_form": [64],
 					"attack": 195,
 					"defense": 82,
 					"stamina": 93,
@@ -3037,6 +3160,7 @@
 				"305": {
 					"name": "Shadow",
 					"types": ["Psychic"],
+					"evolved_form": [64],
 					"attack": 195,
 					"defense": 82,
 					"stamina": 93,
@@ -3048,6 +3172,7 @@
 				"306": {
 					"name": "Purified",
 					"types": ["Psychic"],
+					"evolved_form": [64],
 					"attack": 195,
 					"defense": 82,
 					"stamina": 93,
@@ -3112,6 +3237,7 @@
 				"310": {
 					"name": "Normal",
 					"types": ["Psychic"],
+					"evolved_form": [],
 					"attack": 271,
 					"defense": 167,
 					"stamina": 146,
@@ -3123,6 +3249,7 @@
 				"311": {
 					"name": "Shadow",
 					"types": ["Psychic"],
+					"evolved_form": [],
 					"attack": 271,
 					"defense": 167,
 					"stamina": 146,
@@ -3134,6 +3261,7 @@
 				"312": {
 					"name": "Purified",
 					"types": ["Psychic"],
+					"evolved_form": [],
 					"attack": 271,
 					"defense": 167,
 					"stamina": 146,
@@ -3172,6 +3300,7 @@
 				"809": {
 					"name": "Normal",
 					"types": ["Fighting"],
+					"evolved_form": [67],
 					"attack": 137,
 					"defense": 82,
 					"stamina": 172,
@@ -3183,6 +3312,7 @@
 				"810": {
 					"name": "Shadow",
 					"types": ["Fighting"],
+					"evolved_form": [67],
 					"attack": 137,
 					"defense": 82,
 					"stamina": 172,
@@ -3194,6 +3324,7 @@
 				"811": {
 					"name": "Purified",
 					"types": ["Fighting"],
+					"evolved_form": [67],
 					"attack": 137,
 					"defense": 82,
 					"stamina": 172,
@@ -3232,6 +3363,7 @@
 				"812": {
 					"name": "Normal",
 					"types": ["Fighting"],
+					"evolved_form": [68],
 					"attack": 177,
 					"defense": 125,
 					"stamina": 190,
@@ -3243,6 +3375,7 @@
 				"813": {
 					"name": "Shadow",
 					"types": ["Fighting"],
+					"evolved_form": [68],
 					"attack": 177,
 					"defense": 125,
 					"stamina": 190,
@@ -3254,6 +3387,7 @@
 				"814": {
 					"name": "Purified",
 					"types": ["Fighting"],
+					"evolved_form": [68],
 					"attack": 177,
 					"defense": 125,
 					"stamina": 190,
@@ -3292,6 +3426,7 @@
 				"815": {
 					"name": "Normal",
 					"types": ["Fighting"],
+					"evolved_form": [],
 					"attack": 234,
 					"defense": 159,
 					"stamina": 207,
@@ -3303,6 +3438,7 @@
 				"816": {
 					"name": "Shadow",
 					"types": ["Fighting"],
+					"evolved_form": [],
 					"attack": 234,
 					"defense": 159,
 					"stamina": 207,
@@ -3314,6 +3450,7 @@
 				"817": {
 					"name": "Purified",
 					"types": ["Fighting"],
+					"evolved_form": [],
 					"attack": 234,
 					"defense": 159,
 					"stamina": 207,
@@ -3352,6 +3489,7 @@
 				"664": {
 					"name": "Normal",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [70],
 					"attack": 139,
 					"defense": 61,
 					"stamina": 137,
@@ -3363,6 +3501,7 @@
 				"665": {
 					"name": "Shadow",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [70],
 					"attack": 139,
 					"defense": 61,
 					"stamina": 137,
@@ -3374,6 +3513,7 @@
 				"666": {
 					"name": "Purified",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [70],
 					"attack": 139,
 					"defense": 61,
 					"stamina": 137,
@@ -3412,6 +3552,7 @@
 				"667": {
 					"name": "Normal",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [71],
 					"attack": 172,
 					"defense": 92,
 					"stamina": 163,
@@ -3423,6 +3564,7 @@
 				"668": {
 					"name": "Shadow",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [71],
 					"attack": 172,
 					"defense": 92,
 					"stamina": 163,
@@ -3434,6 +3576,7 @@
 				"669": {
 					"name": "Purified",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [71],
 					"attack": 172,
 					"defense": 92,
 					"stamina": 163,
@@ -3472,6 +3615,7 @@
 				"670": {
 					"name": "Normal",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [],
 					"attack": 207,
 					"defense": 135,
 					"stamina": 190,
@@ -3483,6 +3627,7 @@
 				"671": {
 					"name": "Shadow",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [],
 					"attack": 207,
 					"defense": 135,
 					"stamina": 190,
@@ -3494,6 +3639,7 @@
 				"672": {
 					"name": "Purified",
 					"types": ["Grass", "Poison"],
+					"evolved_form": [],
 					"attack": 207,
 					"defense": 135,
 					"stamina": 190,
@@ -3606,10 +3752,12 @@
 					"chargedmove": ["Rock Slide", "Rock Tomb", "Thunderbolt"]
 				},
 				"882": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": [75]
 				},
 				"883": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": [75]
 				}
 			},
 			"default_form": 67,
@@ -3655,10 +3803,12 @@
 					"chargedmove": ["Thunderbolt", "Stone Edge", "Rock Blast"]
 				},
 				"884": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": [76]
 				},
 				"885": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": [76]
 				}
 			},
 			"default_form": 69,
@@ -3703,11 +3853,13 @@
 				},
 				"886": {
 					"name": "Shadow",
-					"types": ["Rock", "Ground"]
+					"types": ["Rock", "Ground"],
+					"evolved_form": []
 				},
 				"887": {
 					"name": "Purified",
-					"types": ["Rock", "Ground"]
+					"types": ["Rock", "Ground"],
+					"evolved_form": []
 				}
 			},
 			"default_form": 71,
@@ -3836,6 +3988,7 @@
 				"655": {
 					"name": "Normal",
 					"types": ["Electric", "Steel"],
+					"evolved_form": [82],
 					"attack": 165,
 					"defense": 121,
 					"stamina": 93,
@@ -3847,6 +4000,7 @@
 				"656": {
 					"name": "Shadow",
 					"types": ["Electric", "Steel"],
+					"evolved_form": [82],
 					"attack": 165,
 					"defense": 121,
 					"stamina": 93,
@@ -3858,6 +4012,7 @@
 				"657": {
 					"name": "Purified",
 					"types": ["Electric", "Steel"],
+					"evolved_form": [82],
 					"attack": 165,
 					"defense": 121,
 					"stamina": 93,
@@ -3896,6 +4051,7 @@
 				"658": {
 					"name": "Normal",
 					"types": ["Electric", "Steel"],
+					"evolved_form": [462],
 					"attack": 223,
 					"defense": 169,
 					"stamina": 137,
@@ -3907,6 +4063,7 @@
 				"659": {
 					"name": "Shadow",
 					"types": ["Electric", "Steel"],
+					"evolved_form": [462],
 					"attack": 223,
 					"defense": 169,
 					"stamina": 137,
@@ -3918,6 +4075,7 @@
 				"660": {
 					"name": "Purified",
 					"types": ["Electric", "Steel"],
+					"evolved_form": [462],
 					"attack": 223,
 					"defense": 169,
 					"stamina": 137,
@@ -4108,10 +4266,12 @@
 					"chargedmove": ["Crunch", "Gunk Shot", "Sludge Bomb"]
 				},
 				"220": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": [89]
 				},
 				"221": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": [89]
 				}
 			},
 			"default_form": 73,
@@ -4155,10 +4315,12 @@
 					"chargedmove": ["Dark Pulse", "Gunk Shot", "Sludge Wave"]
 				},
 				"222": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": []
 				},
 				"223": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": []
 				}
 			},
 			"default_form": 75,
@@ -4182,6 +4344,7 @@
 				"876": {
 					"name": "Normal",
 					"types": ["Water"],
+					"evolved_form": [91],
 					"attack": 116,
 					"defense": 134,
 					"stamina": 102,
@@ -4193,6 +4356,7 @@
 				"877": {
 					"name": "Shadow",
 					"types": ["Water"],
+					"evolved_form": [91],
 					"attack": 116,
 					"defense": 134,
 					"stamina": 102,
@@ -4204,6 +4368,7 @@
 				"878": {
 					"name": "Purified",
 					"types": ["Water"],
+					"evolved_form": [91],
 					"attack": 116,
 					"defense": 134,
 					"stamina": 102,
@@ -4242,6 +4407,7 @@
 				"879": {
 					"name": "Normal",
 					"types": ["Water", "Ice"],
+					"evolved_form": [],
 					"attack": 186,
 					"defense": 256,
 					"stamina": 137,
@@ -4253,6 +4419,7 @@
 				"880": {
 					"name": "Shadow",
 					"types": ["Water", "Ice"],
+					"evolved_form": [],
 					"attack": 186,
 					"defense": 256,
 					"stamina": 137,
@@ -4264,6 +4431,7 @@
 				"881": {
 					"name": "Purified",
 					"types": ["Water", "Ice"],
+					"evolved_form": [],
 					"attack": 186,
 					"defense": 256,
 					"stamina": 137,
@@ -4406,6 +4574,7 @@
 				"214": {
 					"name": "Normal",
 					"types": ["Psychic"],
+					"evolved_form": [97],
 					"attack": 89,
 					"defense": 136,
 					"stamina": 155,
@@ -4417,6 +4586,7 @@
 				"215": {
 					"name": "Shadow",
 					"types": ["Psychic"],
+					"evolved_form": [97],
 					"attack": 89,
 					"defense": 136,
 					"stamina": 155,
@@ -4428,6 +4598,7 @@
 				"216": {
 					"name": "Purified",
 					"types": ["Psychic"],
+					"evolved_form": [97],
 					"attack": 89,
 					"defense": 136,
 					"stamina": 155,
@@ -4466,6 +4637,7 @@
 				"217": {
 					"name": "Normal",
 					"types": ["Psychic"],
+					"evolved_form": [],
 					"attack": 144,
 					"defense": 193,
 					"stamina": 198,
@@ -4477,6 +4649,7 @@
 				"218": {
 					"name": "Shadow",
 					"types": ["Psychic"],
+					"evolved_form": [],
 					"attack": 144,
 					"defense": 193,
 					"stamina": 198,
@@ -4488,6 +4661,7 @@
 				"219": {
 					"name": "Purified",
 					"types": ["Psychic"],
+					"evolved_form": [],
 					"attack": 144,
 					"defense": 193,
 					"stamina": 198,
@@ -4526,6 +4700,7 @@
 				"870": {
 					"name": "Normal",
 					"types": ["Water"],
+					"evolved_form": [99],
 					"attack": 181,
 					"defense": 124,
 					"stamina": 102,
@@ -4537,6 +4712,7 @@
 				"871": {
 					"name": "Shadow",
 					"types": ["Water"],
+					"evolved_form": [99],
 					"attack": 181,
 					"defense": 124,
 					"stamina": 102,
@@ -4548,6 +4724,7 @@
 				"872": {
 					"name": "Purified",
 					"types": ["Water"],
+					"evolved_form": [99],
 					"attack": 181,
 					"defense": 124,
 					"stamina": 102,
@@ -4586,6 +4763,7 @@
 				"873": {
 					"name": "Normal",
 					"types": ["Water"],
+					"evolved_form": [],
 					"attack": 240,
 					"defense": 181,
 					"stamina": 146,
@@ -4597,6 +4775,7 @@
 				"874": {
 					"name": "Shadow",
 					"types": ["Water"],
+					"evolved_form": [],
 					"attack": 240,
 					"defense": 181,
 					"stamina": 146,
@@ -4608,6 +4787,7 @@
 				"875": {
 					"name": "Purified",
 					"types": ["Water"],
+					"evolved_form": [],
 					"attack": 240,
 					"defense": 181,
 					"stamina": 146,
@@ -4698,7 +4878,7 @@
 				"729": {
 					"name": "Normal",
 					"types": ["Grass", "Psychic"],
-					"evolved_form": 77,
+					"evolved_form": [103],
 					"attack": 107,
 					"defense": 125,
 					"stamina": 155,
@@ -4710,7 +4890,7 @@
 				"730": {
 					"name": "Shadow",
 					"types": ["Grass", "Psychic"],
-					"evolved_form": 77,
+					"evolved_form": [103],
 					"attack": 107,
 					"defense": 125,
 					"stamina": 155,
@@ -4722,7 +4902,7 @@
 				"731": {
 					"name": "Purified",
 					"types": ["Grass", "Psychic"],
-					"evolved_form": 77,
+					"evolved_form": [103],
 					"attack": 107,
 					"defense": 125,
 					"stamina": 155,
@@ -4782,10 +4962,12 @@
 					"chargedmove": ["Seed Bomb", "Dragon Pulse", "Solar Beam"]
 				},
 				"732": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": []
 				},
 				"733": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": []
 				}
 			},
 			"default_form": 77,
@@ -4809,7 +4991,7 @@
 				"224": {
 					"name": "Normal",
 					"types": ["Ground"],
-					"evolved_form": 79,
+					"evolved_form": [105],
 					"attack": 90,
 					"defense": 144,
 					"stamina": 137,
@@ -4821,7 +5003,7 @@
 				"225": {
 					"name": "Shadow",
 					"types": ["Ground"],
-					"evolved_form": 79,
+					"evolved_form": [105],
 					"attack": 90,
 					"defense": 144,
 					"stamina": 137,
@@ -4833,7 +5015,7 @@
 				"226": {
 					"name": "Purified",
 					"types": ["Ground"],
-					"evolved_form": 79,
+					"evolved_form": [105],
 					"attack": 90,
 					"defense": 144,
 					"stamina": 137,
@@ -4893,10 +5075,12 @@
 					"chargedmove": ["Bone Club", "Shadow Ball", "Fire Blast"]
 				},
 				"227": {
-					"name": "Shadow"
+					"name": "Shadow",
+					"evolved_form": []
 				},
 				"228": {
-					"name": "Purified"
+					"name": "Purified",
+					"evolved_form": []
 				}
 			},
 			"default_form": 79,
@@ -4920,6 +5104,7 @@
 				"713": {
 					"name": "Normal",
 					"types": ["Fighting"],
+					"evolved_form": [],
 					"attack": 224,
 					"defense": 181,
 					"stamina": 137,
@@ -4931,6 +5116,7 @@
 				"714": {
 					"name": "Shadow",
 					"types": ["Fighting"],
+					"evolved_form": [],
 					"attack": 224,
 					"defense": 181,
 					"stamina": 137,
@@ -4942,6 +5128,7 @@
 				"715": {
 					"name": "Purified",
 					"types": ["Fighting"],
+					"evolved_form": [],
 					"attack": 224,
 					"defense": 181,
 					"stamina": 137,
@@ -4980,6 +5167,7 @@
 				"277": {
 					"name": "Normal",
 					"types": ["Fighting"],
+					"evolved_form": [],
 					"attack": 193,
 					"defense": 197,
 					"stamina": 137,
@@ -4991,6 +5179,7 @@
 				"278": {
 					"name": "Shadow",
 					"types": ["Fighting"],
+					"evolved_form": [],
 					"attack": 193,
 					"defense": 197,
 					"stamina": 137,
@@ -5002,6 +5191,7 @@
 				"279": {
 					"name": "Purified",
 					"types": ["Fighting"],
+					"evolved_form": [],
 					"attack": 193,
 					"defense": 197,
 					"stamina": 137,
@@ -5066,6 +5256,7 @@
 				"703": {
 					"name": "Normal",
 					"types": ["Poison"],
+					"evolved_form": [110],
 					"attack": 119,
 					"defense": 141,
 					"stamina": 120,
@@ -5077,6 +5268,7 @@
 				"704": {
 					"name": "Shadow",
 					"types": ["Poison"],
+					"evolved_form": [110],
 					"attack": 119,
 					"defense": 141,
 					"stamina": 120,
@@ -5088,6 +5280,7 @@
 				"705": {
 					"name": "Purified",
 					"types": ["Poison"],
+					"evolved_form": [110],
 					"attack": 119,
 					"defense": 141,
 					"stamina": 120,
@@ -5126,6 +5319,7 @@
 				"706": {
 					"name": "Normal",
 					"types": ["Poison"],
+					"evolved_form": [],
 					"attack": 174,
 					"defense": 197,
 					"stamina": 163,
@@ -5137,6 +5331,7 @@
 				"707": {
 					"name": "Shadow",
 					"types": ["Poison"],
+					"evolved_form": [],
 					"attack": 174,
 					"defense": 197,
 					"stamina": 163,
@@ -5148,6 +5343,7 @@
 				"708": {
 					"name": "Purified",
 					"types": ["Poison"],
+					"evolved_form": [],
 					"attack": 174,
 					"defense": 197,
 					"stamina": 163,
@@ -5186,6 +5382,7 @@
 				"846": {
 					"name": "Normal",
 					"types": ["Ground", "Rock"],
+					"evolved_form": [112],
 					"attack": 140,
 					"defense": 127,
 					"stamina": 190,
@@ -5197,6 +5394,7 @@
 				"847": {
 					"name": "Shadow",
 					"types": ["Ground", "Rock"],
+					"evolved_form": [112],
 					"attack": 140,
 					"defense": 127,
 					"stamina": 190,
@@ -5208,6 +5406,7 @@
 				"848": {
 					"name": "Purified",
 					"types": ["Ground", "Rock"],
+					"evolved_form": [112],
 					"attack": 140,
 					"defense": 127,
 					"stamina": 190,
@@ -5246,6 +5445,7 @@
 				"849": {
 					"name": "Normal",
 					"types": ["Ground", "Rock"],
+					"evolved_form": [464],
 					"attack": 222,
 					"defense": 171,
 					"stamina": 233,
@@ -5257,6 +5457,7 @@
 				"850": {
 					"name": "Shadow",
 					"types": ["Ground", "Rock"],
+					"evolved_form": [464],
 					"attack": 222,
 					"defense": 171,
 					"stamina": 233,
@@ -5268,6 +5469,7 @@
 				"851": {
 					"name": "Purified",
 					"types": ["Ground", "Rock"],
+					"evolved_form": [464],
 					"attack": 222,
 					"defense": 171,
 					"stamina": 233,
@@ -5358,6 +5560,7 @@
 				"839": {
 					"name": "Normal",
 					"types": ["Normal"],
+					"evolved_form": [],
 					"attack": 181,
 					"defense": 165,
 					"stamina": 233,
@@ -5369,6 +5572,7 @@
 				"840": {
 					"name": "Shadow",
 					"types": ["Normal"],
+					"evolved_form": [],
 					"attack": 181,
 					"defense": 165,
 					"stamina": 233,
@@ -5380,6 +5584,7 @@
 				"841": {
 					"name": "Purified",
 					"types": ["Normal"],
+					"evolved_form": [],
 					"attack": 181,
 					"defense": 165,
 					"stamina": 233,
@@ -5600,6 +5805,7 @@
 				"247": {
 					"name": "Normal",
 					"types": ["Bug", "Flying"],
+					"evolved_form": [212],
 					"attack": 218,
 					"defense": 170,
 					"stamina": 172,
@@ -5611,6 +5817,7 @@
 				"248": {
 					"name": "Shadow",
 					"types": ["Bug", "Flying"],
+					"evolved_form": [212],
 					"attack": 218,
 					"defense": 170,
 					"stamina": 172,
@@ -5622,6 +5829,7 @@
 				"249": {
 					"name": "Purified",
 					"types": ["Bug", "Flying"],
+					"evolved_form": [212],
 					"attack": 218,
 					"defense": 170,
 					"stamina": 172,
@@ -5686,6 +5894,7 @@
 				"640": {
 					"name": "Normal",
 					"types": ["Electric"],
+					"evolved_form": [466],
 					"attack": 198,
 					"defense": 158,
 					"stamina": 163,
@@ -5697,6 +5906,7 @@
 				"641": {
 					"name": "Shadow",
 					"types": ["Electric"],
+					"evolved_form": [466],
 					"attack": 198,
 					"defense": 158,
 					"stamina": 163,
@@ -5708,6 +5918,7 @@
 				"642": {
 					"name": "Purified",
 					"types": ["Electric"],
+					"evolved_form": [466],
 					"attack": 198,
 					"defense": 158,
 					"stamina": 163,
@@ -5746,6 +5957,7 @@
 				"634": {
 					"name": "Normal",
 					"types": ["Fire"],
+					"evolved_form": [467],
 					"attack": 206,
 					"defense": 154,
 					"stamina": 163,
@@ -5757,6 +5969,7 @@
 				"635": {
 					"name": "Shadow",
 					"types": ["Fire"],
+					"evolved_form": [467],
 					"attack": 206,
 					"defense": 154,
 					"stamina": 163,
@@ -5768,6 +5981,7 @@
 				"636": {
 					"name": "Purified",
 					"types": ["Fire"],
+					"evolved_form": [467],
 					"attack": 206,
 					"defense": 154,
 					"stamina": 163,
@@ -5806,6 +6020,7 @@
 				"898": {
 					"name": "Normal",
 					"types": ["Bug"],
+					"evolved_form": [],
 					"attack": 238,
 					"defense": 182,
 					"stamina": 163,
@@ -5817,6 +6032,7 @@
 				"899": {
 					"name": "Shadow",
 					"types": ["Bug"],
+					"evolved_form": [],
 					"attack": 238,
 					"defense": 182,
 					"stamina": 163,
@@ -5828,6 +6044,7 @@
 				"900": {
 					"name": "Purified",
 					"types": ["Bug"],
+					"evolved_form": [],
 					"attack": 238,
 					"defense": 182,
 					"stamina": 163,
@@ -5892,6 +6109,7 @@
 				"253": {
 					"name": "Normal",
 					"types": ["Water"],
+					"evolved_form": [130],
 					"attack": 29,
 					"defense": 85,
 					"stamina": 85,
@@ -5903,6 +6121,7 @@
 				"254": {
 					"name": "Shadow",
 					"types": ["Water"],
+					"evolved_form": [130],
 					"attack": 29,
 					"defense": 85,
 					"stamina": 85,
@@ -5914,6 +6133,7 @@
 				"255": {
 					"name": "Purified",
 					"types": ["Water"],
+					"evolved_form": [130],
 					"attack": 29,
 					"defense": 85,
 					"stamina": 85,
@@ -5952,6 +6172,7 @@
 				"256": {
 					"name": "Normal",
 					"types": ["Water", "Flying"],
+					"evolved_form": [],
 					"attack": 237,
 					"defense": 186,
 					"stamina": 216,
@@ -5963,6 +6184,7 @@
 				"257": {
 					"name": "Shadow",
 					"types": ["Water", "Flying"],
+					"evolved_form": [],
 					"attack": 237,
 					"defense": 186,
 					"stamina": 216,
@@ -5974,6 +6196,7 @@
 				"258": {
 					"name": "Purified",
 					"types": ["Water", "Flying"],
+					"evolved_form": [],
 					"attack": 237,
 					"defense": 186,
 					"stamina": 216,
@@ -6012,6 +6235,7 @@
 				"322": {
 					"name": "Normal",
 					"types": ["Water", "Ice"],
+					"evolved_form": [],
 					"attack": 165,
 					"defense": 174,
 					"stamina": 277,
@@ -6023,6 +6247,7 @@
 				"323": {
 					"name": "Shadow",
 					"types": ["Water", "Ice"],
+					"evolved_form": [],
 					"attack": 165,
 					"defense": 174,
 					"stamina": 277,
@@ -6034,6 +6259,7 @@
 				"324": {
 					"name": "Purified",
 					"types": ["Water", "Ice"],
+					"evolved_form": [],
 					"attack": 165,
 					"defense": 174,
 					"stamina": 277,
@@ -6202,6 +6428,7 @@
 				"677": {
 					"name": "Normal",
 					"types": ["Normal"],
+					"evolved_form": [233],
 					"attack": 153,
 					"defense": 136,
 					"stamina": 163,
@@ -6213,6 +6440,7 @@
 				"678": {
 					"name": "Shadow",
 					"types": ["Normal"],
+					"evolved_form": [233],
 					"attack": 153,
 					"defense": 136,
 					"stamina": 163,
@@ -6224,6 +6452,7 @@
 				"679": {
 					"name": "Purified",
 					"types": ["Normal"],
+					"evolved_form": [233],
 					"attack": 153,
 					"defense": 136,
 					"stamina": 163,
@@ -6262,6 +6491,7 @@
 				"740": {
 					"name": "Normal",
 					"types": ["Rock", "Water"],
+					"evolved_form": [139],
 					"attack": 155,
 					"defense": 153,
 					"stamina": 111,
@@ -6273,6 +6503,7 @@
 				"741": {
 					"name": "Shadow",
 					"types": ["Rock", "Water"],
+					"evolved_form": [139],
 					"attack": 155,
 					"defense": 153,
 					"stamina": 111,
@@ -6284,6 +6515,7 @@
 				"742": {
 					"name": "Purified",
 					"types": ["Rock", "Water"],
+					"evolved_form": [139],
 					"attack": 155,
 					"defense": 153,
 					"stamina": 111,
@@ -6322,6 +6554,7 @@
 				"743": {
 					"name": "Normal",
 					"types": ["Rock", "Water"],
+					"evolved_form": [],
 					"attack": 207,
 					"defense": 201,
 					"stamina": 172,
@@ -6333,6 +6566,7 @@
 				"744": {
 					"name": "Shadow",
 					"types": ["Rock", "Water"],
+					"evolved_form": [],
 					"attack": 207,
 					"defense": 201,
 					"stamina": 172,
@@ -6344,6 +6578,7 @@
 				"745": {
 					"name": "Purified",
 					"types": ["Rock", "Water"],
+					"evolved_form": [],
 					"attack": 207,
 					"defense": 201,
 					"stamina": 172,
@@ -6460,6 +6695,7 @@
 				"199": {
 					"name": "Normal",
 					"types": ["Normal"],
+					"evolved_form": [],
 					"attack": 190,
 					"defense": 169,
 					"stamina": 330,
@@ -6471,6 +6707,7 @@
 				"200": {
 					"name": "Shadow",
 					"types": ["Normal"],
+					"evolved_form": [],
 					"attack": 190,
 					"defense": 169,
 					"stamina": 330,
@@ -6482,6 +6719,7 @@
 				"201": {
 					"name": "Purified",
 					"types": ["Normal"],
+					"evolved_form": [],
 					"attack": 190,
 					"defense": 169,
 					"stamina": 330,
@@ -6520,6 +6758,7 @@
 				"716": {
 					"name": "Normal",
 					"types": ["Ice", "Flying"],
+					"evolved_form": [],
 					"attack": 192,
 					"defense": 236,
 					"stamina": 207,
@@ -6531,6 +6770,7 @@
 				"717": {
 					"name": "Shadow",
 					"types": ["Ice", "Flying"],
+					"evolved_form": [],
 					"attack": 192,
 					"defense": 236,
 					"stamina": 207,
@@ -6542,6 +6782,7 @@
 				"718": {
 					"name": "Purified",
 					"types": ["Ice", "Flying"],
+					"evolved_form": [],
 					"attack": 192,
 					"defense": 236,
 					"stamina": 207,
@@ -6580,6 +6821,7 @@
 				"773": {
 					"name": "Normal",
 					"types": ["Electric", "Flying"],
+					"evolved_form": [],
 					"attack": 253,
 					"defense": 185,
 					"stamina": 207,
@@ -6591,6 +6833,7 @@
 				"774": {
 					"name": "Shadow",
 					"types": ["Electric", "Flying"],
+					"evolved_form": [],
 					"attack": 253,
 					"defense": 185,
 					"stamina": 207,
@@ -6602,6 +6845,7 @@
 				"775": {
 					"name": "Purified",
 					"types": ["Electric", "Flying"],
+					"evolved_form": [],
 					"attack": 253,
 					"defense": 185,
 					"stamina": 207,
@@ -6640,6 +6884,7 @@
 				"836": {
 					"name": "Normal",
 					"types": ["Fire", "Flying"],
+					"evolved_form": [],
 					"attack": 251,
 					"defense": 181,
 					"stamina": 207,
@@ -6651,6 +6896,7 @@
 				"837": {
 					"name": "Shadow",
 					"types": ["Fire", "Flying"],
+					"evolved_form": [],
 					"attack": 251,
 					"defense": 181,
 					"stamina": 207,
@@ -6662,6 +6908,7 @@
 				"838": {
 					"name": "Purified",
 					"types": ["Fire", "Flying"],
+					"evolved_form": [],
 					"attack": 251,
 					"defense": 181,
 					"stamina": 207,
@@ -6700,6 +6947,7 @@
 				"190": {
 					"name": "Normal",
 					"types": ["Dragon"],
+					"evolved_form": [],
 					"attack": 119,
 					"defense": 91,
 					"stamina": 121,
@@ -6711,6 +6959,7 @@
 				"191": {
 					"name": "Shadow",
 					"types": ["Dragon"],
+					"evolved_form": [],
 					"attack": 119,
 					"defense": 91,
 					"stamina": 121,
@@ -6722,6 +6971,7 @@
 				"192": {
 					"name": "Purified",
 					"types": ["Dragon"],
+					"evolved_form": [],
 					"attack": 119,
 					"defense": 91,
 					"stamina": 121,
@@ -6760,6 +7010,7 @@
 				"193": {
 					"name": "Normal",
 					"types": ["Dragon"],
+					"evolved_form": [],
 					"attack": 163,
 					"defense": 135,
 					"stamina": 156,
@@ -6771,6 +7022,7 @@
 				"194": {
 					"name": "Shadow",
 					"types": ["Dragon"],
+					"evolved_form": [],
 					"attack": 163,
 					"defense": 135,
 					"stamina": 156,
@@ -6782,6 +7034,7 @@
 				"195": {
 					"name": "Purified",
 					"types": ["Dragon"],
+					"evolved_form": [],
 					"attack": 163,
 					"defense": 135,
 					"stamina": 156,
@@ -6820,6 +7073,7 @@
 				"196": {
 					"name": "Normal",
 					"types": ["Dragon", "Flying"],
+					"evolved_form": [],
 					"attack": 263,
 					"defense": 198,
 					"stamina": 209,
@@ -6831,6 +7085,7 @@
 				"197": {
 					"name": "Shadow",
 					"types": ["Dragon", "Flying"],
+					"evolved_form": [],
 					"attack": 263,
 					"defense": 198,
 					"stamina": 209,
@@ -6842,6 +7097,7 @@
 				"198": {
 					"name": "Purified",
 					"types": ["Dragon", "Flying"],
+					"evolved_form": [],
 					"attack": 263,
 					"defense": 198,
 					"stamina": 209,
@@ -6880,6 +7136,7 @@
 				"135": {
 					"name": "Normal",
 					"types": ["Psychic"],
+					"evolved_form": [],
 					"attack": 300,
 					"defense": 182,
 					"stamina": 214,
@@ -7386,6 +7643,7 @@
 				"202": {
 					"name": "Normal",
 					"types": ["Poison", "Flying"],
+					"evolved_form": [],
 					"attack": 194,
 					"defense": 178,
 					"stamina": 198,
@@ -7397,6 +7655,7 @@
 				"203": {
 					"name": "Shadow",
 					"types": ["Poison", "Flying"],
+					"evolved_form": [],
 					"attack": 194,
 					"defense": 178,
 					"stamina": 198,
@@ -7408,6 +7667,7 @@
 				"204": {
 					"name": "Purified",
 					"types": ["Poison", "Flying"],
+					"evolved_form": [],
 					"attack": 194,
 					"defense": 178,
 					"stamina": 198,
@@ -7680,6 +7940,7 @@
 				"646": {
 					"name": "Normal",
 					"types": ["Electric"],
+					"evolved_form": [180],
 					"attack": 114,
 					"defense": 79,
 					"stamina": 146,
@@ -7691,6 +7952,7 @@
 				"647": {
 					"name": "Shadow",
 					"types": ["Electric"],
+					"evolved_form": [180],
 					"attack": 114,
 					"defense": 79,
 					"stamina": 146,
@@ -7702,6 +7964,7 @@
 				"648": {
 					"name": "Purified",
 					"types": ["Electric"],
+					"evolved_form": [180],
 					"attack": 114,
 					"defense": 79,
 					"stamina": 146,
@@ -7740,6 +8003,7 @@
 				"649": {
 					"name": "Normal",
 					"types": ["Electric"],
+					"evolved_form": [181],
 					"attack": 145,
 					"defense": 109,
 					"stamina": 172,
@@ -7751,6 +8015,7 @@
 				"650": {
 					"name": "Shadow",
 					"types": ["Electric"],
+					"evolved_form": [181],
 					"attack": 145,
 					"defense": 109,
 					"stamina": 172,
@@ -7762,6 +8027,7 @@
 				"651": {
 					"name": "Purified",
 					"types": ["Electric"],
+					"evolved_form": [181],
 					"attack": 145,
 					"defense": 109,
 					"stamina": 172,
@@ -7800,6 +8066,7 @@
 				"652": {
 					"name": "Normal",
 					"types": ["Electric"],
+					"evolved_form": [],
 					"attack": 211,
 					"defense": 169,
 					"stamina": 207,
@@ -7811,6 +8078,7 @@
 				"653": {
 					"name": "Shadow",
 					"types": ["Electric"],
+					"evolved_form": [],
 					"attack": 211,
 					"defense": 169,
 					"stamina": 207,
@@ -7822,6 +8090,7 @@
 				"654": {
 					"name": "Purified",
 					"types": ["Electric"],
+					"evolved_form": [],
 					"attack": 211,
 					"defense": 169,
 					"stamina": 207,
@@ -7860,6 +8129,7 @@
 				"274": {
 					"name": "Normal",
 					"types": ["Grass"],
+					"evolved_form": [],
 					"attack": 169,
 					"defense": 186,
 					"stamina": 181,
@@ -7871,6 +8141,7 @@
 				"275": {
 					"name": "Shadow",
 					"types": ["Grass"],
+					"evolved_form": [],
 					"attack": 169,
 					"defense": 186,
 					"stamina": 181,
@@ -7882,6 +8153,7 @@
 				"276": {
 					"name": "Purified",
 					"types": ["Grass"],
+					"evolved_form": [],
 					"attack": 169,
 					"defense": 186,
 					"stamina": 181,
@@ -7998,6 +8270,7 @@
 				"244": {
 					"name": "Normal",
 					"types": ["Water"],
+					"evolved_form": [],
 					"attack": 174,
 					"defense": 179,
 					"stamina": 207,
@@ -8009,6 +8282,7 @@
 				"245": {
 					"name": "Shadow",
 					"types": ["Water"],
+					"evolved_form": [],
 					"attack": 174,
 					"defense": 179,
 					"stamina": 207,
@@ -8020,6 +8294,7 @@
 				"246": {
 					"name": "Purified",
 					"types": ["Water"],
+					"evolved_form": [],
 					"attack": 174,
 					"defense": 179,
 					"stamina": 207,
@@ -8344,6 +8619,7 @@
 				"855": {
 					"name": "Normal",
 					"types": ["Dark", "Flying"],
+					"evolved_form": [430],
 					"attack": 175,
 					"defense": 87,
 					"stamina": 155,
@@ -8355,6 +8631,7 @@
 				"856": {
 					"name": "Shadow",
 					"types": ["Dark", "Flying"],
+					"evolved_form": [430],
 					"attack": 175,
 					"defense": 87,
 					"stamina": 155,
@@ -8366,6 +8643,7 @@
 				"857": {
 					"name": "Purified",
 					"types": ["Dark", "Flying"],
+					"evolved_form": [430],
 					"attack": 175,
 					"defense": 87,
 					"stamina": 155,
@@ -8430,6 +8708,7 @@
 				"719": {
 					"name": "Normal",
 					"types": ["Ghost"],
+					"evolved_form": [429],
 					"attack": 167,
 					"defense": 154,
 					"stamina": 155,
@@ -8441,6 +8720,7 @@
 				"720": {
 					"name": "Shadow",
 					"types": ["Ghost"],
+					"evolved_form": [429],
 					"attack": 167,
 					"defense": 154,
 					"stamina": 155,
@@ -8452,6 +8732,7 @@
 				"721": {
 					"name": "Purified",
 					"types": ["Ghost"],
+					"evolved_form": [429],
 					"attack": 167,
 					"defense": 154,
 					"stamina": 155,
@@ -8601,6 +8882,7 @@
 				"602": {
 					"name": "Normal",
 					"types": ["Psychic"],
+					"evolved_form": [],
 					"attack": 60,
 					"defense": 106,
 					"stamina": 382,
@@ -8612,6 +8894,7 @@
 				"686": {
 					"name": "Shadow",
 					"types": ["Psychic"],
+					"evolved_form": [],
 					"attack": 60,
 					"defense": 106,
 					"stamina": 382,
@@ -8623,6 +8906,7 @@
 				"687": {
 					"name": "Purified",
 					"types": ["Psychic"],
+					"evolved_form": [],
 					"attack": 60,
 					"defense": 106,
 					"stamina": 382,
@@ -8765,6 +9049,7 @@
 				"803": {
 					"name": "Normal",
 					"types": ["Ground", "Flying"],
+					"evolved_form": [472],
 					"attack": 143,
 					"defense": 184,
 					"stamina": 163,
@@ -8776,6 +9061,7 @@
 				"804": {
 					"name": "Shadow",
 					"types": ["Ground", "Flying"],
+					"evolved_form": [472],
 					"attack": 143,
 					"defense": 184,
 					"stamina": 163,
@@ -8787,6 +9073,7 @@
 				"805": {
 					"name": "Purified",
 					"types": ["Ground", "Flying"],
+					"evolved_form": [472],
 					"attack": 143,
 					"defense": 184,
 					"stamina": 163,
@@ -8929,6 +9216,7 @@
 				"250": {
 					"name": "Normal",
 					"types": ["Bug", "Steel"],
+					"evolved_form": [],
 					"attack": 236,
 					"defense": 181,
 					"stamina": 172,
@@ -8940,6 +9228,7 @@
 				"251": {
 					"name": "Shadow",
 					"types": ["Bug", "Steel"],
+					"evolved_form": [],
 					"attack": 236,
 					"defense": 181,
 					"stamina": 172,
@@ -8951,6 +9240,7 @@
 				"252": {
 					"name": "Purified",
 					"types": ["Bug", "Steel"],
+					"evolved_form": [],
 					"attack": 236,
 					"defense": 181,
 					"stamina": 172,
@@ -8989,6 +9279,7 @@
 				"827": {
 					"name": "Normal",
 					"types": ["Bug", "Rock"],
+					"evolved_form": [],
 					"attack": 17,
 					"defense": 396,
 					"stamina": 85,
@@ -9000,6 +9291,7 @@
 				"828": {
 					"name": "Shadow",
 					"types": ["Bug", "Rock"],
+					"evolved_form": [],
 					"attack": 17,
 					"defense": 396,
 					"stamina": 85,
@@ -9011,6 +9303,7 @@
 				"829": {
 					"name": "Purified",
 					"types": ["Bug", "Rock"],
+					"evolved_form": [],
 					"attack": 17,
 					"defense": 396,
 					"stamina": 85,
@@ -9075,6 +9368,7 @@
 				"797": {
 					"name": "Normal",
 					"types": ["Dark", "Ice"],
+					"evolved_form": [461],
 					"attack": 189,
 					"defense": 146,
 					"stamina": 146,
@@ -9086,6 +9380,7 @@
 				"798": {
 					"name": "Shadow",
 					"types": ["Dark", "Ice"],
+					"evolved_form": [461],
 					"attack": 189,
 					"defense": 146,
 					"stamina": 146,
@@ -9097,6 +9392,7 @@
 				"799": {
 					"name": "Purified",
 					"types": ["Dark", "Ice"],
+					"evolved_form": [461],
 					"attack": 189,
 					"defense": 146,
 					"stamina": 146,
@@ -9447,6 +9743,7 @@
 				"229": {
 					"name": "Normal",
 					"types": ["Dark", "Fire"],
+					"evolved_form": [229],
 					"attack": 152,
 					"defense": 83,
 					"stamina": 128,
@@ -9458,6 +9755,7 @@
 				"230": {
 					"name": "Shadow",
 					"types": ["Dark", "Fire"],
+					"evolved_form": [229],
 					"attack": 152,
 					"defense": 83,
 					"stamina": 128,
@@ -9469,6 +9767,7 @@
 				"231": {
 					"name": "Purified",
 					"types": ["Dark", "Fire"],
+					"evolved_form": [229],
 					"attack": 152,
 					"defense": 83,
 					"stamina": 128,
@@ -9507,6 +9806,7 @@
 				"232": {
 					"name": "Normal",
 					"types": ["Dark", "Fire"],
+					"evolved_form": [],
 					"attack": 224,
 					"defense": 144,
 					"stamina": 181,
@@ -9518,6 +9818,7 @@
 				"233": {
 					"name": "Shadow",
 					"types": ["Dark", "Fire"],
+					"evolved_form": [],
 					"attack": 224,
 					"defense": 144,
 					"stamina": 181,
@@ -9529,6 +9830,7 @@
 				"234": {
 					"name": "Purified",
 					"types": ["Dark", "Fire"],
+					"evolved_form": [],
 					"attack": 224,
 					"defense": 144,
 					"stamina": 181,
@@ -9983,6 +10285,7 @@
 				"313": {
 					"name": "Normal",
 					"types": ["Rock", "Ground"],
+					"evolved_form": [247],
 					"attack": 115,
 					"defense": 93,
 					"stamina": 137,
@@ -9994,6 +10297,7 @@
 				"314": {
 					"name": "Shadow",
 					"types": ["Rock", "Ground"],
+					"evolved_form": [247],
 					"attack": 115,
 					"defense": 93,
 					"stamina": 137,
@@ -10005,6 +10309,7 @@
 				"315": {
 					"name": "Purified",
 					"types": ["Rock", "Ground"],
+					"evolved_form": [247],
 					"attack": 115,
 					"defense": 93,
 					"stamina": 137,
@@ -10043,6 +10348,7 @@
 				"316": {
 					"name": "Normal",
 					"types": ["Rock", "Ground"],
+					"evolved_form": [248],
 					"attack": 155,
 					"defense": 133,
 					"stamina": 172,
@@ -10054,6 +10360,7 @@
 				"317": {
 					"name": "Shadow",
 					"types": ["Rock", "Ground"],
+					"evolved_form": [248],
 					"attack": 155,
 					"defense": 133,
 					"stamina": 172,
@@ -10065,6 +10372,7 @@
 				"318": {
 					"name": "Purified",
 					"types": ["Rock", "Ground"],
+					"evolved_form": [248],
 					"attack": 155,
 					"defense": 133,
 					"stamina": 172,
@@ -10103,6 +10411,7 @@
 				"319": {
 					"name": "Normal",
 					"types": ["Rock", "Dark"],
+					"evolved_form": [],
 					"attack": 251,
 					"defense": 207,
 					"stamina": 225,
@@ -10114,6 +10423,7 @@
 				"320": {
 					"name": "Shadow",
 					"types": ["Rock", "Dark"],
+					"evolved_form": [],
 					"attack": 251,
 					"defense": 207,
 					"stamina": 225,
@@ -10125,6 +10435,7 @@
 				"321": {
 					"name": "Purified",
 					"types": ["Rock", "Dark"],
+					"evolved_form": [],
 					"attack": 251,
 					"defense": 207,
 					"stamina": 225,
@@ -10397,6 +10708,7 @@
 				"205": {
 					"name": "Normal",
 					"types": ["Water"],
+					"evolved_form": [259],
 					"attack": 126,
 					"defense": 93,
 					"stamina": 137,
@@ -10408,6 +10720,7 @@
 				"206": {
 					"name": "Shadow",
 					"types": ["Water"],
+					"evolved_form": [259],
 					"attack": 126,
 					"defense": 93,
 					"stamina": 137,
@@ -10419,6 +10732,7 @@
 				"207": {
 					"name": "Purified",
 					"types": ["Water"],
+					"evolved_form": [259],
 					"attack": 126,
 					"defense": 93,
 					"stamina": 137,
@@ -10457,6 +10771,7 @@
 				"208": {
 					"name": "Normal",
 					"types": ["Water", "Ground"],
+					"evolved_form": [260],
 					"attack": 156,
 					"defense": 133,
 					"stamina": 172,
@@ -10468,6 +10783,7 @@
 				"209": {
 					"name": "Shadow",
 					"types": ["Water", "Ground"],
+					"evolved_form": [260],
 					"attack": 156,
 					"defense": 133,
 					"stamina": 172,
@@ -10479,6 +10795,7 @@
 				"210": {
 					"name": "Purified",
 					"types": ["Water", "Ground"],
+					"evolved_form": [260],
 					"attack": 156,
 					"defense": 133,
 					"stamina": 172,
@@ -10517,6 +10834,7 @@
 				"211": {
 					"name": "Normal",
 					"types": ["Water", "Ground"],
+					"evolved_form": [],
 					"attack": 208,
 					"defense": 175,
 					"stamina": 225,
@@ -10528,6 +10846,7 @@
 				"212": {
 					"name": "Shadow",
 					"types": ["Water", "Ground"],
+					"evolved_form": [],
 					"attack": 208,
 					"defense": 175,
 					"stamina": 225,
@@ -10539,6 +10858,7 @@
 				"213": {
 					"name": "Purified",
 					"types": ["Water", "Ground"],
+					"evolved_form": [],
 					"attack": 208,
 					"defense": 175,
 					"stamina": 225,
@@ -10681,6 +11001,7 @@
 				"600": {
 					"name": "Normal",
 					"types": ["Bug"],
+					"evolved_form": [266, 268],
 					"attack": 75,
 					"defense": 59,
 					"stamina": 128,
@@ -10901,6 +11222,7 @@
 				"625": {
 					"name": "Normal",
 					"types": ["Grass"],
+					"evolved_form": [274],
 					"attack": 71,
 					"defense": 77,
 					"stamina": 120,
@@ -10912,6 +11234,7 @@
 				"626": {
 					"name": "Shadow",
 					"types": ["Grass"],
+					"evolved_form": [274],
 					"attack": 71,
 					"defense": 77,
 					"stamina": 120,
@@ -10923,6 +11246,7 @@
 				"627": {
 					"name": "Purified",
 					"types": ["Grass"],
+					"evolved_form": [274],
 					"attack": 71,
 					"defense": 77,
 					"stamina": 120,
@@ -10961,6 +11285,7 @@
 				"628": {
 					"name": "Normal",
 					"types": ["Grass", "Dark"],
+					"evolved_form": [275],
 					"attack": 134,
 					"defense": 78,
 					"stamina": 172,
@@ -10972,6 +11297,7 @@
 				"629": {
 					"name": "Shadow",
 					"types": ["Grass", "Dark"],
+					"evolved_form": [275],
 					"attack": 134,
 					"defense": 78,
 					"stamina": 172,
@@ -10983,6 +11309,7 @@
 				"630": {
 					"name": "Purified",
 					"types": ["Grass", "Dark"],
+					"evolved_form": [275],
 					"attack": 134,
 					"defense": 78,
 					"stamina": 172,
@@ -11021,6 +11348,7 @@
 				"631": {
 					"name": "Normal",
 					"types": ["Grass", "Dark"],
+					"evolved_form": [],
 					"attack": 200,
 					"defense": 121,
 					"stamina": 207,
@@ -11032,6 +11360,7 @@
 				"632": {
 					"name": "Shadow",
 					"types": ["Grass", "Dark"],
+					"evolved_form": [],
 					"attack": 200,
 					"defense": 121,
 					"stamina": 207,
@@ -11043,6 +11372,7 @@
 				"633": {
 					"name": "Purified",
 					"types": ["Grass", "Dark"],
+					"evolved_form": [],
 					"attack": 200,
 					"defense": 121,
 					"stamina": 207,
@@ -11185,6 +11515,7 @@
 				"292": {
 					"name": "Normal",
 					"types": ["Psychic", "Fairy"],
+					"evolved_form": [281],
 					"attack": 79,
 					"defense": 59,
 					"stamina": 99,
@@ -11196,6 +11527,7 @@
 				"293": {
 					"name": "Shadow",
 					"types": ["Psychic", "Fairy"],
+					"evolved_form": [281],
 					"attack": 79,
 					"defense": 59,
 					"stamina": 99,
@@ -11207,6 +11539,7 @@
 				"294": {
 					"name": "Purified",
 					"types": ["Psychic", "Fairy"],
+					"evolved_form": [281],
 					"attack": 79,
 					"defense": 59,
 					"stamina": 99,
@@ -11245,6 +11578,7 @@
 				"295": {
 					"name": "Normal",
 					"types": ["Psychic", "Fairy"],
+					"evolved_form": [282, 475],
 					"attack": 117,
 					"defense": 90,
 					"stamina": 116,
@@ -11256,6 +11590,7 @@
 				"296": {
 					"name": "Shadow",
 					"types": ["Psychic", "Fairy"],
+					"evolved_form": [282, 475],
 					"attack": 117,
 					"defense": 90,
 					"stamina": 116,
@@ -11267,6 +11602,7 @@
 				"297": {
 					"name": "Purified",
 					"types": ["Psychic", "Fairy"],
+					"evolved_form": [282, 475],
 					"attack": 117,
 					"defense": 90,
 					"stamina": 116,
@@ -11305,6 +11641,7 @@
 				"298": {
 					"name": "Normal",
 					"types": ["Psychic", "Fairy"],
+					"evolved_form": [],
 					"attack": 237,
 					"defense": 195,
 					"stamina": 169,
@@ -11316,6 +11653,7 @@
 				"299": {
 					"name": "Shadow",
 					"types": ["Psychic", "Fairy"],
+					"evolved_form": [],
 					"attack": 237,
 					"defense": 195,
 					"stamina": 169,
@@ -11327,6 +11665,7 @@
 				"300": {
 					"name": "Purified",
 					"types": ["Psychic", "Fairy"],
+					"evolved_form": [],
 					"attack": 237,
 					"defense": 195,
 					"stamina": 169,
@@ -11885,6 +12224,7 @@
 				"833": {
 					"name": "Normal",
 					"types": ["Steel", "Fairy"],
+					"evolved_form": [],
 					"attack": 155,
 					"defense": 141,
 					"stamina": 137,
@@ -11896,6 +12236,7 @@
 				"834": {
 					"name": "Shadow",
 					"types": ["Steel", "Fairy"],
+					"evolved_form": [],
 					"attack": 155,
 					"defense": 141,
 					"stamina": 137,
@@ -11907,6 +12248,7 @@
 				"835": {
 					"name": "Purified",
 					"types": ["Steel", "Fairy"],
+					"evolved_form": [],
 					"attack": 155,
 					"defense": 141,
 					"stamina": 137,
@@ -12309,6 +12651,7 @@
 				"734": {
 					"name": "Normal",
 					"types": ["Water", "Dark"],
+					"evolved_form": [319],
 					"attack": 171,
 					"defense": 39,
 					"stamina": 128,
@@ -12320,6 +12663,7 @@
 				"735": {
 					"name": "Shadow",
 					"types": ["Water", "Dark"],
+					"evolved_form": [319],
 					"attack": 171,
 					"defense": 39,
 					"stamina": 128,
@@ -12331,6 +12675,7 @@
 				"736": {
 					"name": "Purified",
 					"types": ["Water", "Dark"],
+					"evolved_form": [319],
 					"attack": 171,
 					"defense": 39,
 					"stamina": 128,
@@ -12369,6 +12714,7 @@
 				"737": {
 					"name": "Normal",
 					"types": ["Water", "Dark"],
+					"evolved_form": [],
 					"attack": 243,
 					"defense": 83,
 					"stamina": 172,
@@ -12380,6 +12726,7 @@
 				"738": {
 					"name": "Shadow",
 					"types": ["Water", "Dark"],
+					"evolved_form": [],
 					"attack": 243,
 					"defense": 83,
 					"stamina": 172,
@@ -12391,6 +12738,7 @@
 				"739": {
 					"name": "Purified",
 					"types": ["Water", "Dark"],
+					"evolved_form": [],
 					"attack": 243,
 					"defense": 83,
 					"stamina": 172,
@@ -12637,6 +12985,7 @@
 				"746": {
 					"name": "Normal",
 					"types": ["Ground"],
+					"evolved_form": [329],
 					"attack": 162,
 					"defense": 78,
 					"stamina": 128,
@@ -12648,6 +12997,7 @@
 				"747": {
 					"name": "Shadow",
 					"types": ["Ground"],
+					"evolved_form": [329],
 					"attack": 162,
 					"defense": 78,
 					"stamina": 128,
@@ -12659,6 +13009,7 @@
 				"748": {
 					"name": "Purified",
 					"types": ["Ground"],
+					"evolved_form": [329],
 					"attack": 162,
 					"defense": 78,
 					"stamina": 128,
@@ -12697,6 +13048,7 @@
 				"749": {
 					"name": "Normal",
 					"types": ["Ground", "Dragon"],
+					"evolved_form": [330],
 					"attack": 134,
 					"defense": 99,
 					"stamina": 137,
@@ -12708,6 +13060,7 @@
 				"750": {
 					"name": "Shadow",
 					"types": ["Ground", "Dragon"],
+					"evolved_form": [330],
 					"attack": 134,
 					"defense": 99,
 					"stamina": 137,
@@ -12719,6 +13072,7 @@
 				"751": {
 					"name": "Purified",
 					"types": ["Ground", "Dragon"],
+					"evolved_form": [330],
 					"attack": 134,
 					"defense": 99,
 					"stamina": 137,
@@ -12757,6 +13111,7 @@
 				"752": {
 					"name": "Normal",
 					"types": ["Ground", "Dragon"],
+					"evolved_form": [],
 					"attack": 205,
 					"defense": 168,
 					"stamina": 190,
@@ -12768,6 +13123,7 @@
 				"753": {
 					"name": "Shadow",
 					"types": ["Ground", "Dragon"],
+					"evolved_form": [],
 					"attack": 205,
 					"defense": 168,
 					"stamina": 190,
@@ -12779,6 +13135,7 @@
 				"754": {
 					"name": "Purified",
 					"types": ["Ground", "Dragon"],
+					"evolved_form": [],
 					"attack": 205,
 					"defense": 168,
 					"stamina": 190,
@@ -12817,6 +13174,7 @@
 				"610": {
 					"name": "Normal",
 					"types": ["Grass"],
+					"evolved_form": [332],
 					"attack": 156,
 					"defense": 74,
 					"stamina": 137,
@@ -12828,6 +13186,7 @@
 				"611": {
 					"name": "Shadow",
 					"types": ["Grass"],
+					"evolved_form": [332],
 					"attack": 156,
 					"defense": 74,
 					"stamina": 137,
@@ -12839,6 +13198,7 @@
 				"612": {
 					"name": "Purified",
 					"types": ["Grass"],
+					"evolved_form": [332],
 					"attack": 156,
 					"defense": 74,
 					"stamina": 137,
@@ -12877,6 +13237,7 @@
 				"613": {
 					"name": "Normal",
 					"types": ["Grass", "Dark"],
+					"evolved_form": [],
 					"attack": 221,
 					"defense": 115,
 					"stamina": 172,
@@ -12888,6 +13249,7 @@
 				"614": {
 					"name": "Shadow",
 					"types": ["Grass", "Dark"],
+					"evolved_form": [],
 					"attack": 221,
 					"defense": 115,
 					"stamina": 172,
@@ -12899,6 +13261,7 @@
 				"615": {
 					"name": "Purified",
 					"types": ["Grass", "Dark"],
+					"evolved_form": [],
 					"attack": 221,
 					"defense": 115,
 					"stamina": 172,
@@ -13634,6 +13997,7 @@
 				"830": {
 					"name": "Normal",
 					"types": ["Dark"],
+					"evolved_form": [],
 					"attack": 246,
 					"defense": 120,
 					"stamina": 163,
@@ -13645,6 +14009,7 @@
 				"831": {
 					"name": "Shadow",
 					"types": ["Dark"],
+					"evolved_form": [],
 					"attack": 246,
 					"defense": 120,
 					"stamina": 163,
@@ -13656,6 +14021,7 @@
 				"832": {
 					"name": "Purified",
 					"types": ["Dark"],
+					"evolved_form": [],
 					"attack": 246,
 					"defense": 120,
 					"stamina": 163,
@@ -13980,6 +14346,7 @@
 				"755": {
 					"name": "Normal",
 					"types": ["Dragon"],
+					"evolved_form": [372],
 					"attack": 134,
 					"defense": 93,
 					"stamina": 128,
@@ -13991,6 +14358,7 @@
 				"756": {
 					"name": "Shadow",
 					"types": ["Dragon"],
+					"evolved_form": [372],
 					"attack": 134,
 					"defense": 93,
 					"stamina": 128,
@@ -14002,6 +14370,7 @@
 				"757": {
 					"name": "Purified",
 					"types": ["Dragon"],
+					"evolved_form": [372],
 					"attack": 134,
 					"defense": 93,
 					"stamina": 128,
@@ -14040,6 +14409,7 @@
 				"758": {
 					"name": "Normal",
 					"types": ["Dragon"],
+					"evolved_form": [373],
 					"attack": 172,
 					"defense": 155,
 					"stamina": 163,
@@ -14051,6 +14421,7 @@
 				"759": {
 					"name": "Shadow",
 					"types": ["Dragon"],
+					"evolved_form": [373],
 					"attack": 172,
 					"defense": 155,
 					"stamina": 163,
@@ -14062,6 +14433,7 @@
 				"760": {
 					"name": "Purified",
 					"types": ["Dragon"],
+					"evolved_form": [373],
 					"attack": 172,
 					"defense": 155,
 					"stamina": 163,
@@ -14100,6 +14472,7 @@
 				"761": {
 					"name": "Normal",
 					"types": ["Dragon", "Flying"],
+					"evolved_form": [],
 					"attack": 277,
 					"defense": 168,
 					"stamina": 216,
@@ -14111,6 +14484,7 @@
 				"762": {
 					"name": "Shadow",
 					"types": ["Dragon", "Flying"],
+					"evolved_form": [],
 					"attack": 277,
 					"defense": 168,
 					"stamina": 216,
@@ -14122,6 +14496,7 @@
 				"763": {
 					"name": "Purified",
 					"types": ["Dragon", "Flying"],
+					"evolved_form": [],
 					"attack": 277,
 					"defense": 168,
 					"stamina": 216,
@@ -14160,6 +14535,7 @@
 				"764": {
 					"name": "Normal",
 					"types": ["Steel", "Psychic"],
+					"evolved_form": [375],
 					"attack": 96,
 					"defense": 132,
 					"stamina": 120,
@@ -14171,6 +14547,7 @@
 				"765": {
 					"name": "Shadow",
 					"types": ["Steel", "Psychic"],
+					"evolved_form": [375],
 					"attack": 96,
 					"defense": 132,
 					"stamina": 120,
@@ -14182,6 +14559,7 @@
 				"766": {
 					"name": "Purified",
 					"types": ["Steel", "Psychic"],
+					"evolved_form": [375],
 					"attack": 96,
 					"defense": 132,
 					"stamina": 120,
@@ -14220,6 +14598,7 @@
 				"767": {
 					"name": "Normal",
 					"types": ["Steel", "Psychic"],
+					"evolved_form": [376],
 					"attack": 138,
 					"defense": 176,
 					"stamina": 155,
@@ -14231,6 +14610,7 @@
 				"768": {
 					"name": "Shadow",
 					"types": ["Steel", "Psychic"],
+					"evolved_form": [376],
 					"attack": 138,
 					"defense": 176,
 					"stamina": 155,
@@ -14242,6 +14622,7 @@
 				"769": {
 					"name": "Purified",
 					"types": ["Steel", "Psychic"],
+					"evolved_form": [376],
 					"attack": 138,
 					"defense": 176,
 					"stamina": 155,
@@ -14280,6 +14661,7 @@
 				"770": {
 					"name": "Normal",
 					"types": ["Steel", "Psychic"],
+					"evolved_form": [],
 					"attack": 257,
 					"defense": 228,
 					"stamina": 190,
@@ -14291,6 +14673,7 @@
 				"771": {
 					"name": "Shadow",
 					"types": ["Steel", "Psychic"],
+					"evolved_form": [],
 					"attack": 257,
 					"defense": 228,
 					"stamina": 190,
@@ -14302,6 +14685,7 @@
 				"772": {
 					"name": "Purified",
 					"types": ["Steel", "Psychic"],
+					"evolved_form": [],
 					"attack": 257,
 					"defense": 228,
 					"stamina": 190,
@@ -14665,6 +15049,7 @@
 				"688": {
 					"name": "Normal",
 					"types": ["Grass"],
+					"evolved_form": [388],
 					"attack": 119,
 					"defense": 110,
 					"stamina": 146,
@@ -14676,6 +15061,7 @@
 				"689": {
 					"name": "Shadow",
 					"types": ["Grass"],
+					"evolved_form": [388],
 					"attack": 119,
 					"defense": 110,
 					"stamina": 146,
@@ -14687,6 +15073,7 @@
 				"690": {
 					"name": "Purified",
 					"types": ["Grass"],
+					"evolved_form": [388],
 					"attack": 119,
 					"defense": 110,
 					"stamina": 146,
@@ -14725,6 +15112,7 @@
 				"691": {
 					"name": "Normal",
 					"types": ["Grass"],
+					"evolved_form": [389],
 					"attack": 157,
 					"defense": 143,
 					"stamina": 181,
@@ -14736,6 +15124,7 @@
 				"692": {
 					"name": "Shadow",
 					"types": ["Grass"],
+					"evolved_form": [389],
 					"attack": 157,
 					"defense": 143,
 					"stamina": 181,
@@ -14747,6 +15136,7 @@
 				"693": {
 					"name": "Purified",
 					"types": ["Grass"],
+					"evolved_form": [389],
 					"attack": 157,
 					"defense": 143,
 					"stamina": 181,
@@ -14785,6 +15175,7 @@
 				"694": {
 					"name": "Normal",
 					"types": ["Grass", "Ground"],
+					"evolved_form": [],
 					"attack": 202,
 					"defense": 188,
 					"stamina": 216,
@@ -14796,6 +15187,7 @@
 				"695": {
 					"name": "Shadow",
 					"types": ["Grass", "Ground"],
+					"evolved_form": [],
 					"attack": 202,
 					"defense": 188,
 					"stamina": 216,
@@ -14807,6 +15199,7 @@
 				"696": {
 					"name": "Purified",
 					"types": ["Grass", "Ground"],
+					"evolved_form": [],
 					"attack": 202,
 					"defense": 188,
 					"stamina": 216,
@@ -14845,6 +15238,7 @@
 				"818": {
 					"name": "Normal",
 					"types": ["Fire"],
+					"evolved_form": [391],
 					"attack": 113,
 					"defense": 86,
 					"stamina": 127,
@@ -14856,6 +15250,7 @@
 				"819": {
 					"name": "Shadow",
 					"types": ["Fire"],
+					"evolved_form": [391],
 					"attack": 113,
 					"defense": 86,
 					"stamina": 127,
@@ -14867,6 +15262,7 @@
 				"820": {
 					"name": "Purified",
 					"types": ["Fire"],
+					"evolved_form": [391],
 					"attack": 113,
 					"defense": 86,
 					"stamina": 127,
@@ -14905,6 +15301,7 @@
 				"821": {
 					"name": "Normal",
 					"types": ["Fire", "Fighting"],
+					"evolved_form": [392],
 					"attack": 158,
 					"defense": 105,
 					"stamina": 162,
@@ -14916,6 +15313,7 @@
 				"822": {
 					"name": "Shadow",
 					"types": ["Fire", "Fighting"],
+					"evolved_form": [392],
 					"attack": 158,
 					"defense": 105,
 					"stamina": 162,
@@ -14927,6 +15325,7 @@
 				"823": {
 					"name": "Purified",
 					"types": ["Fire", "Fighting"],
+					"evolved_form": [392],
 					"attack": 158,
 					"defense": 105,
 					"stamina": 162,
@@ -14965,6 +15364,7 @@
 				"824": {
 					"name": "Normal",
 					"types": ["Fire", "Fighting"],
+					"evolved_form": [],
 					"attack": 222,
 					"defense": 151,
 					"stamina": 183,
@@ -14976,6 +15376,7 @@
 				"825": {
 					"name": "Shadow",
 					"types": ["Fire", "Fighting"],
+					"evolved_form": [],
 					"attack": 222,
 					"defense": 151,
 					"stamina": 183,
@@ -14987,6 +15388,7 @@
 				"826": {
 					"name": "Purified",
 					"types": ["Fire", "Fighting"],
+					"evolved_form": [],
 					"attack": 222,
 					"defense": 151,
 					"stamina": 183,
@@ -16019,6 +16421,7 @@
 				"722": {
 					"name": "Normal",
 					"types": ["Ghost"],
+					"evolved_form": [],
 					"attack": 211,
 					"defense": 187,
 					"stamina": 155,
@@ -16030,6 +16433,7 @@
 				"723": {
 					"name": "Shadow",
 					"types": ["Ghost"],
+					"evolved_form": [],
 					"attack": 211,
 					"defense": 187,
 					"stamina": 155,
@@ -16041,6 +16445,7 @@
 				"724": {
 					"name": "Purified",
 					"types": ["Ghost"],
+					"evolved_form": [],
 					"attack": 211,
 					"defense": 187,
 					"stamina": 155,
@@ -16079,6 +16484,7 @@
 				"858": {
 					"name": "Normal",
 					"types": ["Dark", "Flying"],
+					"evolved_form": [],
 					"attack": 243,
 					"defense": 103,
 					"stamina": 225,
@@ -16090,6 +16496,7 @@
 				"859": {
 					"name": "Shadow",
 					"types": ["Dark", "Flying"],
+					"evolved_form": [],
 					"attack": 243,
 					"defense": 103,
 					"stamina": 225,
@@ -16101,6 +16508,7 @@
 				"860": {
 					"name": "Purified",
 					"types": ["Dark", "Flying"],
+					"evolved_form": [],
 					"attack": 243,
 					"defense": 103,
 					"stamina": 225,
@@ -16217,6 +16625,7 @@
 				"791": {
 					"name": "Normal",
 					"types": ["Poison", "Dark"],
+					"evolved_form": [435],
 					"attack": 121,
 					"defense": 90,
 					"stamina": 160,
@@ -16228,6 +16637,7 @@
 				"792": {
 					"name": "Shadow",
 					"types": ["Poison", "Dark"],
+					"evolved_form": [435],
 					"attack": 121,
 					"defense": 90,
 					"stamina": 160,
@@ -16239,6 +16649,7 @@
 				"793": {
 					"name": "Purified",
 					"types": ["Poison", "Dark"],
+					"evolved_form": [435],
 					"attack": 121,
 					"defense": 90,
 					"stamina": 160,
@@ -16277,6 +16688,7 @@
 				"794": {
 					"name": "Normal",
 					"types": ["Poison", "Dark"],
+					"evolved_form": [],
 					"attack": 184,
 					"defense": 132,
 					"stamina": 230,
@@ -16288,6 +16700,7 @@
 				"795": {
 					"name": "Shadow",
 					"types": ["Poison", "Dark"],
+					"evolved_form": [],
 					"attack": 184,
 					"defense": 132,
 					"stamina": 230,
@@ -16299,6 +16712,7 @@
 				"796": {
 					"name": "Purified",
 					"types": ["Poison", "Dark"],
+					"evolved_form": [],
 					"attack": 184,
 					"defense": 132,
 					"stamina": 230,
@@ -16519,6 +16933,7 @@
 				"861": {
 					"name": "Normal",
 					"types": ["Dragon", "Ground"],
+					"evolved_form": [444],
 					"attack": 124,
 					"defense": 84,
 					"stamina": 151,
@@ -16530,6 +16945,7 @@
 				"862": {
 					"name": "Shadow",
 					"types": ["Dragon", "Ground"],
+					"evolved_form": [444],
 					"attack": 124,
 					"defense": 84,
 					"stamina": 151,
@@ -16541,6 +16957,7 @@
 				"863": {
 					"name": "Purified",
 					"types": ["Dragon", "Ground"],
+					"evolved_form": [444],
 					"attack": 124,
 					"defense": 84,
 					"stamina": 151,
@@ -16579,6 +16996,7 @@
 				"864": {
 					"name": "Normal",
 					"types": ["Dragon", "Ground"],
+					"evolved_form": [445],
 					"attack": 172,
 					"defense": 125,
 					"stamina": 169,
@@ -16590,6 +17008,7 @@
 				"865": {
 					"name": "Shadow",
 					"types": ["Dragon", "Ground"],
+					"evolved_form": [445],
 					"attack": 172,
 					"defense": 125,
 					"stamina": 169,
@@ -16601,6 +17020,7 @@
 				"866": {
 					"name": "Purified",
 					"types": ["Dragon", "Ground"],
+					"evolved_form": [445],
 					"attack": 172,
 					"defense": 125,
 					"stamina": 169,
@@ -16639,6 +17059,7 @@
 				"867": {
 					"name": "Normal",
 					"types": ["Dragon", "Ground"],
+					"evolved_form": [],
 					"attack": 261,
 					"defense": 193,
 					"stamina": 239,
@@ -16650,6 +17071,7 @@
 				"868": {
 					"name": "Shadow",
 					"types": ["Dragon", "Ground"],
+					"evolved_form": [],
 					"attack": 261,
 					"defense": 193,
 					"stamina": 239,
@@ -16661,6 +17083,7 @@
 				"869": {
 					"name": "Purified",
 					"types": ["Dragon", "Ground"],
+					"evolved_form": [],
 					"attack": 261,
 					"defense": 193,
 					"stamina": 239,
@@ -16777,6 +17200,7 @@
 				"888": {
 					"name": "Normal",
 					"types": ["Ground"],
+					"evolved_form": [450],
 					"attack": 124,
 					"defense": 118,
 					"stamina": 169,
@@ -16788,6 +17212,7 @@
 				"889": {
 					"name": "Shadow",
 					"types": ["Ground"],
+					"evolved_form": [450],
 					"attack": 124,
 					"defense": 118,
 					"stamina": 169,
@@ -16799,6 +17224,7 @@
 				"890": {
 					"name": "Purified",
 					"types": ["Ground"],
+					"evolved_form": [450],
 					"attack": 124,
 					"defense": 118,
 					"stamina": 169,
@@ -16837,6 +17263,7 @@
 				"891": {
 					"name": "Normal",
 					"types": ["Ground"],
+					"evolved_form": [],
 					"attack": 201,
 					"defense": 191,
 					"stamina": 239,
@@ -16848,6 +17275,7 @@
 				"892": {
 					"name": "Shadow",
 					"types": ["Ground"],
+					"evolved_form": [],
 					"attack": 201,
 					"defense": 191,
 					"stamina": 239,
@@ -16859,6 +17287,7 @@
 				"893": {
 					"name": "Purified",
 					"types": ["Ground"],
+					"evolved_form": [],
 					"attack": 201,
 					"defense": 191,
 					"stamina": 239,
@@ -17157,6 +17586,7 @@
 				"800": {
 					"name": "Normal",
 					"types": ["Dark", "Ice"],
+					"evolved_form": [],
 					"attack": 243,
 					"defense": 171,
 					"stamina": 172,
@@ -17168,6 +17598,7 @@
 				"801": {
 					"name": "Shadow",
 					"types": ["Dark", "Ice"],
+					"evolved_form": [],
 					"attack": 243,
 					"defense": 171,
 					"stamina": 172,
@@ -17179,6 +17610,7 @@
 				"802": {
 					"name": "Purified",
 					"types": ["Dark", "Ice"],
+					"evolved_form": [],
 					"attack": 243,
 					"defense": 171,
 					"stamina": 172,
@@ -17217,6 +17649,7 @@
 				"661": {
 					"name": "Normal",
 					"types": ["Electric", "Steel"],
+					"evolved_form": [],
 					"attack": 238,
 					"defense": 205,
 					"stamina": 172,
@@ -17228,6 +17661,7 @@
 				"662": {
 					"name": "Shadow",
 					"types": ["Electric", "Steel"],
+					"evolved_form": [],
 					"attack": 238,
 					"defense": 205,
 					"stamina": 172,
@@ -17239,6 +17673,7 @@
 				"663": {
 					"name": "Purified",
 					"types": ["Electric", "Steel"],
+					"evolved_form": [],
 					"attack": 238,
 					"defense": 205,
 					"stamina": 172,
@@ -17303,6 +17738,7 @@
 				"852": {
 					"name": "Normal",
 					"types": ["Ground", "Rock"],
+					"evolved_form": [],
 					"attack": 241,
 					"defense": 190,
 					"stamina": 251,
@@ -17314,6 +17750,7 @@
 				"853": {
 					"name": "Shadow",
 					"types": ["Ground", "Rock"],
+					"evolved_form": [],
 					"attack": 241,
 					"defense": 190,
 					"stamina": 251,
@@ -17325,6 +17762,7 @@
 				"854": {
 					"name": "Purified",
 					"types": ["Ground", "Rock"],
+					"evolved_form": [],
 					"attack": 241,
 					"defense": 190,
 					"stamina": 251,
@@ -17389,6 +17827,7 @@
 				"643": {
 					"name": "Normal",
 					"types": ["Electric"],
+					"evolved_form": [],
 					"attack": 249,
 					"defense": 163,
 					"stamina": 181,
@@ -17400,6 +17839,7 @@
 				"644": {
 					"name": "Shadow",
 					"types": ["Electric"],
+					"evolved_form": [],
 					"attack": 249,
 					"defense": 163,
 					"stamina": 181,
@@ -17411,6 +17851,7 @@
 				"645": {
 					"name": "Purified",
 					"types": ["Electric"],
+					"evolved_form": [],
 					"attack": 249,
 					"defense": 163,
 					"stamina": 181,
@@ -17449,6 +17890,7 @@
 				"637": {
 					"name": "Normal",
 					"types": ["Fire"],
+					"evolved_form": [],
 					"attack": 247,
 					"defense": 172,
 					"stamina": 181,
@@ -17460,6 +17902,7 @@
 				"638": {
 					"name": "Shadow",
 					"types": ["Fire"],
+					"evolved_form": [],
 					"attack": 247,
 					"defense": 172,
 					"stamina": 181,
@@ -17471,6 +17914,7 @@
 				"639": {
 					"name": "Purified",
 					"types": ["Fire"],
+					"evolved_form": [],
 					"attack": 247,
 					"defense": 172,
 					"stamina": 181,
@@ -17613,6 +18057,7 @@
 				"806": {
 					"name": "Normal",
 					"types": ["Ground", "Flying"],
+					"evolved_form": [],
 					"attack": 185,
 					"defense": 222,
 					"stamina": 181,
@@ -17624,6 +18069,7 @@
 				"807": {
 					"name": "Shadow",
 					"types": ["Ground", "Flying"],
+					"evolved_form": [],
 					"attack": 185,
 					"defense": 222,
 					"stamina": 181,
@@ -17635,6 +18081,7 @@
 				"808": {
 					"name": "Purified",
 					"types": ["Ground", "Flying"],
+					"evolved_form": [],
 					"attack": 185,
 					"defense": 222,
 					"stamina": 181,
@@ -17725,6 +18172,7 @@
 				"301": {
 					"name": "Normal",
 					"types": ["Psychic", "Fighting"],
+					"evolved_form": [],
 					"attack": 237,
 					"defense": 195,
 					"stamina": 169,
@@ -17736,6 +18184,7 @@
 				"302": {
 					"name": "Shadow",
 					"types": ["Psychic", "Fighting"],
+					"evolved_form": [],
 					"attack": 237,
 					"defense": 195,
 					"stamina": 169,
@@ -17747,6 +18196,7 @@
 				"303": {
 					"name": "Purified",
 					"types": ["Psychic", "Fighting"],
+					"evolved_form": [],
 					"attack": 237,
 					"defense": 195,
 					"stamina": 169,
