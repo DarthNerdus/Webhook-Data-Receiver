@@ -894,8 +894,8 @@ async function resetSubChannel(server) {
   let channel = await MAIN.channels.get(channel_id);
   let permissions = channel.permissionOverwrites;
   let icon = MAIN.emotes.exPassreact.url;
-  let raidpass = MAIN.emojis.find(e => e.name == "RaidPass");
-  let ball = MAIN.emojis.find(e => e.name == "UltraBall");
+  let raidpass = MAIN.emojis.find(e => e.name.toLocaleLowerCase() == "raid_pass");
+  let ball = MAIN.emojis.find(e => e.name.toLocaleLowerCase() == "ultra_ball");
   let sub_embed = new Discord.RichEmbed()
     .setTitle("React with your area below")
     .setFooter("Visit the linked channels for per-gym subscriptions!");

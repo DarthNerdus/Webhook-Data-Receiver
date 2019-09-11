@@ -8,6 +8,8 @@ module.exports.run = async (MAIN, action, discord, message, memberid, emojiName)
   let member = await guild.members.get(memberid);
   if (member.user.bot) { return; }
 
+  emojiName = emojiName.replace('_',' ');
+
   // LOAD DATABASE RECORD
   //MAIN.pdb.query('SELECT * FROM users WHERE user_id = ? AND discord_id = ?', [memberid, discord.id], async function (error, user, fields) {
 
