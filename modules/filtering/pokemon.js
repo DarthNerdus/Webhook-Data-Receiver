@@ -63,9 +63,9 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
         if(sighting.cp > filter.max_cp_range) { return sightingFailed(MAIN, filter, "CP Range"); }
         if(filter[MAIN.masterfile.pokemon[sighting.pokemon_id].name] != 'True') { return sightingFailed(MAIN, filter, "Pokemon: "+sighting.pokemon_id+" set to False"); }
         let form_name = '', formID = sighting.form;
-        let possible_cps = CalculatePossibleCPs(MAIN, sighting.pokemon_id, sighting.form, sighting.individual_attack, sighting.individual_defense, sighting.individual_stamina, sighting.pokemon_level, gender, filter.min_cp_range, filter.max_cp_range);
+        let possible_cps = CalculatePossibleCPs(MAIN, sighting.pokemon_id, sighting.form, sighting.individual_attack, sighting.individual_defense, sighting.individual_stamina, sighting.pokemon_level, gender, filter.min_cp_range, filter.max_cp_range, filter);
         let unique_cps = {};
-
+        
         for(var i = possible_cps.length - 1; i >= 0; i--)
         {
           if(!unique_cps[possible_cps[i].pokemonID])
@@ -172,7 +172,7 @@ function sightingFailed(MAIN, filter, reason){
 }
 
 
-function CalculatePossibleCPs(MAIN, pokemonID, formID, attack, defense, stamina, level, gender, minCP, maxCP)
+function CalculatePossibleCPs(MAIN, pokemonID, formID, attack, defense, stamina, level, gender, minCP, maxCP, filter)
 {
 
   let possibleCPs = [];
@@ -208,8 +208,9 @@ function CalculatePossibleCPs(MAIN, pokemonID, formID, attack, defense, stamina,
     } else if (MAIN.masterfile.pokemon[pokemonID].evolved_form){
       evolvedForm = MAIN.masterfile.pokemon[pokemonID].evolved_form;
     } else { evolvedForm = formID; }
-
-    possibleCPs = possibleCPs.concat(CalculatePossibleCPs(MAIN,MAIN.masterfile.pokemon[pokemonID].evolutions[i], evolvedForm, attack, defense, stamina, level, gender, minCP, maxCP));
+    if (filter[MAIN.masterfile.pokemon[MAIN.masterfile.pokemon[pokemonID].evolutions[i]].name] == 'True'){
+      possibleCPs = possibleCPs.concat(CalculatePossibleCPs(MAIN,MAIN.masterfile.pokemon[pokemonID].evolutions[i], evolvedForm, attack, defense, stamina, level, gender, minCP, maxCP, filter));
+    }
   }
 
   return possibleCPs;
