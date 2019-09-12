@@ -117,8 +117,8 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
         sighting.form = 0
         sighting.gender = ''
         sighting.height = null
-        sighting.move_1 = MAIN.masterfile.pokemon[132].quickmove[0]
-        sighting.move_2 = MAIN.masterfile.pokemon[132].chargedmove[0]
+        sighting.move_1 = 242
+        sighting.move_2 = 133
         sighting.pokemon_id = 132
         sighting.weight = null
       }
