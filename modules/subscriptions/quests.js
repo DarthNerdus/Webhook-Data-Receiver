@@ -157,8 +157,8 @@ function get_quest_task(MAIN, quest) {
       quest_task = 'Catch ' + quest.target + ' Pokémon With a Pinap Berry.'; break;
 
     // CATCH WITH NANAB
-    case quest.template.indexOf('t2_2019_berry_nanab_pkmn') >= 0:
-      quest_task = 'Catch ' + quest.target + ' Pokémon With a Nanab Berry.'; break;
+    case quest.template.indexOf('berry_nanab') >= 0:
+      quest_task = 'Use ' + quest.target + ' Nanab Berries while catching Pokémon.'; break;
 
     // CATCH WITH RAZZ
     case quest.template.indexOf('berry_razz') >= 0:
@@ -213,8 +213,12 @@ function get_quest_task(MAIN, quest) {
       else { quest_task = 'Use a Super Effective Charge Move ' + quest.target + ' Time.'; } break;
 
     // PVP BATTLE
-    case quest.template.indexOf('participate') >= 0:
+    case quest.template.indexOf('pvp') >= 0:
       quest_task = 'Win ' + quest.target + ' PVP Battles.'; break;
+
+    // PVE BATTLE
+    case quest.template.indexOf('pve') >= 0:
+      quest_task = 'Win ' + quest.target + ' Battles against a Team Leader.'; break;
 
     // ADD FRIENDS
     case quest.template.indexOf('add_friend') >= 0:
