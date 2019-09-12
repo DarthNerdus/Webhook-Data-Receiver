@@ -19,5 +19,9 @@ module.exports = function(p) {
   +'[Scan Map]('+p.map_url+'?lat='+p.lat+'&lon='+p.lon+'&zoom=15)',false)
   .setImage(p.map_img);
 
+  if (p.name == 'Ditto') {
+    pokemon_embed.setDescription('Original Pokemon: '+p.original)
+  }
+
   return pokemon_embed;
 }
