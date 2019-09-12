@@ -84,6 +84,9 @@ module.exports.run = async (MAIN, has_iv, target, sighting, internal_value, time
     case 7: pokemon.weather_boost = ' | '+MAIN.emotes.fog+' ***Boosted***'; break;
   }
 
+  // GET DITTO INFORMATION
+  if (sighting.costume && sighting.pokemon_id == 132) pokemon.original = sighting.costume
+
   if(has_iv == false || (sighting.cp == null && MAIN.config.POKEMON.sub_without_iv == 'ENABLED')) {
 
   pokemon_embed = Embed_Config(pokemon);
