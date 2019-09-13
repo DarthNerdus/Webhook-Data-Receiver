@@ -11,6 +11,91 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
   let internal_value = (sighting.individual_defense + sighting.individual_stamina + sighting.individual_attack) / 45;
   let time_now = new Date().getTime(); internal_value = Math.floor(internal_value * 1000) / 10;
 
+  // CHECK FOR DITTO
+  let ditto = false;
+
+  if (sighting.weather > 0) {
+    if (sighting.pokemon_level) {
+      if (sighting.pokemon_level < 6) {
+        ditto = true;
+      } else if (sighting.individual_attack < 4 && sighting.individual_defense < 4 && sighting.individual_stamina < 4) {
+        ditto = true;
+      }
+    } else {
+      let types = MAIN.masterfile.pokemon[sighting.pokemon_id].types
+      if (sighting.form > 0 && MAIN.masterfile.pokemon[sighting.pokemon_id].forms[sighting.form]) {
+        types = MAIN.masterfile.pokemon[sighting.pokemon_id].forms[sighting.form].types
+      }
+      if (types) {
+        switch (sighting.weather) {
+          case 1:
+            if (types.indexOf('Grass') < 0 || types.indexOf('Ground') < 0 || types.indexOf('Fire') < 0) {
+              ditto = false;
+            } else {
+              ditto = true;
+            }
+            break;
+          case 2:
+            if (types.indexOf('Water') < 0 || types.indexOf('Electric') < 0 || types.indexOf('Bug') < 0) {
+              ditto = false;
+            } else {
+              ditto = true;
+            }
+            break;
+          case 3:
+            if (types.indexOf('Normal') < 0 || types.indexOf('Rock') < 0) {
+              ditto = false;
+            } else {
+              ditto = true;
+            }
+            break;
+          case 4:
+            if (types.indexOf('Fairy') < 0 || types.indexOf('Fighting') < 0 || types.indexOf('Poison') < 0) {
+              ditto = false;
+            } else {
+              ditto = true;
+            }
+            break;
+          case 5:
+            if (types.indexOf('Dragon') < 0 || types.indexOf('Flying') < 0 || types.indexOf('Psychic') < 0) {
+              ditto = false;
+            } else {
+              ditto = true;
+            }
+            break;
+          case 6:
+            if (types.indexOf('Ice') < 0 || types.indexOf('Steel') < 0) {
+              ditto = false;
+            } else {
+              ditto = true;
+            }
+            break;
+          case 7:
+            if (types.indexOf('Dark') < 0 || types.indexOf('Ghost') < 0) {
+              ditto = false;
+            } else {
+              ditto = true;
+            }
+            break;
+        }
+      }
+    }
+  } else if (sighting.pokemon_level && sighting.pokemon_level > 30) {
+    ditto = true
+  }
+
+  if (ditto == true) {
+    sighting.costume = MAIN.masterfile.pokemon[sighting.pokemon_id].name
+    sighting.cp = CalculateCP(MAIN, 132, 0, sighting.individual_attack, sighting.individual_defense, sighting.individual_stamina, sighting.pokemon_level)
+    sighting.form = 0
+    sighting.gender = ''
+    sighting.height = 0
+    sighting.move_1 = 242
+    sighting.move_2 = 133
+    sighting.pokemon_id = 132
+    sighting.weight = 0
+  }
+
   // CHECK ALL FILTERS
   MAIN.Pokemon_Channels.forEach((pokemon_channel, index) => {
 
@@ -41,89 +126,6 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
 
     // CHECK FILTER GEOFENCES
     if (geofences.indexOf(server.name) >= 0 || geofences.indexOf(main_area) >= 0 || geofences.indexOf(sub_area) >= 0) {
-      let ditto = false;
-      // CHECK FOR DITTO
-      if (sighting.weather > 0) {
-        if (sighting.pokemon_level) {
-          if (sighting.pokemon_level < 6) {
-            ditto = true;
-          } else if (sighting.individual_attack < 4 && sighting.individual_defense < 4 && sighting.individual_stamina < 4) {
-            ditto = true;
-          }
-        } else {
-          let types = MAIN.masterfile.pokemon[sighting.pokemon_id].types
-          if (sighting.form > 0 && MAIN.masterfile.pokemon[sighting.pokemon_id].forms[sighting.form]) {
-            types = MAIN.masterfile.pokemon[sighting.pokemon_id].forms[sighting.form].types
-          }
-          if (types) {
-            switch (sighting.weather) {
-              case 1:
-                if (types.indexOf('Grass') < 0 || types.indexOf('Ground') < 0 || types.indexOf('Fire') < 0) {
-                  ditto = false;
-                } else {
-                  ditto = true;
-                }
-                break;
-              case 2:
-                if (types.indexOf('Water') < 0 || types.indexOf('Electric') < 0 || types.indexOf('Bug') < 0) {
-                  ditto = false;
-                } else {
-                  ditto = true;
-                }
-                break;
-              case 3:
-                if (types.indexOf('Normal') < 0 || types.indexOf('Rock') < 0) {
-                  ditto = false;
-                } else {
-                  ditto = true;
-                }
-                break;
-              case 4:
-                if (types.indexOf('Fairy') < 0 || types.indexOf('Fighting') < 0 || types.indexOf('Poison') < 0) {
-                  ditto = false;
-                } else {
-                  ditto = true;
-                }
-                break;
-              case 5:
-                if (types.indexOf('Dragon') < 0 || types.indexOf('Flying') < 0 || types.indexOf('Psychic') < 0) {
-                  ditto = false;
-                } else {
-                  ditto = true;
-                }
-                break;
-              case 6:
-                if (types.indexOf('Ice') < 0 || types.indexOf('Steel') < 0) {
-                  ditto = false;
-                } else {
-                  ditto = true;
-                }
-                break;
-              case 7:
-                if (types.indexOf('Dark') < 0 || types.indexOf('Ghost') < 0) {
-                  ditto = false;
-                } else {
-                  ditto = true;
-                }
-                break;
-            }
-          }
-        }
-      } else if (sighting.pokemon_level && sighting.pokemon_level > 30) {
-        ditto = true
-      }
-
-      if (ditto == true) {
-        sighting.costume = MAIN.masterfile.pokemon[sighting.pokemon_id].name
-        sighting.cp = CalculateCP(MAIN, 132, 0, sighting.individual_attack, sighting.individual_defense, sighting.individual_stamina, sighting.pokemon_level)
-        sighting.form = 0
-        sighting.gender = ''
-        sighting.height = null
-        sighting.move_1 = 242
-        sighting.move_2 = 133
-        sighting.pokemon_id = 132
-        sighting.weight = null
-      }
 
       // DETERMINE GENDER
       filter.gender = filter.gender.toLowerCase();

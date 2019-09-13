@@ -85,7 +85,9 @@ module.exports.run = async (MAIN, has_iv, target, sighting, internal_value, time
   }
 
   // GET DITTO INFORMATION
-  if (sighting.costume && sighting.pokemon_id == 132) pokemon.original = sighting.costume
+  if (sighting.costume && sighting.pokemon_id == 132) {
+    pokemon.original = sighting.costume
+  }
 
   if(has_iv == false || (sighting.cp == null && MAIN.config.POKEMON.sub_without_iv == 'ENABLED')) {
 
