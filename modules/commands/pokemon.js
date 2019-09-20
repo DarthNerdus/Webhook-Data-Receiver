@@ -623,8 +623,9 @@ function sub_collector(MAIN,type,nickname,message,pokemon,requirements,sub){
               case 'all-4': collector.stop('All-4'); break;
               case 'all-5': collector.stop('All-5'); break;
               default:
-                for(let p = 1; p <= 550; p++){
-                  if(p == 550){ message.reply('`'+message.content+'` doesn\'t appear to be a valid Pokémon name. Please check the spelling and try again.').then(m => m.delete(5000)).catch(console.error); }
+                for(let p = 1; p <= 640; p++){
+                  if(p == 640){ 
+                    message.reply('`'+message.content+'` doesn\'t appear to be a valid Pokémon name. Please check the spelling and try again.').then(m => m.delete(5000)).catch(console.error); }
                   else if(message.content.toLowerCase() == MAIN.masterfile.pokemon[p].name.toLowerCase()){ return collector.stop(MAIN.masterfile.pokemon[p].name); }
                 }
             } break;
