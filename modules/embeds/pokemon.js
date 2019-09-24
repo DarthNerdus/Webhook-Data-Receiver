@@ -20,13 +20,20 @@ module.exports.run = async (MAIN, has_iv, target, sighting, internal_value, time
   // DETERMINE POKEMON NAME, FORM AND TYPE EMOTES
   pokemon.name = MAIN.masterfile.pokemon[sighting.pokemon_id].name;
   if (sighting.form > 0 && !MAIN.masterfile.pokemon[sighting.pokemon_id].types){
+    if (MAIN.masterfile.pokemon[sighting.pokemon_id].forms[sighting.form] ) {
+    
     pokemon.form = '['+MAIN.masterfile.pokemon[sighting.pokemon_id].forms[sighting.form].name+'] ';
     MAIN.masterfile.pokemon[sighting.pokemon_id].forms[sighting.form].types.forEach((type) => {
       pokemon.type += MAIN.emotes[type.toLowerCase()]+' '+type+' / ';
       pokemon.color = MAIN.Get_Color(type, pokemon.color);
     }); pokemon.type = pokemon.type.slice(0,-3);
+    }
   } else {
-    if (sighting.form > 0){ pokemon.form = '['+MAIN.masterfile.pokemon[sighting.pokemon_id].forms[sighting.form].name+'] '; }
+    if (sighting.form > 0){ 
+	if (MAIN.masterfile.pokemon[sighting.pokemon_id].forms[sighting.form] ) {
+       		pokemon.form = '['+MAIN.masterfile.pokemon[sighting.pokemon_id].forms[sighting.form].name+'] ';
+    	}
+    }
     MAIN.masterfile.pokemon[sighting.pokemon_id].types.forEach((type) => {
       pokemon.type += MAIN.emotes[type.toLowerCase()]+' '+type+' / ';
       pokemon.color = MAIN.Get_Color(type, pokemon.color);
@@ -34,7 +41,12 @@ module.exports.run = async (MAIN, has_iv, target, sighting, internal_value, time
   }
 
   // DESPAWN VERIFICATION
-  pokemon.verified = sighting.disappear_time_verified ? MAIN.emotes.checkYes : MAIN.emotes.yellowQuestion;
+  console.log("pokemon verified: "+sighting.verified);
+  if(!sighting.verified) {
+	if(MAIN.config.DEBUG.Pokemon_Timers == 'ENABLED'){console.log('DESPAWN for '+pokemon.name+' is not verified');}
+	return;
+  }
+  pokemon.verified = MAIN.emotes.checkYes;
 
   // DEFINE VARIABLES
   pokemon.time = await MAIN.Bot_Time(sighting.disappear_time, '1', timezone);
