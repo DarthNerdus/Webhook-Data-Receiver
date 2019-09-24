@@ -54,7 +54,41 @@ module.exports.run = async (MAIN, target, invasion, first_reward, second_reward,
   invasion_embed = await Embed_Config(pokestop);
   send_embed(pokestop.mins);
 
-  function send_embed(minutes){
+  function send_embed(minutes) {
+        var target_id = '';
+        if (member) {
+                target_id = member.id;
+        } else {
+                target_id = target.id;
+        }       
+        MAIN.pdb.query(' SELECT * FROM sightings WHERE sighting_id = ? and disappear_time = ?', [invasion.pokestop_id, invasion.incident_expiration], function (error, record, fields) {
+        if (error) {
+                console.error(error); return;
+        } else {
+                if (member) {
+                        MAIN.pdb.query("INSERT INTO sightings (sighting_id, pokemon_id, passed_filters, members, disappear_time) values (?,?,?,?,?) ON DUPLICATE KEY UPDATE members = CONCAT(passed_filters,',',?)", [invasion.pokestop_id, invasion.incident_grunt_type, '', target_id, invasion.incident_expiration, target_id], function (error, record, fields) {
+                                if (error) { console.error(error); return; }
+                        });     
+                } else {
+                        MAIN.pdb.query("INSERT INTO sightings (sighting_id, pokemon_id, passed_filters, members, disappear_time) values (?,?,?,?,?) ON DUPLICATE KEY UPDATE passed_filters = CONCAT(passed_filters,',',?)", [invasion.pokestop_id, invasion.incident_grunt_type, target_id, '', invasion.incident_expiration, target_id], function (error, record, fields) {
+                                if (error) { console.error(error); return; }
+                        });     
+                }       
+        }       
+        
+        if (!record[0]) {
+                send_discord_embed(minutes);
+        } else if (member && !record[0].members.includes(target_id)) {
+                send_discord_embed(minutes);
+        } else if (!record[0].passed_filters.includes(target_id)) {
+                send_discord_embed(minutes);
+        }       
+        
+        });
+    }   
+
+
+  function send_discord_embed(minutes){
     if(member){
       if(MAIN.config.DEBUG.Invasion == 'ENABLED'){ console.info('[Pokébot] ['+MAIN.Bot_Time(null,'stamp')+'] [Embed] [invasion.js] Sent a '+pokestop.name+' to '+member.user.tag+' ('+member.id+').'); }
       return MAIN.Send_DM(server.id, member.id, invasion_embed, target.bot);
@@ -65,3 +99,5 @@ module.exports.run = async (MAIN, target, invasion, first_reward, second_reward,
     } else{ return; }}
 
 }
+
+

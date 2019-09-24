@@ -25,7 +25,12 @@ module.exports.run = async (MAIN, target, sighting, internal_value, time_now, ma
   }
 
   // DESPAWN VERIFICATION
-  pokemon.verified = sighting.disappear_time_verified ? MAIN.emotes.checkYes : MAIN.emotes.yellowQuestion;
+  console.log("pvp verified: "+sighting.verified);
+  if(!sighting.verified) {
+        if(MAIN.config.DEBUG.Pokemon_Timers == 'ENABLED'){console.log('DESPAWN for '+pokemon.name+' is not verified');}
+        return;
+  } 
+  pokemon.verified = MAIN.emotes.checkYes;
 
   // DEFINE VARIABLES
   pokemon.time = await MAIN.Bot_Time(sighting.disappear_time, '1', timezone);
@@ -114,8 +119,40 @@ module.exports.run = async (MAIN, target, sighting, internal_value, time_now, ma
       send_embed(pokemon.mins);
     }
 
+    function send_embed(minutes) {
+	var target_id = '';
+	if (member) {
+		target_id = member.id;
+	} else {
+		target_id = target.id;
+	}
+	MAIN.pdb.query(' SELECT * FROM sightings WHERE sighting_id = ? and disappear_time = ?', [sighting.spawnpoint_id, sighting.disappear_time], function (error, record, fields) {
+	if (error) {
+		console.error(error); return;
+	} else {
+		if (member) {
+			MAIN.pdb.query("INSERT INTO sightings (sighting_id, pokemon_id, passed_filters, members, disappear_time) values (?,?,?,?,?) ON DUPLICATE KEY UPDATE members = CONCAT(members,',',?)", [sighting.spawnpoint_id, sighting.pokemon_id, '', target_id, sighting.disappear_time, target_id], function (error, record, fields) {
+				if (error) { console.error(error); return; }
+			});
+		} else {
+			MAIN.pdb.query("INSERT INTO sightings (sighting_id, pokemon_id, passed_filters, members, disappear_time) values (?,?,?,?,?) ON DUPLICATE KEY UPDATE passed_filters = CONCAT(passed_filters,',',?)", [sighting.spawnpoint_id, sighting.pokemon_id, target_id, '', sighting.disappear_time, target_id], function (error, record, fields) {
+				if (error) { console.error(error); return; }
+			});
+		}
+	}
 
-    function send_embed(minutes){
+	if (!record[0]) {
+		send_discord_embed(minutes);
+	} else if (member && !record[0].members.includes(target_id)) {
+		send_discord_embed(minutes);
+	} else if (!member && !record[0].passed_filters.includes(target_id)) {
+		send_discord_embed(minutes);
+	}
+		
+	});			
+    }
+
+    function send_discord_embed(minutes){
     if(member){
       if(MAIN.config.DEBUG.Pokemon == 'ENABLED'){ console.info('[Pokébot] ['+MAIN.Bot_Time(null,'stamp')+'] [Embed] [pokemon.js] Sent a '+pokemon.name+' to '+member.user.tag+' ('+member.id+').'); }
       return MAIN.Send_DM(server.id, member.id, pokemon_embed, target.bot);

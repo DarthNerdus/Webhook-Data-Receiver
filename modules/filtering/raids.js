@@ -11,7 +11,7 @@ module.exports.run = async (MAIN, raid, main_area, sub_area, embed_area, server,
   if(raid.cp > 0 || raid.is_exclusive == true){ type = 'Boss'; boss_name = MAIN.masterfile.pokemon[raid.pokemon_id].name; }
   else{ type = 'Egg'; boss_name = 'Lvl'+raid.level; }
 
-  var previousTriggered = raid_lobbies();
+  var previousTriggered = await raid_lobbies(raid, boss_name, type, gym_id);
 
   function proceedFiltering(previousTriggered) {
   if (!previousTriggered) {
@@ -72,12 +72,11 @@ module.exports.run = async (MAIN, raid, main_area, sub_area, embed_area, server,
   }
 }
 
-  function raid_lobbies(){
+  function raid_lobbies(local_raid, local_boss_name, local_type, local_gym_id){
     // UPDATE/INSERT ACTIVE RAIDS
-    var triggered = false;
-    if(raid.level >= server.min_raid_lobbies){
-      let end_time = MAIN.Bot_Time(raid.end, '1', timezone);
-      MAIN.pdb.query(`SELECT * FROM active_raids WHERE gym_id = ? AND boss_name != 'expired'`, [raid.gym_id], function (error, record, fields) {
+    if(local_raid.level >= server.min_raid_lobbies){
+      let end_time = MAIN.Bot_Time(local_raid.end, '1', timezone);
+      MAIN.pdb.query(`SELECT * FROM active_raids WHERE gym_id = ? AND boss_name != 'expired'`, [local_raid.gym_id], function (error, record, fields) {
 	var triggered = false;
 	if(record[0]) {
 		if(record[0].boss_name.includes("Lvl") && record[0].triggered == 'false') {
@@ -99,18 +98,22 @@ module.exports.run = async (MAIN, raid, main_area, sub_area, embed_area, server,
        });
 	eggTrigger = 'false';
 	bossTrigger = 'false';
-	if(boss_name.includes("Lvl")) { eggTrigger = 'true'; } else { bossTrigger = 'true'; }
-      MAIN.pdb.query(`INSERT INTO active_raids (gym_id, gym_name, guild_id, area, boss_name, active, end_time, expire_time, triggered, triggered_boss) VALUES (?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE boss_name = ?`, [raid.gym_id, raid.name, server.id, embed_area, boss_name, 'false', end_time, raid.end, eggTrigger, bossTrigger, boss_name], function (error, record, fields) {
+	if(local_boss_name.includes("Lvl")) { eggTrigger = 'true'; } else { bossTrigger = 'true'; }
+      MAIN.pdb.query(`INSERT INTO active_raids (gym_id, gym_name, guild_id, area, boss_name, active, end_time, expire_time, triggered, triggered_boss) VALUES (?,?,?,?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE boss_name = ?`, [local_raid.gym_id, local_raid.name, server.id, embed_area, local_boss_name, 'false', end_time, local_raid.end, eggTrigger, bossTrigger, local_boss_name], function (error, record, fields) {
         if(error){ console.error(error); }
       });
-      MAIN.pdb.query(`SELECT * FROM active_raids WHERE gym_id = ? AND expire_time > UNIX_TIMESTAMP()`, [gym_id], function (error, record, fields) {
+      MAIN.pdb.query(`SELECT * FROM active_raids WHERE gym_id = ? AND expire_time > UNIX_TIMESTAMP()`, [local_raid.gym_id], function (error, record, fields) {
         // UPDATE CHANNEL NAME
         if(record[0] && record[0].raid_channel){
           let raid_channel = MAIN.channels.get(record[0].raid_channel);
-          raid_channel.setName(boss_name+'_'+record[0].gym_name).catch(console.error);
+	  if(MAIN.debug.Raids == 'ENABLED'){ console.info('[DEBUG] [Modules] [raids.js] Renaming raid channel '+raid_channel.name+' => '+local_boss_name+'_'+record[0].gym_name); }
+          raid_channel.setName(local_boss_name+'_'+record[0].gym_name).catch(console.error);
+	  if(!local_boss_name.includes("Lvl") && !local_boss_name.includes("expired") && !(local_boss_name == record[0].boss_name)) {
+		 if(MAIN.debug.Raids == 'ENABLED'){ console.info('[DEBUG] [Modules] [raids.js] Retriggering raid '+record[0].boss_name+' => '+local_boss_name); }
+	  	proceedFiltering(false);
+	  }
         };
       });
     }
-    return triggered;
   }
 }
