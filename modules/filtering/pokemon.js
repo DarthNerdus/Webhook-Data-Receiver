@@ -5,6 +5,7 @@ const Send_PvP = require('../embeds/pvp.js');
 const Discord = require('discord.js');
 
 module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, server, timezone, role_id) => {
+  if(MAIN.debug.Pokemon == 'ENABLED'){ console.info('[Pokébot] ['+MAIN.Bot_Time(null,'stamp')+'] Filtering sighting for: '+MAIN.masterfile.pokemon[sighting.pokemon_id].name); }
 
   // VARIABLES
   let internal_value = (sighting.individual_defense+sighting.individual_stamina+sighting.individual_attack)/45;
@@ -16,6 +17,9 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
     // DEFINE FILTER VARIABLES
     let geofences = pokemon_channel[1].geofences.split(',');
     let channel = MAIN.channels.get(pokemon_channel[0]);
+    if (!channel) {
+	channel = MAIN.guilds.get(server.id).members.get(pokemon_channel[0]);
+    }
     let filter = MAIN.Filters.get(pokemon_channel[1].filter);
     let role_id = '', embed = '';
 
@@ -85,27 +89,27 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
         if(Object.keys(unique_cps) == 0) { return sightingFailed(MAIN, filter, "CP Range"); }
 
         if (!embed) {embed = 'pvp.js'}
-        return Send_PvP.run(MAIN, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed, unique_cps);
+        return Send_PvP.run(MAIN, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed, unique_cps, filter.name);
 
       }
 
       switch(true){
         // POST WITHOUT IV IF ENABLED
-        case filter.Post_Without_IV:
+        case (filter.Post_Without_IV && (typeof sighting.cp == "undefined")):
           switch(true){
-            case sighting.cp > 0: break;
-            case filter[MAIN.masterfile.pokemon[sighting.pokemon_id].name] == 'False': break;
+            case sighting.cp > 0: sightingFailed(MAIN, filter, 'IV'); break;
+            case filter[MAIN.masterfile.pokemon[sighting.pokemon_id].name] != 'True': sightingFailed(MAIN, filter, "DISABLED"); break;
             default:
               if (!embed) {embed = 'pokemon.js'}
-              Send_Pokemon.run(MAIN, false, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed); break;
+              Send_Pokemon.run(MAIN, false, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed, filter.name); break;
           }
         // CHECK IF SIGHTING HAS A CP
-        case !sighting.cp > 0: break;
+        case !sighting.cp > 0: sightingFailed(MAIN, filter, 'Needs CP'); break;
 
         // CHECK IF FILTER HAS INDIVIDUAL POKEMON IV REQUIREMENT
         case filter[MAIN.masterfile.pokemon[sighting.pokemon_id].name] != 'True':
           switch(true){
-            case filter[MAIN.masterfile.pokemon[sighting.pokemon_id].name] == 'False': break;
+            case filter[MAIN.masterfile.pokemon[sighting.pokemon_id].name] == 'False': sightingFailed(MAIN, filter, 'DISABLED'); break;
             case filter[MAIN.masterfile.pokemon[sighting.pokemon_id].name].min_iv > internal_value: sightingFailed(MAIN, filter, 'IV'); break;
             case filter.max_iv < internal_value: sightingFailed(MAIN, filter, 'IV'); break;
             case filter.min_cp > sighting.cp: sightingFailed(MAIN, filter, 'CP'); break;
@@ -114,7 +118,7 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
             case filter.max_level < sighting.pokemon_level: sightingFailed(MAIN, filter, 'LEVEL'); break;
             default:
               if (!embed) {embed = 'pokemon_iv.js'}
-              Send_Pokemon.run(MAIN, true, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed);
+              Send_Pokemon.run(MAIN, true, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed, filter.name);
           } break;
 
         // CHECK IF FILTER HAS INDIVIDUAL VALUE REQUIREMENTS
@@ -138,7 +142,7 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
             case filter.size.toLowerCase() != size: sightingFailed(MAIN, filter, 'SIZE'); break;
             default:
                 if (!embed) {embed = 'pokemon_iv.js'}
-                Send_Pokemon.run(MAIN, true, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed);
+                Send_Pokemon.run(MAIN, true, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed, filter.name);
 
           } break;
 
@@ -155,7 +159,7 @@ module.exports.run = async (MAIN, sighting, main_area, sub_area, embed_area, ser
             default:
               if(filter.gender.toLowerCase() == 'all' || filter.gender.toLowerCase() == gender){
                 if (!embed) {embed = 'pokemon_iv.js'}
-                Send_Pokemon.run(MAIN, true, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed);
+                Send_Pokemon.run(MAIN, true, channel, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed, filter.name);
               }
           }
       }

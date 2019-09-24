@@ -1,10 +1,14 @@
 const Discord = require('discord.js');
 
-module.exports.run = async (MAIN, target, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed, possible_cps) => {
+module.exports.run = async (MAIN, target, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed, possible_cps, filter) => {
   let Embed_Config = require('../../embeds/'+embed);
 
   // CHECK IF THE TARGET IS A USER
   let member = MAIN.guilds.get(server.id).members.get(target.user_id);
+  if (!member && target.user) {
+	member = MAIN.guilds.get(server.id).members.get(target.user.id);
+        member.bot = 0;
+  }
   let pokemon = {type: '', color: '', form: '', gender: '', weather_boost: ''};
 
   // DETERMINE POKEMON NAME AND FORM

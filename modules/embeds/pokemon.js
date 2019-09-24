@@ -1,7 +1,14 @@
 const Discord = require('discord.js');
 
-module.exports.run = async (MAIN, has_iv, target, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed) => {
-  let Embed_Config = require('../../embeds/'+embed);
+module.exports.run = async (MAIN, has_iv, target, sighting, internal_value, time_now, main_area, sub_area, embed_area, server, timezone, role_id, embed, filter) => {
+  var Embed_Config = ''
+  if (embed == 'smart_iv' && sighting.cp > 0) {
+	Embed_Config = require('../../embeds/pokemon_iv.js');
+  } else if (embed == 'smart_iv') {
+	Embed_Config = require('../../embeds/pokemon.js');
+  } else {
+	Embed_Config = require('../../embeds/'+embed);
+  }
 
   // CHECK IF THE TARGET IS A USER
   let member = MAIN.guilds.get(server.id).members.get(target.user_id);
