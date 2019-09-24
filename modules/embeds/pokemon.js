@@ -110,7 +110,7 @@ module.exports.run = async (MAIN, has_iv, target, sighting, internal_value, time
     pokemon.encounter_id = sighting.encounter_id;
 
     // RE-VERIFY TIMERS FOR NEGATIVE AND UNVERIFIED FOR IV SCAN
-    if (pokemon.verified == MAIN.emotes.yellowQuestion || pokemon.mins < 1 ) {
+    if (pokemon.verified == MAIN.emotes.yellowQuestion) {
       if(MAIN.config.DEBUG.Pokemon_Timers == 'ENABLED'){console.log('DESPAWN for '+pokemon.name+' is possibly inaccurate '+sighting.encounter_id);}
       MAIN.rdmdb.query(' SELECT * FROM pokemon WHERE spawnpoint_id = ? ORDER BY last_modified desc limit 1', [sighting.spawnpoint_id], function (error, record, fields) {
         if(error){ console.error(error); }
