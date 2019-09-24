@@ -290,11 +290,10 @@ MAIN.webhookParse = async (PAYLOAD) => {
               Quest_Feed.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone);
               Quest_Subscription.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone); break;
             case 'pokestop':
-              Lure_Feed.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone); break;
-            //Lure_Subscription.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone); break;
-            case 'invasion':
-              Invasion_Feed.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone); break;
-            //Invasion_Subscription.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone); break;
+              Invasion_Feed.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone);
+              //Invasion_Subscription.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone); break;
+              Lure_Feed.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone);
+              //Lure_Subscription.run(MAIN, data.message, main_area, sub_area, embed_area, server, timezone); break;
           }
         }
       }); return;
@@ -409,7 +408,6 @@ MAIN.Get_Sprite = (form, id) => {
     }
   }
   sprite_url = sprite_url + pad(id, 3) + extension;
-  //console.log(sprite_url);
   return sprite_url;
 }
 

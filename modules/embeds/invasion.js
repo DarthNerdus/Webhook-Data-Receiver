@@ -25,9 +25,9 @@ module.exports.run = async (MAIN, target, invasion, first_reward, second_reward,
 
   // DEFINE VARIABLES
   let time_now = new Date().getTime();
-  pokestop.time = await MAIN.Bot_Time(invasion.incident_expire_timestamp, '1', timezone);
-  pokestop.mins = Math.floor((invasion.incident_expire_timestamp-(time_now/1000))/60);
-  pokestop.secs = Math.floor((invasion.incident_expire_timestamp-(time_now/1000)) - (pokestop.mins*60));
+  pokestop.time = await MAIN.Bot_Time(invasion.incident_expiration, '1', timezone);
+  pokestop.mins = Math.floor((invasion.incident_expiration-(time_now/1000))/60);
+  pokestop.secs = Math.floor((invasion.incident_expiration-(time_now/1000)) - (pokestop.mins*60));
   pokestop.map_url = MAIN.config.FRONTEND_URL;
 
   let emotes = MAIN.emotes;
